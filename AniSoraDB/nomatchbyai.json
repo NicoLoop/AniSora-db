@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "description": "HiAnime records verified by AI as not existing in the Japanese anime-offline-database",
+    "total_no_matches": 14,
+    "generated_at": "2026-10-25T03:26:02.449101+00:00"
+  },
+  "no_matches": [
+    {
+      "hianime_id": "aoki-denshou-welsh-shedar-10539",
+      "hianime_name": "Aoki Denshou: Welsh & Shedar",
+      "hianime_type": "TV",
+      "reason": "Unreleased vintage pilot not cataloged in anime-offline-database"
+    },
+    {
+      "hianime_id": "battlefield-of-the-crazy-empresses-10194",
+      "hianime_name": "Battlefield of the Crazy Empresses",
+      "hianime_type": "ONA",
+      "reason": "Chinese donghua web animation not cataloged in Japanese anime offline database"
+    },
+    {
+      "hianime_id": "fei-ren-zai-1st-season-part-3-79473-10449",
+      "hianime_name": "Fei Ren Zai 1st Season Part 3",
+      "hianime_type": "ONA",
+      "reason": "Chinese donghua (Non-Human) web series not cataloged in Japanese anime database"
+    },
+    {
+      "hianime_id": "fei-ren-zai-1st-season-part-4-79471-10450",
+      "hianime_name": "Fei Ren Zai 1st Season Part 4",
+      "hianime_type": "ONA",
+      "reason": "Chinese donghua (Non-Human) web series not cataloged in Japanese anime database"
+    },
+    {
+      "hianime_id": "fei-ren-zai-specials-9742",
+      "hianime_name": "Fei Ren Zai: Specials",
+      "hianime_type": "ONA",
+      "reason": "Chinese donghua (Non-Human) specials not cataloged in Japanese anime database"
+    },
+    {
+      "hianime_id": "ghost-meets-gal-10454",
+      "hianime_name": "Ghost Meets Gal!",
+      "hianime_type": "TV",
+      "reason": "Upcoming unreleased animation project not cataloged in offline database"
+    },
+    {
+      "hianime_id": "honkai-star-rail-featured-videos-10267",
+      "hianime_name": "Honkai: Star Rail Featured Videos",
+      "hianime_type": "SPECIAL",
+      "reason": "MiHoYo video game promotional trailer compilation (not a Japanese anime production)"
+    },
+    {
+      "hianime_id": "one-punch-man-3-specials-10262",
+      "hianime_name": "One Punch Man 3: Specials",
+      "hianime_type": "SPECIAL",
+      "reason": "HiAnime future placeholder (One Punch Man Season 3 has not released yet)"
+    },
+    {
+      "hianime_id": "rift-1-9796",
+      "hianime_name": "Rift",
+      "hianime_type": "TV",
+      "reason": "Unreleased pilot / CGI game trailer not cataloged in anime-offline-database"
+    },
+    {
+      "hianime_id": "sword-art-online-movie-integral-domain-3274",
+      "hianime_name": "Sword Art Online Movie: Integral Domain",
+      "hianime_type": "MOVIE",
+      "reason": "HiAnime phantom / rumored placeholder entry (no official SAO movie by this title exists)"
+    },
+    {
+      "hianime_id": "shellposter-manga-1788582050-7184",
+      "hianime_name": "Test Series (cleanup)",
+      "hianime_type": "TV",
+      "reason": "Internal HiAnime test series placeholder ('Test Series (cleanup)')"
+    },
+    {
+      "hianime_id": "tougen-anki-recap-10477",
+      "hianime_name": "Tougen Anki Recap",
+      "hianime_type": "TV",
+      "reason": "HiAnime placeholder recap for upcoming unreleased Tougen Anki TV anime"
+    },
+    {
+      "hianime_id": "umayuru-full-gate-41717-10468",
+      "hianime_name": "Umayuru: Full Gate!",
+      "hianime_type": "ONA",
+      "reason": "HiAnime duplicate stream cut of Umayuru (main series already matched to Umayuru)"
+    },
+    {
+      "hianime_id": "uniteup-bond-special-legit-jaxx-jaxx-edition-10049",
+      "hianime_name": "UniteUp! Bond Special - LEGIT & JAXX/JAXX Edition",
+      "hianime_type": "SPECIAL",
+      "reason": "TV network promotional interstitial broadcast not cataloged as standalone entry in offline DB"
+    }
+  ]
+}
