@@ -48,11 +48,12 @@ except Exception:
 # ==============================================================================
 # DEFAULT CONFIGURATION
 # ==============================================================================
+# DEFAULT CONFIGURATION
+# ==============================================================================
 DEFAULT_INPUT = os.path.join("AniSoraDB", "anime-offline-database.jsonl")
 DEFAULT_OUTPUT = "anime_with_hianime.jsonl"
-DEFAULT_DB = "enrich_checkpoint.db"
+DEFAULT_SQL_PATH = "enrich_checkpoint.sql"
 DEFAULT_API_URL = "http://localhost:4000/localdb/sync"
-DEFAULT_ANILIST_API_URL = "http://localhost:4000/api/v1/anilist/sync"
 DEFAULT_CONCURRENCY = 1000
 DEFAULT_TIMEOUT = 15.0
 DEFAULT_RETRIES = 3
@@ -60,83 +61,98 @@ DEFAULT_ANISORA_MIN = 100000000
 DEFAULT_ANISORA_MAX = 999999999
 DEFAULT_BUFFER_SIZE = 3000
 
-ANILIST_URL_REGEX = re.compile(r"https?://(?:www\.)?anilist\.co/anime/(\d+)", re.IGNORECASE)
-
 # ==============================================================================
-# DATABASE CHECKPOINT & CACHE MANAGER
+# SQL CHECKPOINT & CACHE MANAGER
 # ==============================================================================
 class CheckpointDB:
-    def __init__(self, db_path: str):
-        self.db_path = db_path
+    def __init__(self, sql_path: str):
+        self.sql_path = sql_path
+        self.conn = sqlite3.connect(":memory:", check_same_thread=False)
         self._init_db()
 
-    def _get_connection(self) -> sqlite3.Connection:
-        conn = sqlite3.connect(self.db_path, timeout=30.0)
-        conn.execute("PRAGMA journal_mode = WAL;")
-        conn.execute("PRAGMA synchronous = NORMAL;")
-        conn.execute("PRAGMA cache_size = -64000;")  # 64MB cache
-        return conn
-
     def _init_db(self) -> None:
-        with self._get_connection() as conn:
-            conn.executescript("""
-                CREATE TABLE IF NOT EXISTS meta (
-                    key TEXT PRIMARY KEY,
-                    value TEXT
-                );
+        # Load existing SQL checkpoint if present
+        if os.path.exists(self.sql_path) and os.path.getsize(self.sql_path) > 0:
+            try:
+                with open(self.sql_path, "r", encoding="utf-8") as f:
+                    self.conn.executescript(f.read())
+                self.conn.commit()
+            except Exception as e:
+                print(f"[!] Warning: Failed loading checkpoint SQL from '{self.sql_path}': {e}")
 
-                CREATE TABLE IF NOT EXISTS anisora_ids (
-                    anisora_id INTEGER PRIMARY KEY,
-                    line_index INTEGER NOT NULL
-                );
+        # Ensure base tables and indexes always exist
+        self.conn.executescript("""
+            CREATE TABLE IF NOT EXISTS meta (
+                key TEXT PRIMARY KEY,
+                value TEXT
+            );
 
-                CREATE TABLE IF NOT EXISTS search_cache (
-                    query_key TEXT PRIMARY KEY,
-                    hianime_id TEXT,
-                    status TEXT NOT NULL,
-                    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-                );
+            CREATE TABLE IF NOT EXISTS anisora_ids (
+                anisora_id INTEGER PRIMARY KEY,
+                line_index INTEGER NOT NULL
+            );
 
-                CREATE TABLE IF NOT EXISTS entries (
-                    line_index INTEGER PRIMARY KEY,
-                    anisora_id INTEGER UNIQUE NOT NULL,
-                    hianime_id TEXT,
-                    status TEXT NOT NULL, /* 'COMPLETED', 'NO_MATCH', 'RETRY_PENDING', 'SKIPPED' */
-                    error_message TEXT,
-                    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-                );
+            CREATE TABLE IF NOT EXISTS search_cache (
+                query_key TEXT PRIMARY KEY,
+                hianime_id TEXT,
+                status TEXT NOT NULL,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            );
 
-                CREATE INDEX IF NOT EXISTS idx_entries_status ON entries(status);
-            """)
-            conn.commit()
+            CREATE TABLE IF NOT EXISTS entries (
+                line_index INTEGER PRIMARY KEY,
+                anisora_id INTEGER UNIQUE NOT NULL,
+                hianime_id TEXT,
+                status TEXT NOT NULL, /* 'COMPLETED', 'NO_MATCH', 'RETRY_PENDING', 'SKIPPED' */
+                error_message TEXT,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            );
+
+            CREATE INDEX IF NOT EXISTS idx_entries_status ON entries(status);
+        """)
+        self.conn.commit()
+
+    def export_sql(self, target_path: Optional[str] = None) -> None:
+        """Dumps in-memory SQLite state to clean human-readable .sql checkpoint file atomically."""
+        path = target_path or self.sql_path
+        tmp_path = f"{path}.tmp"
+        target_dir = os.path.dirname(os.path.abspath(path))
+        if target_dir:
+            os.makedirs(target_dir, exist_ok=True)
+        with open(tmp_path, "w", encoding="utf-8") as f:
+            for line in self.conn.iterdump():
+                f.write(f"{line}\n")
+        if os.path.exists(path):
+            try:
+                os.replace(tmp_path, path)
+            except OSError:
+                os.remove(path)
+                os.rename(tmp_path, path)
+        else:
+            os.rename(tmp_path, path)
 
     def get_meta(self, key: str) -> Optional[str]:
-        with self._get_connection() as conn:
-            cur = conn.execute("SELECT value FROM meta WHERE key = ?", (key,))
-            row = cur.fetchone()
-            return row[0] if row else None
+        cur = self.conn.execute("SELECT value FROM meta WHERE key = ?", (key,))
+        row = cur.fetchone()
+        return row[0] if row else None
 
     def set_meta(self, key: str, value: str) -> None:
-        with self._get_connection() as conn:
-            conn.execute("INSERT OR REPLACE INTO meta (key, value) VALUES (?, ?)", (key, value))
-            conn.commit()
+        self.conn.execute("INSERT OR REPLACE INTO meta (key, value) VALUES (?, ?)", (key, value))
+        self.conn.commit()
 
     def load_existing_anisora_ids(self) -> Set[int]:
-        with self._get_connection() as conn:
-            cur = conn.execute("SELECT anisora_id FROM anisora_ids")
-            return {row[0] for row in cur.fetchall()}
+        cur = self.conn.execute("SELECT anisora_id FROM anisora_ids")
+        return {row[0] for row in cur.fetchall()}
 
     def load_completed_entries(self) -> Dict[int, Tuple[int, Optional[str], str]]:
         """Returns map of line_index -> (anisora_id, hianime_id, status)"""
-        with self._get_connection() as conn:
-            cur = conn.execute("SELECT line_index, anisora_id, hianime_id, status FROM entries")
-            return {row[0]: (row[1], row[2], row[3]) for row in cur.fetchall()}
+        cur = self.conn.execute("SELECT line_index, anisora_id, hianime_id, status FROM entries")
+        return {row[0]: (row[1], row[2], row[3]) for row in cur.fetchall()}
 
     def get_cached_search(self, query_key: str) -> Optional[Tuple[Optional[str], str]]:
-        with self._get_connection() as conn:
-            cur = conn.execute("SELECT hianime_id, status FROM search_cache WHERE query_key = ?", (query_key,))
-            row = cur.fetchone()
-            return (row[0], row[1]) if row else None
+        cur = self.conn.execute("SELECT hianime_id, status FROM search_cache WHERE query_key = ?", (query_key,))
+        row = cur.fetchone()
+        return (row[0], row[1]) if row else None
 
     def save_batch(
         self,
@@ -144,29 +160,26 @@ class CheckpointDB:
         cache_items: List[Tuple[str, Optional[str], str]],
         anisora_records: List[Tuple[int, int]]
     ) -> None:
-        with self._get_connection() as conn:
-            if anisora_records:
-                conn.executemany(
-                    "INSERT OR IGNORE INTO anisora_ids (anisora_id, line_index) VALUES (?, ?)",
-                    anisora_records
-                )
-            if cache_items:
-                conn.executemany(
-                    "INSERT OR REPLACE INTO search_cache (query_key, hianime_id, status) VALUES (?, ?, ?)",
-                    cache_items
-                )
-            if entries:
-                conn.executemany(
-                    """INSERT OR REPLACE INTO entries 
-                       (line_index, anisora_id, hianime_id, status, error_message) 
-                       VALUES (?, ?, ?, ?, ?)""",
-                    entries
-                )
-            conn.commit()
+        if anisora_records:
+            self.conn.executemany(
+                "INSERT OR IGNORE INTO anisora_ids (anisora_id, line_index) VALUES (?, ?)",
+                anisora_records
+            )
+        if cache_items:
+            self.conn.executemany(
+                "INSERT OR REPLACE INTO search_cache (query_key, hianime_id, status) VALUES (?, ?, ?)",
+                cache_items
+            )
+        if entries:
+            self.conn.executemany(
+                """INSERT OR REPLACE INTO entries 
+                   (line_index, anisora_id, hianime_id, status, error_message) 
+                   VALUES (?, ?, ?, ?, ?)""",
+                entries
+            )
+        self.conn.commit()
 
 
-# ==============================================================================
-# ANISORA ID GENERATOR (CRYPTOGRAPHICALLY SECURE & PERSISTENT)
 # ==============================================================================
 # ANISORA ID GENERATOR (CRYPTOGRAPHICALLY SECURE & PERSISTENT)
 # ==============================================================================
@@ -458,14 +471,17 @@ class ReorderBufferWriter:
 
 
 # ==============================================================================
-# ASYNC DB BATCH WRITER
+# ASYNC SQL CHECKPOINT BATCH WRITER
 # ==============================================================================
 class AsyncDbWriter:
-    def __init__(self, db: CheckpointDB):
+    def __init__(self, db: CheckpointDB, dump_interval: float = 2.0):
         self.db = db
         self.queue: asyncio.Queue = asyncio.Queue()
         self.is_running = True
         self._task: Optional[asyncio.Task] = None
+        self.dump_interval = dump_interval
+        self.last_dump_time = time.time()
+        self._dirty = False
 
     async def start(self):
         self._task = asyncio.create_task(self._loop())
@@ -507,30 +523,26 @@ class AsyncDbWriter:
 
             if batch_entries or batch_cache or batch_anisora:
                 self.db.save_batch(batch_entries, batch_cache, batch_anisora)
+                self._dirty = True
+
+            now = time.time()
+            if self._dirty and (now - self.last_dump_time >= self.dump_interval or (self.queue.empty() and not self.is_running)):
+                self.db.export_sql()
+                self.last_dump_time = now
+                self._dirty = False
 
     async def stop(self):
         self.is_running = False
         await self.queue.join()
         if self._task:
             await self._task
+        # Guaranteed final atomic flush to .sql file
+        self.db.export_sql()
 
 
 # ==============================================================================
 # API CALL & RESPONSE EXTRACTION
 # ==============================================================================
-def extract_anilist_id(entry: Dict[str, Any]) -> Optional[int]:
-    sources = entry.get("sources")
-    if not isinstance(sources, list):
-        return None
-    for src in sources:
-        if isinstance(src, str):
-            match = ANILIST_URL_REGEX.search(src)
-            if match:
-                try:
-                    return int(match.group(1))
-                except ValueError:
-                    pass
-    return None
 
 
 def extract_hianime_id_from_response(data: Any) -> Optional[str]:
@@ -770,40 +782,21 @@ async def process_entry(
             hianime_id, status = cached_result
             is_cache_hit = True
         else:
-            # 3. Call localdb/sync or search endpoint
-            if config["sync_mode"] == "search":
-                payload = {
-                    "name": title,
-                    "title": title,
-                    "synonyms": synonyms
-                }
-                hianime_id, status, err_msg = await call_sync_api(
-                    session=session,
-                    api_url=config["api_url"],
-                    payload_or_param=payload,
-                    method="POST",
-                    throttler=throttler,
-                    max_retries=config["max_retries"],
-                    timeout_sec=config["timeout"]
-                )
-            else:
-                # AniList sync mode
-                anilist_id = extract_anilist_id(entry)
-                if anilist_id:
-                    url = f"{config['anilist_api_url']}/{anilist_id}"
-                    hianime_id, status, err_msg = await call_sync_api(
-                        session=session,
-                        api_url=url,
-                        payload_or_param={},
-                        method="GET",
-                        throttler=throttler,
-                        max_retries=config["max_retries"],
-                        timeout_sec=config["timeout"]
-                    )
-                else:
-                    hianime_id = None
-                    status = "SKIPPED"
-                    err_msg = "No AniList ID found in sources"
+            # 3. Call localdb/sync search endpoint (match by name only)
+            payload = {
+                "name": title,
+                "title": title,
+                "synonyms": synonyms
+            }
+            hianime_id, status, err_msg = await call_sync_api(
+                session=session,
+                api_url=config["api_url"],
+                payload_or_param=payload,
+                method="POST",
+                throttler=throttler,
+                max_retries=config["max_retries"],
+                timeout_sec=config["timeout"]
+            )
 
             # Cache confirmed results ONLY if free of transient error
             if status in ("COMPLETED", "NO_MATCH") and err_msg is None:
@@ -921,7 +914,7 @@ def reconstruct_final_file(input_path: str, output_path: str, db: CheckpointDB):
 async def async_main(config: Dict[str, Any]):
     input_path = config["input_path"]
     output_path = config["output_path"]
-    db_path = config["checkpoint_db"]
+    sql_path = config["checkpoint_sql"]
 
     if not os.path.exists(input_path):
         print(f"[ERROR] Input dataset file not found: {input_path}")
@@ -931,13 +924,13 @@ async def async_main(config: Dict[str, Any]):
     print("[*] AniSora DB Enricher - High-Speed Processing Engine")
     print(f"[*] Input File:      {input_path}")
     print(f"[*] Output File:     {output_path}")
-    print(f"[*] Checkpoint DB:   {db_path}")
+    print(f"[*] Checkpoint SQL:  {sql_path}")
     print(f"[*] API Endpoint:    {config['api_url']}")
     print(f"[*] Concurrency:     {config['concurrency']}")
-    print(f"[*] Mode:            {config['sync_mode']} (Search with title + synonyms)")
+    print("[*] Match Strategy:  Name Only (Title + Synonyms)")
     print("==================================================================")
 
-    db = CheckpointDB(db_path)
+    db = CheckpointDB(sql_path)
     id_gen = AniSoraIdGenerator(db, config["anisora_id_min"], config["anisora_id_max"])
     throttler = AdaptiveConcurrencyController(config["concurrency"])
     
@@ -1085,7 +1078,7 @@ async def async_main(config: Dict[str, Any]):
             await dashboard_task
 
         # Await writers completion so every single queued entry is saved to disk
-        print("\n[Flush] Draining and awaiting all disk and SQLite writes...")
+        print("\n[Flush] Draining and awaiting all disk and SQL checkpoint writes...")
         if out_writer:
             await out_writer.stop()
         if db_writer:
@@ -1103,7 +1096,7 @@ async def async_main(config: Dict[str, Any]):
     print(f"[*] Final Avg Speed:       {stats['rps']:.1f} req/s")
     print(f"[*] Total Elapsed Time:    {tracker.format_time(stats['elapsed'])}")
     print(f"[*] Output Saved To:       {output_path}")
-    print(f"[*] Checkpoint Saved To:   {db_path}")
+    print(f"[*] Checkpoint Saved To:   {sql_path}")
     print("==================================================================")
 
 
@@ -1111,27 +1104,23 @@ def main():
     parser = argparse.ArgumentParser(description="AniSora DB Enricher (High Concurrency & Real-Time Persistence)")
     parser.add_argument("--input", "-i", default=DEFAULT_INPUT, help="Path to input JSONL dataset")
     parser.add_argument("--output", "-o", default=DEFAULT_OUTPUT, help="Path to output JSONL file")
-    parser.add_argument("--db", default=DEFAULT_DB, help="Path to checkpoint SQLite database")
-    parser.add_argument("--api-url", default=DEFAULT_API_URL, help="URL to localdb/sync endpoint")
-    parser.add_argument("--anilist-api-url", default=DEFAULT_ANILIST_API_URL, help="URL to anilist/sync endpoint")
-    parser.add_argument("--mode", choices=["search", "anilist"], default="search", help="Sync mode: 'search' (fast, title+synonyms) or 'anilist'")
+    parser.add_argument("--sql", "--checkpoint-sql", default=DEFAULT_SQL_PATH, help="Path to checkpoint SQL file")
+    parser.add_argument("--api-url", default=DEFAULT_API_URL, help="URL to localdb/sync search endpoint")
     parser.add_argument("--concurrency", "-c", type=int, default=DEFAULT_CONCURRENCY, help="Maximum simultaneous in-flight requests")
     parser.add_argument("--timeout", "-t", type=float, default=DEFAULT_TIMEOUT, help="Request timeout in seconds")
     parser.add_argument("--retries", "-r", type=int, default=DEFAULT_RETRIES, help="Max retry attempts for transient errors")
     parser.add_argument("--anisora-min", type=int, default=DEFAULT_ANISORA_MIN, help="Minimum 9-digit AniSora ID")
     parser.add_argument("--anisora-max", type=int, default=DEFAULT_ANISORA_MAX, help="Maximum 9-digit AniSora ID")
     parser.add_argument("--buffer-size", type=int, default=DEFAULT_BUFFER_SIZE, help="Bounded reorder buffer size")
-    parser.add_argument("--reconstruct", action="store_true", help="Rebuild output JSONL strictly in order from database")
+    parser.add_argument("--reconstruct", action="store_true", help="Rebuild output JSONL strictly in order from SQL checkpoint")
 
     args = parser.parse_args()
 
     config = {
         "input_path": os.path.abspath(args.input),
         "output_path": os.path.abspath(args.output),
-        "checkpoint_db": os.path.abspath(args.db),
+        "checkpoint_sql": os.path.abspath(args.sql),
         "api_url": args.api_url,
-        "anilist_api_url": args.anilist_api_url,
-        "sync_mode": args.mode,
         "concurrency": args.concurrency,
         "timeout": args.timeout,
         "max_retries": args.retries,
@@ -1141,14 +1130,14 @@ def main():
     }
 
     if args.reconstruct:
-        db = CheckpointDB(config["checkpoint_db"])
+        db = CheckpointDB(config["checkpoint_sql"])
         reconstruct_final_file(config["input_path"], config["output_path"], db)
         return
 
     try:
         asyncio.run(async_main(config))
     except KeyboardInterrupt:
-        print("\n[INFO] Graceful shutdown triggered by user. Progress is safely saved in SQLite checkpoint.")
+        print("\n[INFO] Graceful shutdown triggered by user. Progress is safely saved in SQL checkpoint.")
 
 
 if __name__ == "__main__":
