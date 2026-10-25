@@ -9,3 +9,5 @@ node_modules/
 /docs/
 /embedplayer/
 .next
+__pycache__/
+*.pyc

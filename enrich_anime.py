@@ -168,6 +168,8 @@ class CheckpointDB:
 # ==============================================================================
 # ANISORA ID GENERATOR (CRYPTOGRAPHICALLY SECURE & PERSISTENT)
 # ==============================================================================
+# ANISORA ID GENERATOR (CRYPTOGRAPHICALLY SECURE & PERSISTENT)
+# ==============================================================================
 class AniSoraIdGenerator:
     def __init__(self, db: CheckpointDB, min_id: int, max_id: int):
         self.db = db
@@ -179,8 +181,13 @@ class AniSoraIdGenerator:
 
     async def get_or_create_id(self, line_index: int, existing_id: Optional[int] = None) -> int:
         async with self._lock:
-            # If the entry already had a valid AniSora_Id, validate and preserve it
-            if existing_id is not None and isinstance(existing_id, int):
+            # Strictly validate existing ID: must be int, within 9-digit range, and not already used
+            if (
+                existing_id is not None
+                and isinstance(existing_id, int)
+                and self.min_id <= existing_id <= self.max_id
+                and existing_id not in self.used_ids
+            ):
                 self.used_ids.add(existing_id)
                 return existing_id
 
@@ -189,7 +196,7 @@ class AniSoraIdGenerator:
                     f"CRITICAL: Exhausted all available AniSora IDs in range {self.min_id}..{self.max_id}!"
                 )
 
-            max_attempts = 1000
+            max_attempts = 2000
             for _ in range(max_attempts):
                 # Cryptographically secure random integer
                 candidate = secrets.randbelow(self.total_range) + self.min_id
@@ -203,50 +210,73 @@ class AniSoraIdGenerator:
 
 
 # ==============================================================================
-# ADAPTIVE RATE LIMITER / CONCURRENCY CONTROLLER
+# ADAPTIVE RATE LIMITER / DYNAMIC CONCURRENCY CONTROLLER
 # ==============================================================================
 class AdaptiveConcurrencyController:
-    def __init__(self, target_concurrency: int, min_concurrency: int = 20):
+    """
+    True dynamic concurrency limiter.
+    Adjusts active in-flight request capacity in real-time.
+    Provides synchronous release() compatible with all try/finally blocks.
+    """
+    def __init__(self, target_concurrency: int, min_concurrency: int = 10):
         self.target_concurrency = target_concurrency
-        self.min_concurrency = min_concurrency
+        self.min_concurrency = min(min_concurrency, target_concurrency)
         self.current_limit = target_concurrency
+        self.active_count = 0
         self.consecutive_successes = 0
-        self.semaphore = asyncio.Semaphore(target_concurrency)
-        self._lock = asyncio.Lock()
-        self._pause_event = asyncio.Event()
-        self._pause_event.set()
+        self._waiters: List[asyncio.Future] = []
+        self._is_paused = False
 
     async def acquire(self):
-        await self._pause_event.wait()
-        await self.semaphore.acquire()
+        while self._is_paused or self.active_count >= self.current_limit:
+            loop = asyncio.get_running_loop()
+            fut = loop.create_future()
+            self._waiters.append(fut)
+            try:
+                await fut
+            except asyncio.CancelledError:
+                if fut in self._waiters:
+                    self._waiters.remove(fut)
+                raise
+        self.active_count += 1
 
     def release(self):
-        self.semaphore.release()
+        self.active_count = max(0, self.active_count - 1)
+        self._wake_next()
+
+    def _wake_next(self):
+        if self._is_paused:
+            return
+        available_slots = self.current_limit - self.active_count
+        while available_slots > 0 and self._waiters:
+            fut = self._waiters.pop(0)
+            if not fut.done():
+                fut.set_result(None)
+                available_slots -= 1
 
     async def record_success(self):
-        async with self._lock:
-            self.consecutive_successes += 1
-            # Additive increase: gradually ramp back up to target
-            if self.consecutive_successes >= 50 and self.current_limit < self.target_concurrency:
-                self.current_limit = min(self.target_concurrency, self.current_limit + 1)
-                self.consecutive_successes = 0
+        self.consecutive_successes += 1
+        # Additive increase: gradually ramp back up to target
+        if self.consecutive_successes >= 30 and self.current_limit < self.target_concurrency:
+            self.current_limit = min(self.target_concurrency, self.current_limit + 1)
+            self.consecutive_successes = 0
+            self._wake_next()
 
     async def record_overload(self, reason: str = "429 / Server Overload"):
-        async with self._lock:
-            self.consecutive_successes = 0
-            # Multiplicative decrease
-            old_limit = self.current_limit
-            self.current_limit = max(self.min_concurrency, int(self.current_limit * 0.7))
-            
-            # Briefly pause new requests to allow server recovery
-            if self._pause_event.is_set():
-                self._pause_event.clear()
-                cooldown = random.uniform(1.5, 3.0)
-                asyncio.create_task(self._cooldown_and_resume(cooldown))
+        self.consecutive_successes = 0
+        # Multiplicative decrease
+        self.current_limit = max(self.min_concurrency, int(self.current_limit * 0.7))
+        
+        # Briefly pause new requests to allow server recovery
+        if not self._is_paused:
+            self._is_paused = True
+            cooldown = random.uniform(1.0, 2.5)
+            asyncio.create_task(self._cooldown_and_resume(cooldown))
 
     async def _cooldown_and_resume(self, seconds: float):
         await asyncio.sleep(seconds)
-        self._pause_event.set()
+        self._is_paused = False
+        self._wake_next()
 
 
 # ==============================================================================
@@ -275,7 +305,6 @@ class ProgressTracker:
             self.completed += 1
             now = time.time()
             self._rps_window.append((now, self.completed))
-            # Keep only last 5 seconds for moving average RPS
             cutoff = now - 5.0
             self._rps_window = [w for w in self._rps_window if w[0] >= cutoff]
 
@@ -295,7 +324,6 @@ class ProgressTracker:
         now = time.time()
         elapsed = max(0.001, now - self.start_time)
         
-        # Calculate moving average RPS
         if len(self._rps_window) >= 2:
             dt = self._rps_window[-1][0] - self._rps_window[0][0]
             dc = self._rps_window[-1][1] - self._rps_window[0][1]
@@ -358,9 +386,9 @@ class ReorderBufferWriter:
         self.is_running = True
         self._written_count = 0
         self._file = None
+        self._task: Optional[asyncio.Task] = None
 
     async def start(self):
-        # Open file in append or write mode
         write_meta = False
         if not os.path.exists(self.output_file_path) or os.path.getsize(self.output_file_path) == 0:
             write_meta = True
@@ -371,7 +399,7 @@ class ReorderBufferWriter:
             self._file.write(self.metadata_line.strip() + "\n")
             self._file.flush()
 
-        asyncio.create_task(self._writer_loop())
+        self._task = asyncio.create_task(self._writer_loop())
 
     async def push(self, line_index: int, json_line: str):
         await self.queue.put((line_index, json_line))
@@ -410,15 +438,23 @@ class ReorderBufferWriter:
             content = self.buffer.pop(self.next_expected_line)
             self._file.write(content + "\n")
             self.next_expected_line += 1
+            self._written_count += 1
         
         self._file.flush()
+        try:
+            os.fsync(self._file.fileno())
+        except Exception:
+            pass
         self._file.close()
 
     async def wait_until_drained(self):
         await self.drain_event.wait()
 
-    def close(self):
+    async def stop(self):
         self.is_running = False
+        await self.queue.join()
+        if self._task:
+            await self._task
 
 
 # ==============================================================================
@@ -429,9 +465,10 @@ class AsyncDbWriter:
         self.db = db
         self.queue: asyncio.Queue = asyncio.Queue()
         self.is_running = True
+        self._task: Optional[asyncio.Task] = None
 
     async def start(self):
-        asyncio.create_task(self._loop())
+        self._task = asyncio.create_task(self._loop())
 
     async def push(
         self,
@@ -447,7 +484,6 @@ class AsyncDbWriter:
             batch_cache = []
             batch_anisora = []
 
-            # Grab up to 200 items or wait 0.1s
             try:
                 item = await asyncio.wait_for(self.queue.get(), timeout=0.1)
                 batch_entries.append(item[0])
@@ -472,8 +508,11 @@ class AsyncDbWriter:
             if batch_entries or batch_cache or batch_anisora:
                 self.db.save_batch(batch_entries, batch_cache, batch_anisora)
 
-    def close(self):
+    async def stop(self):
         self.is_running = False
+        await self.queue.join()
+        if self._task:
+            await self._task
 
 
 # ==============================================================================
@@ -536,6 +575,16 @@ def extract_hianime_id_from_response(data: Any) -> Optional[str]:
     return None
 
 
+def normalize_title(title: str) -> str:
+    """Normalizes title string for accurate and consistent cache lookup."""
+    if not title:
+        return ""
+    t = title.lower()
+    t = re.sub(r'[\'\"“”‘’`「」『』\(\)\[\]\{\}]', '', t)
+    t = re.sub(r'[\s\-_:]+', ' ', t).strip()
+    return t
+
+
 async def call_sync_api(
     session: aiohttp.ClientSession,
     api_url: str,
@@ -546,7 +595,8 @@ async def call_sync_api(
     timeout_sec: float = DEFAULT_TIMEOUT
 ) -> Tuple[Optional[str], str, Optional[str]]:
     """
-    Calls localdb/sync or anilist/sync with exponential backoff and jitter.
+    Calls search/sync API with exponential backoff and jitter.
+    Strictly distinguishes genuine NO_MATCH from malformed or transient failures.
     Returns: (hianime_id, status, error_message)
     status: 'COMPLETED', 'NO_MATCH', 'RETRY_PENDING'
     """
@@ -568,19 +618,45 @@ async def call_sync_api(
                 throttler.release()
 
             if status_code == 200:
-                if throttler:
-                    await throttler.record_success()
                 try:
                     res_json = json.loads(text_body)
-                    hid = extract_hianime_id_from_response(res_json)
-                    if hid:
-                        return (hid, "COMPLETED", None)
-                    else:
-                        # Confirmed no-match
-                        return (None, "NO_MATCH", None)
                 except Exception as e:
-                    # Invalid JSON response
-                    return (None, "NO_MATCH", f"JSON parse error: {e}")
+                    # Invalid JSON response (e.g. proxy HTML error) - retry rather than false NO_MATCH
+                    if attempt < max_retries:
+                        backoff = min(4.0, (1.2 ** attempt)) + random.uniform(0.1, 0.5)
+                        await asyncio.sleep(backoff)
+                        continue
+                    return (None, "RETRY_PENDING", f"Invalid JSON response: {e}")
+
+                if not isinstance(res_json, dict):
+                    return (None, "RETRY_PENDING", f"Unexpected JSON response type: {type(res_json)}")
+
+                # Check if API returned an explicit error object
+                if res_json.get("success") is False:
+                    err_msg = str(res_json.get("message") or res_json.get("error") or "API error")
+                    if "not found" in err_msg.lower() or "no anime found" in err_msg.lower():
+                        return (None, "NO_MATCH", err_msg)
+                    if attempt < max_retries:
+                        backoff = min(4.0, (1.2 ** attempt)) + random.uniform(0.1, 0.5)
+                        await asyncio.sleep(backoff)
+                        continue
+                    return (None, "RETRY_PENDING", f"API error: {err_msg}")
+
+                # Success response: extract matched ID
+                hid = extract_hianime_id_from_response(res_json)
+                if hid:
+                    if throttler:
+                        await throttler.record_success()
+                    return (hid, "COMPLETED", None)
+
+                # Confirmed no-match: explicit null in data or empty suggestions
+                data_val = res_json.get("data")
+                if data_val is None or (isinstance(data_val, dict) and data_val.get("id") is None):
+                    if throttler:
+                        await throttler.record_success()
+                    return (None, "NO_MATCH", None)
+
+                return (None, "RETRY_PENDING", "Unrecognized data structure")
 
             # Overload / Rate Limit (429 or 503)
             if status_code in (429, 503):
@@ -592,11 +668,22 @@ async def call_sync_api(
                     continue
                 return (None, "RETRY_PENDING", f"HTTP {status_code} server overloaded")
 
-            # Confirmed 404 or 400
-            if status_code in (400, 404):
-                return (None, "NO_MATCH", f"HTTP {status_code}")
+            # Confirmed 404
+            if status_code == 404:
+                try:
+                    err_json = json.loads(text_body)
+                    msg = str(err_json.get("message", "")).lower()
+                    if "not found" in msg or "could not find" in msg:
+                        return (None, "NO_MATCH", msg)
+                except Exception:
+                    pass
+                return (None, "RETRY_PENDING", f"HTTP 404: {text_body[:100]}")
 
-            # HTTP 500 error: inspect message to see if confirmed not found vs server crash
+            # 400 Bad Request
+            if status_code == 400:
+                return (None, "NO_MATCH", f"HTTP 400: {text_body[:100]}")
+
+            # HTTP 500 error: inspect message or retry
             if status_code == 500:
                 try:
                     err_json = json.loads(text_body)
@@ -606,7 +693,6 @@ async def call_sync_api(
                 except Exception:
                     pass
 
-                # If it's a general 500 error, retry with backoff
                 if attempt < max_retries:
                     backoff = min(4.0, (1.2 ** attempt)) + random.uniform(0.1, 0.5)
                     await asyncio.sleep(backoff)
@@ -650,11 +736,12 @@ async def process_entry(
     cached_entry_info: Optional[Tuple[int, Optional[str], str]] = None
 ):
     await tracker.record_in_flight(1)
+    anisora_id = entry.get("AniSora_Id") or 0
     try:
         title = entry.get("title") or ""
         synonyms = entry.get("synonyms") or []
 
-        # 1. Determine AniSora_Id (Never regenerate if already present in DB or original entry)
+        # 1. Determine AniSora_Id (Validated and unique)
         if cached_entry_info:
             anisora_id = cached_entry_info[0]
             existing_hianime_id = cached_entry_info[1]
@@ -672,7 +759,7 @@ async def process_entry(
             anisora_id = await id_gen.get_or_create_id(line_index, existing_id=entry.get("AniSora_Id"))
 
         # 2. Check query cache
-        cache_key = f"search:{title.lower()}"
+        cache_key = f"search:{normalize_title(title)}"
         cached_result = db.get_cached_search(cache_key)
         hianime_id = None
         status = "COMPLETED"
@@ -683,7 +770,7 @@ async def process_entry(
             hianime_id, status = cached_result
             is_cache_hit = True
         else:
-            # 3. Call localdb/sync API
+            # 3. Call localdb/sync or search endpoint
             if config["sync_mode"] == "search":
                 payload = {
                     "name": title,
@@ -718,8 +805,8 @@ async def process_entry(
                     status = "SKIPPED"
                     err_msg = "No AniList ID found in sources"
 
-            # Cache confirmed results
-            if status in ("COMPLETED", "NO_MATCH"):
+            # Cache confirmed results ONLY if free of transient error
+            if status in ("COMPLETED", "NO_MATCH") and err_msg is None:
                 cache_item = (cache_key, hianime_id, status)
             else:
                 cache_item = None
@@ -727,7 +814,7 @@ async def process_entry(
         # 4. Save to DB checkpoint (async)
         entry_record = (line_index, anisora_id, hianime_id, status, err_msg)
         anisora_record = (anisora_id, line_index)
-        cache_record = (cache_key, hianime_id, status) if (not is_cache_hit and status in ("COMPLETED", "NO_MATCH")) else None
+        cache_record = cache_item if not is_cache_hit else None
 
         await db_writer.push(entry_record, cache_record, anisora_record)
 
@@ -739,6 +826,15 @@ async def process_entry(
 
         # 6. Update metrics
         await tracker.record_result(status, bool(hianime_id), is_cached=is_cache_hit)
+
+    except Exception as exc:
+        # Fallback to prevent reorder buffer starvation on unhandled exception
+        entry["Hianime_Id"] = None
+        entry["AniSora_Id"] = anisora_id
+        err_msg = f"Worker exception: {exc}"
+        await db_writer.push((line_index, anisora_id, None, "FAILED", err_msg), None, (anisora_id, line_index))
+        await out_writer.push(line_index, json.dumps(entry, ensure_ascii=False))
+        await tracker.record_result("FAILED", False)
 
     finally:
         await tracker.record_in_flight(-1)
@@ -845,6 +941,15 @@ async def async_main(config: Dict[str, Any]):
     id_gen = AniSoraIdGenerator(db, config["anisora_id_min"], config["anisora_id_max"])
     throttler = AdaptiveConcurrencyController(config["concurrency"])
     
+    # Dataset integrity fingerprint check
+    dataset_fingerprint = f"{os.path.basename(input_path)}:{os.path.getsize(input_path)}"
+    stored_fingerprint = db.get_meta("dataset_fingerprint")
+    if stored_fingerprint and stored_fingerprint != dataset_fingerprint:
+        print(f"[!] [WARNING] Checkpoint DB was created for a different dataset: {stored_fingerprint}")
+        print(f"    Current dataset fingerprint: {dataset_fingerprint}")
+    elif not stored_fingerprint:
+        db.set_meta("dataset_fingerprint", dataset_fingerprint)
+
     # Check existing checkpoint
     completed_entries_map = db.load_completed_entries()
     print(f"[Checkpoint] Found {len(completed_entries_map):,} previously indexed entries.")
@@ -873,7 +978,18 @@ async def async_main(config: Dict[str, Any]):
             written_lines = sum(1 for _ in f)
         # line 1 is metadata, so written_lines lines means up to line_index = written_lines
         start_line_index = max(2, written_lines + 1)
-        print(f"[Resume] Output file already contains {written_lines:,} lines. Streaming from index {start_line_index}...")
+        print(f"[Resume] Output file already contains {written_lines:,} lines. Fast-forwarding to line {start_line_index}...")
+
+        # Pre-seed tracker metrics from already-written slice
+        already_written = start_line_index - 2
+        tracker.completed = already_written
+        for idx in range(2, start_line_index):
+            info = completed_entries_map.get(idx)
+            if info:
+                if info[1]:
+                    tracker.matches += 1
+                else:
+                    tracker.no_matches += 1
 
     out_writer = ReorderBufferWriter(
         output_file_path=output_path,
@@ -892,67 +1008,88 @@ async def async_main(config: Dict[str, Any]):
         force_close=False
     )
 
-    async with aiohttp.ClientSession(connector=connector) as session:
-        dashboard_stop = asyncio.Event()
-        dashboard_task = asyncio.create_task(dashboard_loop(tracker, throttler, dashboard_stop))
+    dashboard_stop = asyncio.Event()
+    dashboard_task = None
+    worker_tasks = set()
 
-        worker_tasks = set()
-        active_limit = config["concurrency"]
+    try:
+        async with aiohttp.ClientSession(connector=connector) as session:
+            dashboard_task = asyncio.create_task(dashboard_loop(tracker, throttler, dashboard_stop))
+            active_limit = config["concurrency"]
 
-        # Stream input file line-by-line
-        with open(input_path, "r", encoding="utf-8") as in_f:
-            in_f.readline()  # Skip metadata line (already preserved)
+            # Stream input file line-by-line
+            with open(input_path, "r", encoding="utf-8") as in_f:
+                in_f.readline()  # Skip metadata line (already preserved)
 
-            line_idx = 2
-            for line in in_f:
-                line_str = line.strip()
-                if not line_str:
-                    line_idx += 1
-                    continue
+                line_idx = 2
+                for line in in_f:
+                    line_str = line.strip()
+                    if not line_str:
+                        line_idx += 1
+                        continue
 
-                # Wait if reorder buffer is getting full (flow control)
-                await out_writer.wait_until_drained()
+                    # CRITICAL RESUME FIX: Skip lines already written to output file!
+                    # Guarantees old line indexes never enter the reorder buffer and cause deadlock.
+                    if line_idx < start_line_index:
+                        line_idx += 1
+                        continue
 
-                entry = json.loads(line_str)
-                cached_info = completed_entries_map.get(line_idx)
+                    # Wait if reorder buffer is getting full (flow control)
+                    await out_writer.wait_until_drained()
 
-                # Spawn worker task
-                task = asyncio.create_task(
-                    process_entry(
-                        line_index=line_idx,
-                        raw_line=line_str,
-                        entry=entry,
-                        session=session,
-                        config=config,
-                        id_gen=id_gen,
-                        throttler=throttler,
-                        tracker=tracker,
-                        db=db,
-                        db_writer=db_writer,
-                        out_writer=out_writer,
-                        cached_entry_info=cached_info
+                    entry = json.loads(line_str)
+                    cached_info = completed_entries_map.get(line_idx)
+
+                    # Spawn worker task
+                    task = asyncio.create_task(
+                        process_entry(
+                            line_index=line_idx,
+                            raw_line=line_str,
+                            entry=entry,
+                            session=session,
+                            config=config,
+                            id_gen=id_gen,
+                            throttler=throttler,
+                            tracker=tracker,
+                            db=db,
+                            db_writer=db_writer,
+                            out_writer=out_writer,
+                            cached_entry_info=cached_info
+                        )
                     )
-                )
-                worker_tasks.add(task)
-                task.add_done_callback(worker_tasks.discard)
+                    worker_tasks.add(task)
+                    task.add_done_callback(worker_tasks.discard)
 
-                # Keep in-flight task pool within bounds
-                if len(worker_tasks) >= active_limit:
-                    done, _ = await asyncio.wait(worker_tasks, return_when=asyncio.FIRST_COMPLETED)
+                    # Keep in-flight task pool within bounds
+                    if len(worker_tasks) >= active_limit:
+                        done, _ = await asyncio.wait(worker_tasks, return_when=asyncio.FIRST_COMPLETED)
 
-                line_idx += 1
+                    line_idx += 1
 
-        # Wait for all remaining worker tasks
+            # Wait for all remaining worker tasks
+            if worker_tasks:
+                await asyncio.gather(*worker_tasks, return_exceptions=True)
+
+    except (KeyboardInterrupt, asyncio.CancelledError):
+        print("\n[!] Graceful shutdown requested. Draining active in-flight writes...")
+        for t in worker_tasks:
+            if not t.done():
+                t.cancel()
         if worker_tasks:
-            await asyncio.gather(*worker_tasks)
+            await asyncio.gather(*worker_tasks, return_exceptions=True)
+    finally:
+        # Stop dashboard
+        if dashboard_stop and not dashboard_stop.is_set():
+            dashboard_stop.set()
+        if dashboard_task and not dashboard_task.done():
+            await dashboard_task
 
-        # Stop dashboard and close writers
-        dashboard_stop.set()
-        await dashboard_task
-
-        out_writer.close()
-        db_writer.close()
-        await asyncio.sleep(0.5)
+        # Await writers completion so every single queued entry is saved to disk
+        print("\n[Flush] Draining and awaiting all disk and SQLite writes...")
+        if out_writer:
+            await out_writer.stop()
+        if db_writer:
+            await db_writer.stop()
 
     # Final summary report
     stats = tracker.get_stats()
