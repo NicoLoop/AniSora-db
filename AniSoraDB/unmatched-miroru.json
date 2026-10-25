@@ -1,2778 +1,2028 @@
-{
-  "metadata": {
-    "description": "Miruro catalog entries present in Miruro but not matched in the anime database",
-    "total_unmatched": 68,
-    "total_miruro_catalog": 20802,
-    "coverage_pct": 99.67,
-    "generated_at": "2026-10-25T04:51:07.130755+00:00"
+[
+  {
+    "sources": [
+      "https://miruro.tv/watch/iwXVwwG3pD5dOrfcMv90VgXMvedLUxqb",
+      "https://anilist.co/anime/214031",
+      "https://myanimelist.net/anime/64597"
+    ],
+    "title": "Mob Psycho 100 10th Anniversary Special Movie",
+    "type": "SPECIAL",
+    "episodes": 1,
+    "status": "FINISHED",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214031-VjZ9YM1NsmJd.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214031-VjZ9YM1NsmJd.jpg",
+    "duration": {
+      "value": 120,
+      "unit": "SECONDS"
+    },
+    "score": {
+      "arithmeticGeometricMean": 7.6,
+      "arithmeticMean": 7.6,
+      "median": 7.6
+    },
+    "synonyms": [
+      "Mob Psycho 100: 10 Shuunen Kinen Tokubetsu Eizou",
+      "モブサイコ100 10周年記念特別映像"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 955326927,
+    "Miruro_Id": "iwXVwwG3pD5dOrfcMv90VgXMvedLUxqb"
   },
-  "unmatched_animes": [
-    {
-      "id": "iwXVwwG3pD5dOrfcMv90VgXMvedLUxqb",
-      "name": "Mob Psycho 100 10th Anniversary Special Movie",
-      "title": {
-        "english": "Mob Psycho 100 10th Anniversary Special Movie",
-        "romaji": "Mob Psycho 100: 10 Shuunen Kinen Tokubetsu Eizou",
-        "native": "モブサイコ100 10周年記念特別映像"
-      },
-      "format": "SPECIAL",
-      "status": "FINISHED",
-      "episodes": 1,
-      "episode_duration_minutes": 2,
-      "season": {
-        "season": "SUMMER",
-        "year": 2026
-      },
-      "average_score": 76,
-      "popularity": 7879,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64597"
-        ],
-        "anilist": [
-          "214031"
-        ],
-        "animeschedule": [
-          "mob-psycho-100-10-shuunen-kinen-tokubetsu-eizou"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/iwXVwwG3pD5dOrfcMv90VgXMvedLUxqb",
-      "scraped_at_page": 198,
-      "cursor": "c1_AKjbuJqQLpHw1ZmI-tJ08uM9PvpbUSnC01tQTUDT-4IdVGQ9EzS90cusaKDSI4Q0o1KXz7s4y6hmK_7K7hL0AfFUsDRgps0WLiMKBiZ_CQgXt_OHEG45N-QTJxJ8Fi2R"
-    },
-    {
-      "id": "q_G9I48tTkKjrINDaKobBeIQTACo0Eom",
-      "name": "SSS-Class Revival Hunter",
-      "title": {
-        "english": "SSS-Class Revival Hunter",
-        "romaji": "Shishite Ikiru SSS-kyuu Hunter",
-        "native": "死して生きるSSS級ハンター"
-      },
-      "format": "TV",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": {
-        "season": "WINTER",
-        "year": 2027
-      },
-      "average_score": null,
-      "popularity": 6062,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64950"
-        ],
-        "anidb": [
-          "20345"
-        ],
-        "kitsu": [
-          "51025"
-        ],
-        "simkl": [
-          "3244808"
-        ],
-        "anilist": [
-          "216624"
-        ],
-        "livechart": [
-          "13796"
-        ],
-        "anime_planet": [
-          "sss-class-revival-hunter"
-        ],
-        "animeschedule": [
-          "sss-class-revival-hunter"
-        ],
-        "animecountdown": [
-          "3244808"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/q_G9I48tTkKjrINDaKobBeIQTACo0Eom",
-      "scraped_at_page": 221,
-      "cursor": "c1_EqfuQOBUxAc1kqXP6SGAHLL73AqRHGxNEn1Ym71skOeBvSewzGpwnYLwxppakGj8crgVwqly-onFh3Qm2UMPNqlvAKjzGFC5bA-0iTq0hPikzkJLLiJMFXk-fRhmamNJ"
-    },
-    {
-      "id": "JRMfKDotgS9PrTVjitmn2Ybo7dHtZTWl",
-      "name": "Mato Seihei no Slave 3",
-      "title": {
-        "english": null,
-        "romaji": "Mato Seihei no Slave 3",
-        "native": "魔都精兵のスレイブ"
-      },
-      "format": "TV",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 4956,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64726"
-        ],
-        "anidb": [
-          "20238"
-        ],
-        "simkl": [
-          "3203588"
-        ],
-        "anilist": [
-          "214650"
-        ],
-        "anisearch": [
-          "21882"
-        ],
-        "livechart": [
-          "13754"
-        ],
-        "animeschedule": [
-          "mato-seihei-no-slave-3"
-        ],
-        "animecountdown": [
-          "3203588"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/JRMfKDotgS9PrTVjitmn2Ybo7dHtZTWl",
-      "scraped_at_page": 238,
-      "cursor": "c1__upDt9QoGkh2KCIQksB9s7bsnv3KdgPXjbzk19Hl5G03lzCUQTvLkrgkmtJ-LKTvRBAA9rd8DVrfwkrCn2qzzd7Id4OKhjk4BUvIq1xTAKxsygu7DoiG3Y_xKH3yZVan"
-    },
-    {
-      "id": "qzDseD3qC2610HAru8rYGjK7SFM6aD_Y",
-      "name": "MURCIÉLAGO",
-      "title": {
-        "english": null,
-        "romaji": "MURCIÉLAGO",
-        "native": "ムルシエラゴ"
-      },
-      "format": "TV",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": {
-        "season": "WINTER",
-        "year": 2027
-      },
-      "average_score": null,
-      "popularity": 3617,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64555"
-        ],
-        "anidb": [
-          "20170"
-        ],
-        "simkl": [
-          "3173588"
-        ],
-        "anilist": [
-          "213877"
-        ],
-        "tmdb_tv": [
-          "327489"
-        ],
-        "livechart": [
-          "13723"
-        ],
-        "anime_planet": [
-          "murcielago"
-        ],
-        "animeschedule": [
-          "murcielago"
-        ],
-        "animecountdown": [
-          "3173588"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/qzDseD3qC2610HAru8rYGjK7SFM6aD_Y",
-      "scraped_at_page": 269,
-      "cursor": "c1_Z6YsxuEK_6mrc0DQeEJsHCpnWMHypedhsryCt-ri9iELMMRpyd5TY8rpHLkhOkwR_G8Pfg5gZd_4lYEKTDARpflgOT9277mn_b9aajmawisMKEw13H6dYYADp22ZB2ZH"
-    },
-    {
-      "id": "pUKa5RY22Q5jo22M7-hyeBBbLIIU53AN",
-      "name": "Kusunoki-san wa Koukou Debut ni Shippaishiteiru",
-      "title": {
-        "english": null,
-        "romaji": "Kusunoki-san wa Koukou Debut ni Shippaishiteiru",
-        "native": "楠木さんは高校デビューに失敗している"
-      },
-      "format": "TV",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 3472,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64664"
-        ],
-        "anidb": [
-          "20208"
-        ],
-        "simkl": [
-          "3193828"
-        ],
-        "anilist": [
-          "214368"
-        ],
-        "livechart": [
-          "13741"
-        ],
-        "anime_planet": [
-          "kusunokis-flunking-her-high-school-glow-up"
-        ],
-        "animeschedule": [
-          "kusunoki-san-wa-koukou-debut-ni-shippaishiteiru"
-        ],
-        "animecountdown": [
-          "3193828"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/pUKa5RY22Q5jo22M7-hyeBBbLIIU53AN",
-      "scraped_at_page": 273,
-      "cursor": "c1_CZ_CIGpjhvwFmZye-tQT3Xt7QsWA_2i-4JRWyP3L-Ahy4wf8L8NM6z_Zp1vbOzUf8ynovdLhOJaM0NDVbORzleeHMrHdQuqQ4r8HWDpgaJeWMlUjkmLomMlwK_yuUzy4"
-    },
-    {
-      "id": "x6Q-U1JCaPfyL8gPc0We1CxUnEbtppZA",
-      "name": "Noa-senpai wa Tomodachi.",
-      "title": {
-        "english": null,
-        "romaji": "Noa-senpai wa Tomodachi.",
-        "native": "のあ先輩はともだち。"
-      },
-      "format": "TV",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 2339,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64599"
-        ],
-        "anidb": [
-          "20194"
-        ],
-        "kitsu": [
-          "50844"
-        ],
-        "simkl": [
-          "3183628"
-        ],
-        "anilist": [
-          "214044"
-        ],
-        "anisearch": [
-          "21846"
-        ],
-        "livechart": [
-          "13732"
-        ],
-        "anime_planet": [
-          "noa-senpai-wa-tomodachi"
-        ],
-        "animeschedule": [
-          "noa-senpai-wa-tomodachi"
-        ],
-        "animecountdown": [
-          "3183628"
-        ],
-        "animenewsnetwork": [
-          "40338"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/x6Q-U1JCaPfyL8gPc0We1CxUnEbtppZA",
-      "scraped_at_page": 317,
-      "cursor": "c1_ETfSpEKT_8ZD75AwVI8p-Ugoa-PcPXskP4wiqDMcpcMMcfP23D3i3ey9D3kWxHHL3dEI7zqtGtLxZn0NQSOPG0qXAJR8o2z5sKJ5ztus8zatv5rkMbMDO8gPfcaaMVE2"
-    },
-    {
-      "id": "v0trK2muVnVnqjIKvlcrM4eW0EZbQrtN",
-      "name": "Akuyaku no Ending wa Shi nomi",
-      "title": {
-        "english": null,
-        "romaji": "Akuyaku no Ending wa Shi nomi",
-        "native": "悪役のエンディングは死のみ"
-      },
-      "format": "TV",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 2042,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64768"
-        ],
-        "anidb": [
-          "20259"
-        ],
-        "simkl": [
-          "3211426"
-        ],
-        "anilist": [
-          "214863"
-        ],
-        "anisearch": [
-          "21891"
-        ],
-        "livechart": [
-          "13763"
-        ],
-        "animeschedule": [
-          "akuyaku-no-ending-wa-shi-nomi"
-        ],
-        "animecountdown": [
-          "3211426"
-        ],
-        "animenewsnetwork": [
-          "40423"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/v0trK2muVnVnqjIKvlcrM4eW0EZbQrtN",
-      "scraped_at_page": 332,
-      "cursor": "c1_5kVwahTuKmeWbPuinahJ_eYFfJyPaPX1Cuqru6KcHxMSy88ineRqYhS8d5BTzawUeHJ2JOEJdz8PU8SflWuVAv4L8Y1_ej17w9heJHq_JCxRgkePkoXKCg8AN9RQXKYM"
-    },
-    {
-      "id": "1fi_oOVKxqrMynCswoLbgZikwY1SNMCr",
-      "name": "Real mo Tama ni wa Uso wo Tsuku",
-      "title": {
-        "english": null,
-        "romaji": "Real mo Tama ni wa Uso wo Tsuku",
-        "native": "現実もたまには嘘をつく"
-      },
-      "format": "TV",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 1780,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64640"
-        ],
-        "anidb": [
-          "20202"
-        ],
-        "simkl": [
-          "3189158"
-        ],
-        "anilist": [
-          "214215"
-        ],
-        "anisearch": [
-          "21858"
-        ],
-        "livechart": [
-          "13736"
-        ],
-        "anime_planet": [
-          "sometimes-even-reality-is-a-lie"
-        ],
-        "animeschedule": [
-          "real-mo-tama-ni-wa-uso-wo-tsuku"
-        ],
-        "animecountdown": [
-          "3189158"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/1fi_oOVKxqrMynCswoLbgZikwY1SNMCr",
-      "scraped_at_page": 349,
-      "cursor": "c1_74kEhpo1MzW2IvJT1dmComwPmV8RimNeZknvgsh8JEbZ82H8N1cQXh93pJRr914wvzDMMDlRKrN5BrBQQd_lZx0X9960TpevL39ewUr7tDKqQIKNVtDsD69sxXabxAkZ"
-    },
-    {
-      "id": "IJiimigfxj1qdjIE73Fd7Z93x1wQSmjI",
-      "name": "Mononoke (Shin Project)",
-      "title": {
-        "english": null,
-        "romaji": "Mononoke (Shin Project)",
-        "native": "モノノ怪 (新プロジェクト)"
-      },
-      "format": "SPECIAL",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 1746,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64562"
-        ],
-        "kitsu": [
-          "50836"
-        ],
-        "anilist": [
-          "213891"
-        ],
-        "livechart": [
-          "13726"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/IJiimigfxj1qdjIE73Fd7Z93x1wQSmjI",
-      "scraped_at_page": 351,
-      "cursor": "c1_s-A9YKPOiuZ8WPb2czTCiyYopxsyCcplbNcsQfzr0uXCVN0KtYn98gNHQIvsJK0s3fTW-Rre8p-LUQx2cGFA0lSJcbq0mre688zQUSGeIJG8rdhTMfb38oH8nKZ_h72B"
-    },
-    {
-      "id": "iYJ2aRQB4jhgPzPFrDqz7fkmeKsB35m1",
-      "name": "Studio Cabana",
-      "title": {
-        "english": null,
-        "romaji": "Studio Cabana",
-        "native": "スタジオカバナ"
-      },
-      "format": "TV",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 1721,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64658"
-        ],
-        "anidb": [
-          "20206"
-        ],
-        "simkl": [
-          "3192846"
-        ],
-        "anilist": [
-          "214332"
-        ],
-        "anisearch": [
-          "21861"
-        ],
-        "livechart": [
-          "13738"
-        ],
-        "anime_planet": [
-          "studio-cabana"
-        ],
-        "animeschedule": [
-          "studio-cabana"
-        ],
-        "animecountdown": [
-          "3192846"
-        ],
-        "animenewsnetwork": [
-          "40361"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/iYJ2aRQB4jhgPzPFrDqz7fkmeKsB35m1",
-      "scraped_at_page": 352,
-      "cursor": "c1_WJHmMVF2blVzplck1Pndw5pKCgwxpnlQX-FDyDhNDAiZt196-zYeFwa0ilOOChwxoDw6xcGEsVfnrhVENC6vugd79A2mnydXwNW2WH8vzz09OBzd6wGwvRGHr26NNy0-"
-    },
-    {
-      "id": "aOXiyClrUE6yLtTwFoN1luqrG9Rpdnea",
-      "name": "Kidou Senshi Gundam RG XARX-ZERO",
-      "title": {
-        "english": null,
-        "romaji": "Kidou Senshi Gundam RG XARX-ZERO",
-        "native": "機動戦士ガンダムRG XARX-ZERO"
-      },
-      "format": "SPECIAL",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 1688,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64667"
-        ],
-        "anidb": [
-          "20210"
-        ],
-        "kitsu": [
-          "50847"
-        ],
-        "simkl": [
-          "3193832"
-        ],
-        "anilist": [
-          "214380"
-        ],
-        "livechart": [
-          "13729"
-        ],
-        "anime_planet": [
-          "mobile-suit-gundam-rg-xarx-zero"
-        ],
-        "animeschedule": [
-          "kidou-senshi-gundam-rg-xarx-zero"
-        ],
-        "animecountdown": [
-          "3193832"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/aOXiyClrUE6yLtTwFoN1luqrG9Rpdnea",
-      "scraped_at_page": 355,
-      "cursor": "c1_-KTnhq7NZfgNGL-M9LWKx4TzbpMnZQ7QdpQIWyPbFSR0YcI5JFcDI5vDQykCEzfPN1z4HSeuJXvYLWvXqZigbAyPtDTY4LulDfIqadJPjlxzg5G3kbvLYiasRxbod16E"
-    },
-    {
-      "id": "KpxATKeIz5rym_69NDSQDjdeCKO8mgrG",
-      "name": "Jurassic Shadows",
-      "title": {
-        "english": "Jurassic Shadows",
-        "romaji": "Ryuugeshou no Shinobi",
-        "native": "竜化粧の忍"
-      },
-      "format": "SPECIAL",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 1622,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64556"
-        ],
-        "anidb": [
-          "20171"
-        ],
-        "simkl": [
-          "3173590"
-        ],
-        "anilist": [
-          "213879"
-        ],
-        "tmdb_tv": [
-          "331991"
-        ],
-        "anisearch": [
-          "21843"
-        ],
-        "livechart": [
-          "13724"
-        ],
-        "animeschedule": [
-          "ryuugeshou-no-shinobi"
-        ],
-        "animecountdown": [
-          "3173590"
-        ],
-        "animenewsnetwork": [
-          "40275"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/KpxATKeIz5rym_69NDSQDjdeCKO8mgrG",
-      "scraped_at_page": 361,
-      "cursor": "c1_2UhRzgzGhfTnWHVI8W_9u6HJmf611aPMMKXLYpMYVL-P-PgzdDTpiU5YtRUqaTfJWANe3jAEfrxQWJxqUfNTeuuoLYcwqiLydzpPMYtKmtp-BrFGq3AC42d_ehd0x202"
-    },
-    {
-      "id": "wxtoUxQyZX8ejXHUAw8PbuNPBVbgD98o",
-      "name": "Koutetsujou no Kabaneri: Mumei Ranman",
-      "title": {
-        "english": null,
-        "romaji": "Koutetsujou no Kabaneri: Mumei Ranman",
-        "native": "甲鉄城のカバネリ 無名爛漫"
-      },
-      "format": "SPECIAL",
-      "status": "FINISHED",
-      "episodes": 1,
-      "episode_duration_minutes": 6,
-      "season": null,
-      "average_score": 62,
-      "popularity": 1419,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64672"
-        ],
-        "kitsu": [
-          "50862"
-        ],
-        "anilist": [
-          "214426"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/wxtoUxQyZX8ejXHUAw8PbuNPBVbgD98o",
-      "scraped_at_page": 377,
-      "cursor": "c1_NeUfSPFwDq0c9skwiyPgr7FmGZSuelOgvpBNfS9Bi6JjsDfqpyyb9zaPI5sCZple-OKJzkGiARusl2YYQk_xYosCpYVljb_I2oQT8Zqw6WA4s6mZTmYEdOvEhbfYFQJx"
-    },
-    {
-      "id": "-2vfXcRWEVLH6-9Kbt8J3SoneDP6SI_M",
-      "name": "Phantom Busters",
-      "title": {
-        "english": null,
-        "romaji": "Phantom Busters",
-        "native": "ファントムバスターズ"
-      },
-      "format": "TV",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 1400,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "65052"
-        ],
-        "anidb": [
-          "20413"
-        ],
-        "simkl": [
-          "3261502"
-        ],
-        "anilist": [
-          "217283"
-        ],
-        "livechart": [
-          "13820"
-        ],
-        "animeschedule": [
-          "phantom-busters"
-        ],
-        "animecountdown": [
-          "3261502"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/-2vfXcRWEVLH6-9Kbt8J3SoneDP6SI_M",
-      "scraped_at_page": 378,
-      "cursor": "c1_rE8pM9fPmvsq4CcOPsjaJfRcdtg3nuSx8YalWH2SNc9tnyrvIRVcXyrzoJjeut5SeFZXLTPzK1wC2V0fqheDaSSzDjn8ij85tsR-MNSeyj1PXk8lfTXqx7_KiU3OUyz3"
-    },
-    {
-      "id": "G93YKJHbEInm6n5y0ZIKSTPgVmT6WxMj",
-      "name": "Kizuguchi to Houtai",
-      "title": {
-        "english": null,
-        "romaji": "Kizuguchi to Houtai",
-        "native": "傷口と包帯"
-      },
-      "format": "TV",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": {
-        "season": "WINTER",
-        "year": 2027
-      },
-      "average_score": null,
-      "popularity": 1364,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64600"
-        ],
-        "anidb": [
-          "20193"
-        ],
-        "simkl": [
-          "3183626"
-        ],
-        "anilist": [
-          "214049"
-        ],
-        "tmdb_tv": [
-          "328525"
-        ],
-        "livechart": [
-          "13266"
-        ],
-        "animeschedule": [
-          "kizuguchi-to-houtai"
-        ],
-        "animecountdown": [
-          "3183626"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/G93YKJHbEInm6n5y0ZIKSTPgVmT6WxMj",
-      "scraped_at_page": 381,
-      "cursor": "c1_E2evMllNFjCFRATppcKBxddJKrfJky4bbwimBxdIg1Z__acGAIgVv6Ps35BXc3PpZPTcQzJ32ptNLbl6mFU0E5CKlQtguL1ffdZfcZBURcPq6U5GgWQgliGzpP1_E_ch"
-    },
-    {
-      "id": "X8dsM4hbjPcm4VreXKl3FzZH5gzAEmmo",
-      "name": "Tensei Shitara Slime Datta Ken: Clayman REVENGE",
-      "title": {
-        "english": null,
-        "romaji": "Tensei Shitara Slime Datta Ken: Clayman REVENGE",
-        "native": "転生したらスライムだった件 クレイマンREVENGE"
-      },
-      "format": "TV",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": {
-        "season": "SPRING",
-        "year": 2027
-      },
-      "average_score": null,
-      "popularity": 1238,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "65070"
-        ],
-        "anidb": [
-          "20416"
-        ],
-        "kitsu": [
-          "51086"
-        ],
-        "simkl": [
-          "3263232"
-        ],
-        "anilist": [
-          "217330"
-        ],
-        "livechart": [
-          "13823"
-        ],
-        "anime_planet": [
-          "that-time-i-got-reincarnated-as-a-slime-claymans-revenge"
-        ],
-        "animeschedule": [
-          "tensei-shitara-slime-datta-ken-clayman-revenge"
-        ],
-        "animecountdown": [
-          "3263232"
-        ],
-        "animenewsnetwork": [
-          "40579"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/X8dsM4hbjPcm4VreXKl3FzZH5gzAEmmo",
-      "scraped_at_page": 394,
-      "cursor": "c1_NwL20eRJJWCbkLGAB36MGZ-1kHkmT7U7W9V1vt_QSMRBBD9LuDiEyicBZOlZFuvpOOjc-QHn19os93cxVzQPNTBXuNTgthgkwNEwyIOUjh5XvM8ubQxFEXlmXZsAhsTg"
-    },
-    {
-      "id": "OnKK72Xu8jIL5OCc4DC_2eL3tXjYiK74",
-      "name": "Houkago no Idol ni wa Himitsu ga Aru",
-      "title": {
-        "english": null,
-        "romaji": "Houkago no Idol ni wa Himitsu ga Aru",
-        "native": "放課後のアイドルには秘密がある"
-      },
-      "format": "TV",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": {
-        "season": "SPRING",
-        "year": 2027
-      },
-      "average_score": null,
-      "popularity": 1219,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "65080"
-        ],
-        "anidb": [
-          "20423"
-        ],
-        "simkl": [
-          "3266754"
-        ],
-        "anilist": [
-          "217457"
-        ],
-        "tmdb_tv": [
-          "336718"
-        ],
-        "livechart": [
-          "13830"
-        ],
-        "anime_planet": [
-          "houkago-no-idol-ni-wa-himitsu-ga-aru"
-        ],
-        "animeschedule": [
-          "houkago-no-idol-ni-wa-himitsu-ga-aru"
-        ],
-        "animecountdown": [
-          "3266754"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/OnKK72Xu8jIL5OCc4DC_2eL3tXjYiK74",
-      "scraped_at_page": 396,
-      "cursor": "c1_X7KgOusCIuZIAKRVbVxdB2JqNxGrS8qS-0rFe8pxA3l8VtU9njdUYrD734VyYNdf2f87SCsxQu7GscTb_fBvXVjBz7ELlV0GKVsCFDdWVfu-0lBQGczGqG-jXzNu_Nli"
-    },
-    {
-      "id": "lrHLrNhddPiW5gSb55EphJcMbVTkSepf",
-      "name": "Digimon (Shinsaku Anime)",
-      "title": {
-        "english": null,
-        "romaji": "Digimon (Shinsaku Anime)",
-        "native": "デジモン (新作アニメ)"
-      },
-      "format": "SPECIAL",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 1087,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64731"
-        ],
-        "anilist": [
-          "214725"
-        ],
-        "livechart": [
-          "13750"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/lrHLrNhddPiW5gSb55EphJcMbVTkSepf",
-      "scraped_at_page": 411,
-      "cursor": "c1_wgb4JRCsVQk0f5pRGVjEs0Rw9d6KipyxoSrYT3QoOTwOm7rN_YP6IX4wJ0IBe6jGKUf_mawyuiKMrVKnjM3vARgpVxUeDX3ogCITs65-ciYa95oo7suhZruNOgXD_J7V"
-    },
-    {
-      "id": "H83dKsNUG9MF8kDyLXhJbfcr5UheNkIc",
-      "name": "7-nin no Nemuri Hime",
-      "title": {
-        "english": null,
-        "romaji": "7-nin no Nemuri Hime",
-        "native": "7人の眠り姫"
-      },
-      "format": "TV",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 1012,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64569"
-        ],
-        "anidb": [
-          "20179"
-        ],
-        "kitsu": [
-          "50838"
-        ],
-        "simkl": [
-          "3176932"
-        ],
-        "anilist": [
-          "213929"
-        ],
-        "anisearch": [
-          "21841"
-        ],
-        "livechart": [
-          "13727"
-        ],
-        "anime_planet": [
-          "7-nin-no-nemuri-hime"
-        ],
-        "animeschedule": [
-          "7-nin-no-nemuri-hime"
-        ],
-        "animecountdown": [
-          "3176932"
-        ],
-        "animenewsnetwork": [
-          "40307"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/H83dKsNUG9MF8kDyLXhJbfcr5UheNkIc",
-      "scraped_at_page": 421,
-      "cursor": "c1_zbD7yrOuLRSer-pcStFFdW9A3XwAem58hfVvThYb08gDIAIm9I_LqtLcBj8rVGmtJ9wH2xzQmIZyg_dyrmcF7iAj1AWVCgq6xXuzuMEnf0KPfWk2VI8BNoEqUCCnpQDI"
-    },
-    {
-      "id": "xJbpWPVGd5F6UUVrDCrGtuO4pcQJHv0e",
-      "name": "Hei Bai",
-      "title": {
-        "english": null,
-        "romaji": "Hei Bai",
-        "native": "黑白双龙"
-      },
-      "format": "ONA",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 980,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64584"
-        ],
-        "kitsu": [
-          "50840"
-        ],
-        "anilist": [
-          "213987"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/xJbpWPVGd5F6UUVrDCrGtuO4pcQJHv0e",
-      "scraped_at_page": 425,
-      "cursor": "c1_vO1ZLJsbSTd2TwKIgVus7VDuCanNjL0h3665O28arh85ACP2zoT_nhxTtmhBiJfn-5ZhzgEdniKDVUGHH_m44AMh62JqS9c0Yv69Qf3oTEeaNHp-_qzLonhbVglknE7S"
-    },
-    {
-      "id": "VbO7ZjePA9_hNdDwXQCfsaTUkRxdqLUa",
-      "name": "Watashi wo Center ni Suru to Chikaimasuka?",
-      "title": {
-        "english": null,
-        "romaji": "Watashi wo Center ni Suru to Chikaimasuka?",
-        "native": "私をセンターにすると誓いますか？"
-      },
-      "format": "TV",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 975,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64573"
-        ],
-        "anidb": [
-          "20186"
-        ],
-        "simkl": [
-          "3178022"
-        ],
-        "anilist": [
-          "213952"
-        ],
-        "anisearch": [
-          "21842"
-        ],
-        "livechart": [
-          "13728"
-        ],
-        "animeschedule": [
-          "watashi-wo-center-ni-suru-to-chikaimasu-ka"
-        ],
-        "animecountdown": [
-          "3178022"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/VbO7ZjePA9_hNdDwXQCfsaTUkRxdqLUa",
-      "scraped_at_page": 426,
-      "cursor": "c1_7ho5pmYFaRJ96XpjdleoCcSvKNR-el56cAHh1f2DzOCAIDQNZHTnsHsAMoQa9dzrhlcvvxwuXTDozdUROYDOCxAxLVR2FfUUFoc0m_8HmHC_odyWS0QJASVH2GZnWVH7"
-    },
-    {
-      "id": "6O0nNMlfPpNCV314Rvu4il5MfUTh7xeI",
-      "name": "S-Rank Boukensha de Aru Ore no Musumetachi wa Juudo no Father-con Deshita",
-      "title": {
-        "english": null,
-        "romaji": "S-Rank Boukensha de Aru Ore no Musumetachi wa Juudo no Father-con Deshita",
-        "native": "Sランク冒険者である俺の娘たちは重度のファザコンでした"
-      },
-      "format": "TV",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 886,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64552"
-        ],
-        "simkl": [
-          "3173576"
-        ],
-        "anilist": [
-          "213873"
-        ],
-        "anisearch": [
-          "21838"
-        ],
-        "livechart": [
-          "13721"
-        ],
-        "anime_planet": [
-          "s-rank-boukensha-de-aru-ore-no-musume-tachi-wa-juudo-no-father-complex-deshita"
-        ],
-        "animeschedule": [
-          "s-rank-boukensha-de-aru-ore-no-musume-tachi-wa-juudo-no-fathercon-deshita"
-        ],
-        "animecountdown": [
-          "3173576"
-        ],
-        "animenewsnetwork": [
-          "40274"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/6O0nNMlfPpNCV314Rvu4il5MfUTh7xeI",
-      "scraped_at_page": 440,
-      "cursor": "c1_WnUGqB8Du5To5IdOLZgIsFofQ8F9Jl7Tt_OqAzDclf3gmV7BYDXwa_8Vyt3lcQDQd1YojIuPXFyY9W8uFyHIqpJUtGQZontp5WLXxR6g9zwUWdL95PVixuLASl8fJ_81"
-    },
-    {
-      "id": "I0C5Y_apUVjzVg4SvtH6dnlA3QnyaDuH",
-      "name": "Akazukin, Tabi no Tochuu de Shitai to Deau.",
-      "title": {
-        "english": null,
-        "romaji": "Akazukin, Tabi no Tochuu de Shitai to Deau.",
-        "native": "赤ずきん、旅の途中で死体と出会う。"
-      },
-      "format": "TV",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 871,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64782"
-        ],
-        "anidb": [
-          "20263"
-        ],
-        "simkl": [
-          "3212352"
-        ],
-        "anilist": [
-          "214969"
-        ],
-        "anisearch": [
-          "21892"
-        ],
-        "livechart": [
-          "13765"
-        ],
-        "anime_planet": [
-          "akazukin-tabi-no-tochuu-de-shitai-to-deau"
-        ],
-        "animeschedule": [
-          "akazukin-tabi-no-tochuu-de-shitai-to-deau"
-        ],
-        "animecountdown": [
-          "3212352"
-        ],
-        "animenewsnetwork": [
-          "40427"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/I0C5Y_apUVjzVg4SvtH6dnlA3QnyaDuH",
-      "scraped_at_page": 441,
-      "cursor": "c1_nrAXldKra6NsCvzWPbXjpFkZDqSly1pXv8_g3fogbcgFrw1y1ehBGXA3FpZ7SWXe2ysbUvWRnZYyfeDD7JArqpLF7kqcFHRR10kTGUXcuJTs98sEKwwdTZT7K_rdFJZb"
-    },
-    {
-      "id": "OFlSoBNptQGDiYeLSc2Ck9ZY5jW4ZjME",
-      "name": "4th Project (Provisional Title)",
-      "title": {
-        "english": null,
-        "romaji": "4th Project (Provisional Title)",
-        "native": "4th Project（仮）"
-      },
-      "format": "SPECIAL",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 869,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "anilist": [
-          "213878"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/OFlSoBNptQGDiYeLSc2Ck9ZY5jW4ZjME",
-      "scraped_at_page": 442,
-      "cursor": "c1_Ty7nH0dAwF58jGQb1yNR2KRME0eRARuJYYKGkjUm-qQS5NQUQ6bSmp3E_Ah9Di-GcswVC7xLFQSRGHqvKriaNBYWDV29QJKJcVQzZURmSbkQI9PQ6nQW8XNWUY2Sw6ei"
-    },
-    {
-      "id": "XSXPubbmgH20ef44A5ln-vdpaTghQveQ",
-      "name": "Odekake Hololive",
-      "title": {
-        "english": null,
-        "romaji": "Odekake Hololive",
-        "native": "おでかけホロライブ"
-      },
-      "format": "TV",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 796,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "65050"
-        ],
-        "anidb": [
-          "20410"
-        ],
-        "kitsu": [
-          "51010"
-        ],
-        "simkl": [
-          "3260366"
-        ],
-        "anilist": [
-          "216558"
-        ],
-        "livechart": [
-          "13794"
-        ],
-        "animeschedule": [
-          "odeholo"
-        ],
-        "animecountdown": [
-          "3260366"
-        ],
-        "animenewsnetwork": [
-          "40527"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/XSXPubbmgH20ef44A5ln-vdpaTghQveQ",
-      "scraped_at_page": 453,
-      "cursor": "c1_i8i9SPShfDBgR7XE-hQQ7B8jx99HB8ZGlW5gkq0ahmIyb1v4d0Ece_K7rLX-0eqUb-c01VDKnbRKiNH-VuwY5_j2ort1CGeYqMMosL-O9BhcieamTKvHyHSvx0SoSgft"
-    },
-    {
-      "id": "GSItDINJSOBo47vtK-dATLym4xflIcbj",
-      "name": "Mii-chan to Yamada-san",
-      "title": {
-        "english": null,
-        "romaji": "Mii-chan to Yamada-san",
-        "native": "みいちゃんと山田さん"
-      },
-      "format": "SPECIAL",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 732,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64685"
-        ],
-        "anidb": [
-          "20215"
-        ],
-        "simkl": [
-          "3195854"
-        ],
-        "anilist": [
-          "214451"
-        ],
-        "livechart": [
-          "13745"
-        ],
-        "anime_planet": [
-          "mii-chan-to-yamada-san"
-        ],
-        "animeschedule": [
-          "mii-chan-to-yamada-san"
-        ],
-        "animecountdown": [
-          "3195854"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/GSItDINJSOBo47vtK-dATLym4xflIcbj",
-      "scraped_at_page": 464,
-      "cursor": "c1_OyiYSWE5uu-N8AfOjtbn817LoXwR0E7Nn5GHu5VDnFqO0s5KEIl_k8tHAqGLjnHgDA7w1Cttvs3tw7W6YyNRmmUOguUs2uz3jpKv7U7Q9sTEnCnp0KgWi8g9FsvBxAlJ"
-    },
-    {
-      "id": "WbQhkF2kiPvBnheFNn2zFqVdAw6n_9OK",
-      "name": "Milky☆Byway Spring Special: Terror on Chelovin's Day",
-      "title": {
-        "english": "Milky☆Byway Spring Special: Terror on Chelovin's Day",
-        "romaji": "Milky☆Byway Spring Special: Kyoufu no Chelovin Party",
-        "native": "ミルキー☆バイウェイ スプリングスペシャル “恐怖のチェロビン・パーティー”"
-      },
-      "format": "SPECIAL",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 674,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64554"
-        ],
-        "anilist": [
-          "213867"
-        ],
-        "livechart": [
-          "13722"
-        ],
-        "animeschedule": [
-          "milky-biway-spring-special-kyoufu-no-chelovin-party"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/WbQhkF2kiPvBnheFNn2zFqVdAw6n_9OK",
-      "scraped_at_page": 475,
-      "cursor": "c1_stGRcssOSHnkTqpT6HBgwpT5WSaVj84OxfHgcbN2TUxiVeIiGmNV6whjKGPQoe4BkIJbUxPPJcYPURNTv-P0MO7imrERimXnrmkJLT5S4rKONo_gqjXT19nUkZDI4m_m"
-    },
-    {
-      "id": "yAHVyL_jcv_WOnxswlNzLq86Yyu_jQaU",
-      "name": "Toratsugumi: Tsugumi Project",
-      "title": {
-        "english": null,
-        "romaji": "Toratsugumi: Tsugumi Project",
-        "native": "虎鶫　－ＴＳＵＧＵＭＩ　ＰＲＯＪＥＣＴ－"
-      },
-      "format": "TV",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 669,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64608"
-        ],
-        "anidb": [
-          "20196"
-        ],
-        "simkl": [
-          "3184602"
-        ],
-        "anilist": [
-          "214055"
-        ],
-        "anisearch": [
-          "21855"
-        ],
-        "livechart": [
-          "13734"
-        ],
-        "animeschedule": [
-          "toratsugumi-tsugumi-project"
-        ],
-        "animecountdown": [
-          "3184602"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/yAHVyL_jcv_WOnxswlNzLq86Yyu_jQaU",
-      "scraped_at_page": 477,
-      "cursor": "c1_kP-FMIwUqQL71cIXHByLtFX7JoTAE3t0xJA6dVwYZvUOpWZVn_o5zpujDHthGEVmXYUJ9Ad4z9hSkIQCxLrL70HYgyTi7xTopWKNWwh6wuifa43B7dzn3vRDnFQ_Lb5s"
-    },
-    {
-      "id": "05L6UfEBcqk58XPzKRNaXt9_m61yzuW2",
-      "name": "Shin no Seijo de aru Watashi wa Tsuihou Saremashita. Dakara Kono Kuni wa Mou Owari desu",
-      "title": {
-        "english": null,
-        "romaji": "Shin no Seijo de aru Watashi wa Tsuihou Saremashita. Dakara Kono Kuni wa Mou Owari desu",
-        "native": "真の聖女である私は追放されました。だからこの国はもう終わりです"
-      },
-      "format": "TV",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 634,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64665"
-        ],
-        "anidb": [
-          "20209"
-        ],
-        "simkl": [
-          "3193830"
-        ],
-        "anilist": [
-          "214461"
-        ],
-        "tmdb_tv": [
-          "329848"
-        ],
-        "anisearch": [
-          "21879"
-        ],
-        "livechart": [
-          "13742"
-        ],
-        "anime_planet": [
-          "because-i-the-true-saint-was-banished-that-country-is-done-for"
-        ],
-        "animeschedule": [
-          "shin-no-seijo-de-aru-watashi-wa-tsuihou-saremashita-dakara-kono-kuni-wa-mou-owari-desu"
-        ],
-        "animecountdown": [
-          "3193830"
-        ],
-        "animenewsnetwork": [
-          "40367"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/05L6UfEBcqk58XPzKRNaXt9_m61yzuW2",
-      "scraped_at_page": 484,
-      "cursor": "c1_IOLDuIt8vsNv8JZDMddXwgkaabjpzkaSCdRI5mrzvy7w9xW-BLDq05MaPCw919dTDYAIQGijUQxST9oO7z7BxCYM-PS9dUXLp09s-_hmSpsb8ripith3RQzwyCvVJbSx"
-    },
-    {
-      "id": "d7TH6fMjlutxb49MJLMVEboqUa7PZXs2",
-      "name": "Nue no Onmyouji",
-      "title": {
-        "english": null,
-        "romaji": "Nue no Onmyouji",
-        "native": "鵺の陰陽師"
-      },
-      "format": "TV",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": {
-        "season": "SUMMER",
-        "year": 2027
-      },
-      "average_score": null,
-      "popularity": 603,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "65180"
-        ],
-        "kitsu": [
-          "51128"
-        ],
-        "anilist": [
-          "218216"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/d7TH6fMjlutxb49MJLMVEboqUa7PZXs2",
-      "scraped_at_page": 491,
-      "cursor": "c1_1fXKRXtjnMKpZSI-TwV41XOo7feXdzboUf635HT3a7-Y1q-mzw8WLI9iztXkHtDGg6jjUlKJS5JUZ-VO_hszq1Qak0q6rfGGf6F8adyB-qCxWuOHFnoj7D-jAW9DgwIz"
-    },
-    {
-      "id": "n079s70X8lPV0930N59SPRK0xR4lKmg7",
-      "name": "Destiny Unchain Online",
-      "title": {
-        "english": null,
-        "romaji": "Destiny Unchain Online",
-        "native": "Destiny Unchain Online"
-      },
-      "format": "TV",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 525,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64751"
-        ],
-        "anidb": [
-          "20254"
-        ],
-        "simkl": [
-          "3207938"
-        ],
-        "anilist": [
-          "214854"
-        ],
-        "anisearch": [
-          "21893"
-        ],
-        "livechart": [
-          "13759"
-        ],
-        "anime_planet": [
-          "destiny-unchain-online-how-i-became-the-crimson-devil"
-        ],
-        "animeschedule": [
-          "destiny-unchain-online"
-        ],
-        "animecountdown": [
-          "3207938"
-        ],
-        "animenewsnetwork": [
-          "40413"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/n079s70X8lPV0930N59SPRK0xR4lKmg7",
-      "scraped_at_page": 510,
-      "cursor": "c1_oh8PzhrzT7YoCf-XJKboifjs_VADMdlWP4AfU-XNhtmbzq0K0W_uJ-lBggSrwuHZPAK82bGKzupnJxgQupLrKDBFfDkUOn6560IO0BTuBJPJofUpba8c3H0enqXLtWVO"
-    },
-    {
-      "id": "eYMxxOxlinTTAW7eJ5u11F2JDHMNwJwI",
-      "name": "EAT-MAN The Over Order",
-      "title": {
-        "english": "EAT-MAN The Over Order",
-        "romaji": "EAT-MAN: The Over Order",
-        "native": "EAT-MAN The Over Order"
-      },
-      "format": "TV",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 463,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64960"
-        ],
-        "anidb": [
-          "20346"
-        ],
-        "kitsu": [
-          "51026"
-        ],
-        "simkl": [
-          "3246090"
-        ],
-        "anilist": [
-          "216644"
-        ],
-        "livechart": [
-          "13797"
-        ],
-        "animeschedule": [
-          "eat-man-the-over-order"
-        ],
-        "animecountdown": [
-          "3246090"
-        ],
-        "animenewsnetwork": [
-          "40522"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/eYMxxOxlinTTAW7eJ5u11F2JDHMNwJwI",
-      "scraped_at_page": 528,
-      "cursor": "c1_ldtP8siJD01nIEZ01X166-Vyn0hAaH6Hu2FpYescKdvAKHh08OAEg0XLE0Ijn2sRyT89SAN9uySdUp6E71okXl9PjEZd2uVSUT3cDQwxWrnSoAfL37g2oyTO-2bkHNxL"
-    },
-    {
-      "id": "mqmVFYQKxNQW40VrYbGQTfRjmnZrWAiq",
-      "name": "Tsuihou Sareta Shounin wa Kin no Chikara de Sekai wo Sukuu",
-      "title": {
-        "english": null,
-        "romaji": "Tsuihou Sareta Shounin wa Kin no Chikara de Sekai wo Sukuu",
-        "native": "追放された商人は金の力で世界を救う"
-      },
-      "format": "TV",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 450,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64712"
-        ],
-        "anidb": [
-          "20234"
-        ],
-        "simkl": [
-          "3200768"
-        ],
-        "anilist": [
-          "214582"
-        ],
-        "livechart": [
-          "13748"
-        ],
-        "animeschedule": [
-          "tsuihou-sareta-shounin-wa-kane-no-chikara-de-sekai-wo-sukuu"
-        ],
-        "animecountdown": [
-          "3200768"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/mqmVFYQKxNQW40VrYbGQTfRjmnZrWAiq",
-      "scraped_at_page": 532,
-      "cursor": "c1_aFw4GJ4liNryGwK0KxHDhl6UgL9nmIA1_O8JocxnoL0yUyoIQHfctn8IH9kvV8d-Y8zoLfW_4saREp5BGiBMZXJHFHDrmpkm-4wL5qfPItyY9K2wSg-hzXmWInu1km57"
-    },
-    {
-      "id": "I9_oa3xWit_7BrkxVh04UYQM265AYtqy",
-      "name": "Senren＊Banka",
-      "title": {
-        "english": null,
-        "romaji": "Senren＊Banka",
-        "native": "千恋＊万花"
-      },
-      "format": "TV",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 404,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64694"
-        ],
-        "anilist": [
-          "214484"
-        ],
-        "anisearch": [
-          "21863"
-        ],
-        "livechart": [
-          "13746"
-        ],
-        "animeschedule": [
-          "senren-banka"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/I9_oa3xWit_7BrkxVh04UYQM265AYtqy",
-      "scraped_at_page": 547,
-      "cursor": "c1_ufQW0Cewf_dHfXNJe4w9Wy9o9ABCCoDbwp7Vj8uPImvFtRm1f6dPS8NkCQeR330QOlz08stzUuPXOK3ddvAPqsN2jaFGAJf2d2KQtvsc7G6nj8Th_SP6NDBAYjxal4op"
-    },
-    {
-      "id": "YYvzkotUHbjESoNGEBdjoX40qic6jS0d",
-      "name": "Ginga Tetsudou 999 Movie (Provisional Title)",
-      "title": {
-        "english": null,
-        "romaji": "Ginga Tetsudou 999 Movie (Provisional Title)",
-        "native": "銀河鉄道999 新作劇場アニメーション"
-      },
-      "format": "MOVIE",
-      "status": "NOT_YET_RELEASED",
-      "episodes": 1,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 340,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64693"
-        ],
-        "anidb": [
-          "20214"
-        ],
-        "simkl": [
-          "3195852"
-        ],
-        "anilist": [
-          "214442"
-        ],
-        "livechart": [
-          "13744"
-        ],
-        "animeschedule": [
-          "ginga-tetsudou-999-new-movie"
-        ],
-        "animecountdown": [
-          "3195852"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/YYvzkotUHbjESoNGEBdjoX40qic6jS0d",
-      "scraped_at_page": 572,
-      "cursor": "c1_-HjybqqNl-GS0_bnhCS7fppX1fkRj1c9wyfAdKkqRzKtUgtwYtqLlJ4SZ4HqQnI6cdkJw-1Z-R-hG7FEKDrpwjqDhnihMcrdpc8p_nnM1mwYwgUQwUtySNs8qlg7-jEL"
-    },
-    {
-      "id": "mhH6ikyRr1cicvXf9Czqw3YYiaI5eRAr",
-      "name": "Yura Yura Q",
-      "title": {
-        "english": null,
-        "romaji": "Yura Yura Q",
-        "native": "ゆらゆらＱ"
-      },
-      "format": "TV",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 336,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64643"
-        ],
-        "tvdb": [
-          "480480"
-        ],
-        "anidb": [
-          "20203"
-        ],
-        "simkl": [
-          "3189992"
-        ],
-        "anilist": [
-          "214246"
-        ],
-        "tmdb_tv": [
-          "329161"
-        ],
-        "wikidata": [
-          "Q140626747"
-        ],
-        "anisearch": [
-          "21859"
-        ],
-        "livechart": [
-          "13737"
-        ],
-        "animeschedule": [
-          "yurayura-q"
-        ],
-        "animecountdown": [
-          "3189992"
-        ],
-        "animenewsnetwork": [
-          "40355"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/mhH6ikyRr1cicvXf9Czqw3YYiaI5eRAr",
-      "scraped_at_page": 573,
-      "cursor": "c1_UF9wV_O3IObI8cpsCsdckaDTBiXt6NFJHRKGg4hOyOpg2sfW3GczFQ3tvmu_mRTFhEOoou_CgWo4_FvWu3RlII3Fw5Ut05bCuWpyhOBnA5OVaC-0xjmxlXyEatFO9DcO"
-    },
-    {
-      "id": "scA6Xhwoddv5cMMoMZLCYRgl03d16lbc",
-      "name": "Dust of the Simulacrum",
-      "title": {
-        "english": "Dust of the Simulacrum",
-        "romaji": "Sazin no Nakade",
-        "native": "砂塵ノ中デ"
-      },
-      "format": "MOVIE",
-      "status": "FINISHED",
-      "episodes": 1,
-      "episode_duration_minutes": 21,
-      "season": {
-        "season": "SUMMER",
-        "year": 2026
-      },
-      "average_score": null,
-      "popularity": 304,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "anilist": [
-          "214070"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/scA6Xhwoddv5cMMoMZLCYRgl03d16lbc",
-      "scraped_at_page": 587,
-      "cursor": "c1_zp8KYx0spsWNQdgVAOLDI6xRcRqJLPmAeAmYMNZmYVQqCGo5nuprFylI_oicnL-GTFYDsED0obrgayVg8lemCc8kArT-uQ5UmaadLBtUODtsPhjnN1u_fRqevKVQisGd"
-    },
-    {
-      "id": "n9Rp5ECH2bC2LXN5F7xV5Wfc5uOu_KBK",
-      "name": "Kyapi",
-      "title": {
-        "english": null,
-        "romaji": "Kyapi",
-        "native": "きゃぴ"
-      },
-      "format": "MUSIC",
-      "status": "FINISHED",
-      "episodes": 1,
-      "episode_duration_minutes": 3,
-      "season": null,
-      "average_score": 61,
-      "popularity": 296,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64786"
-        ],
-        "kitsu": [
-          "50889"
-        ],
-        "anilist": [
-          "214893"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/n9Rp5ECH2bC2LXN5F7xV5Wfc5uOu_KBK",
-      "scraped_at_page": 591,
-      "cursor": "c1_b0HYCzdS5XrPfo0m9NZ2EZ-a1TKv342IR_pSbdKQ8Y6jks1VzVS91-hNzYW4aLWKievbp5yY0JocqTWiHV5siH8zscq3ilWQcKMCBCAbT4j7sPS2fxTJ_rl3q5t7i2vY"
-    },
-    {
-      "id": "kTxFpppd4NW3IrwUlsQtfnS6wR1MuHI2",
-      "name": "Elf-sensei no Toire wa Doko desu ka?",
-      "title": {
-        "english": null,
-        "romaji": "Elf-sensei no Toire wa Doko desu ka?",
-        "native": "エルフ先生のトイレはどこですか？"
-      },
-      "format": "SPECIAL",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 295,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "65069"
-        ],
-        "anidb": [
-          "20415"
-        ],
-        "simkl": [
-          "3263230"
-        ],
-        "anilist": [
-          "217317"
-        ],
-        "anisearch": [
-          "21992"
-        ],
-        "livechart": [
-          "13821"
-        ],
-        "animeschedule": [
-          "elf-sensei-no-toilet-wa-doko-desu-ka"
-        ],
-        "animecountdown": [
-          "3263230"
-        ],
-        "animenewsnetwork": [
-          "40577"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/kTxFpppd4NW3IrwUlsQtfnS6wR1MuHI2",
-      "scraped_at_page": 591,
-      "cursor": "c1_b0HYCzdS5XrPfo0m9NZ2EZ-a1TKv342IR_pSbdKQ8Y6jks1VzVS91-hNzYW4aLWKievbp5yY0JocqTWiHV5siH8zscq3ilWQcKMCBCAbT4j7sPS2fxTJ_rl3q5t7i2vY"
-    },
-    {
-      "id": "HcY6z61FWfZbRDI-TzuGGv8zyxFPpmA3",
-      "name": "Dokagui Daisuki! Mochizuki-san",
-      "title": {
-        "english": null,
-        "romaji": "Dokagui Daisuki! Mochizuki-san",
-        "native": "ドカ食いダイスキ! もちづきさん"
-      },
-      "format": "TV",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 283,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64737"
-        ],
-        "anidb": [
-          "20246"
-        ],
-        "simkl": [
-          "3204460"
-        ],
-        "anilist": [
-          "214749"
-        ],
-        "anisearch": [
-          "21883"
-        ],
-        "livechart": [
-          "13756"
-        ],
-        "animeschedule": [
-          "dokagui-daisuki-mochizuki-san"
-        ],
-        "animecountdown": [
-          "3204460"
-        ],
-        "animenewsnetwork": [
-          "40407"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/HcY6z61FWfZbRDI-TzuGGv8zyxFPpmA3",
-      "scraped_at_page": 596,
-      "cursor": "c1_N-mUvqlavi-9Kxnsa2paIKEcNn9sXnB7LmHUl27x7BUJWv-b1k6ShJ_7bWrGTUE-2afvofEWLjvawgO9nkRySNC4yNRh1LRRf6-pu7k4D4wGC58DPjFMDOgVmnYIvZnt"
-    },
-    {
-      "id": "K0Xw5xnmEgcjYOmS4SRsY1U-aI58Ad1r",
-      "name": "Odoru Sennen Kazoku",
-      "title": {
-        "english": null,
-        "romaji": "Odoru Sennen Kazoku",
-        "native": "踊る千年家族"
-      },
-      "format": "TV",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 267,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64695"
-        ],
-        "anidb": [
-          "20228"
-        ],
-        "simkl": [
-          "3197786"
-        ],
-        "anilist": [
-          "214483"
-        ],
-        "tmdb_tv": [
-          "330267"
-        ],
-        "livechart": [
-          "13747"
-        ],
-        "animeschedule": [
-          "odoru-sennen-kazoku"
-        ],
-        "animecountdown": [
-          "3197786"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/K0Xw5xnmEgcjYOmS4SRsY1U-aI58Ad1r",
-      "scraped_at_page": 605,
-      "cursor": "c1_DQQaXly7xv1ilQ-yM0rdaQGg0r9ryTi8F7iytORBDZd8AsI1lWBXQYlcv_nZX2PJIiEdvb4iubonznIREcW0pP5Gs1tX4nX_rzna53HXU5GstD-u8-JqcvmEdOjo2SIS"
-    },
-    {
-      "id": "u0Z88gilK9vz5iqvSUVKVUa6y9VlcVxv",
-      "name": "BooooM!!!",
-      "title": {
-        "english": null,
-        "romaji": "BooooM!!!",
-        "native": "BooooM!!!"
-      },
-      "format": "MUSIC",
-      "status": "FINISHED",
-      "episodes": 1,
-      "episode_duration_minutes": 3,
-      "season": null,
-      "average_score": 62,
-      "popularity": 262,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64711"
-        ],
-        "kitsu": [
-          "50865"
-        ],
-        "anilist": [
-          "214559"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/u0Z88gilK9vz5iqvSUVKVUa6y9VlcVxv",
-      "scraped_at_page": 608,
-      "cursor": "c1_JGs-TEdIm_gbu3lKL-EGoKgikCpUhjnIIkWHR8yV6Zvx2E3bZNpvwxT_SqLLRd-sQYPUMTF9ueceYLDLZTc0XHkMnywHbZnbBC7Jrq9wd2seMMC66ivjw7mwcha0u2nI"
-    },
-    {
-      "id": "3uvN4tY7c3KxtJT41KGV4DnccccpS3AX",
-      "name": "Fate/Grand Order: Fujimaru Ritsuka wa Wakaranai Season 4",
-      "title": {
-        "english": null,
-        "romaji": "Fate/Grand Order: Fujimaru Ritsuka wa Wakaranai Season 4",
-        "native": "Fate/Grand Order 藤丸立香はわからない Season4"
-      },
-      "format": "ONA",
-      "status": "RELEASING",
-      "episodes": null,
-      "episode_duration_minutes": 2,
-      "season": {
-        "season": "SUMMER",
-        "year": 2026
-      },
-      "average_score": null,
-      "popularity": 231,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64725"
-        ],
-        "anidb": [
-          "20278"
-        ],
-        "simkl": [
-          "3222038"
-        ],
-        "anilist": [
-          "214855"
-        ],
-        "anisearch": [
-          "21884"
-        ],
-        "livechart": [
-          "13752"
-        ],
-        "anime_planet": [
-          "fategrand-order-fujimaru-ritsuka-wa-wakaranai-season-4"
-        ],
-        "animeschedule": [
-          "fate-grand-order-fujimaru-ritsuka-wa-wakaranai-season-4"
-        ],
-        "animecountdown": [
-          "3222038"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/3uvN4tY7c3KxtJT41KGV4DnccccpS3AX",
-      "scraped_at_page": 629,
-      "cursor": "c1_PDGzYpRgnUbuS_9qTpQz1DoW7H2ZcBPKRowRkYYQh7lziqgoupr8ou6c64-9Fog0406HkRk_ket4jS_oF0vpAMxxDR65uQblF5EEkldKuEX54U9Ps6AhdCXXtrmAgUh3"
-    },
-    {
-      "id": "vAVj0jznAht0JYMkuHiB_cop6sv2FrdV",
-      "name": "Shin Oishinbo",
-      "title": {
-        "english": null,
-        "romaji": "Shin Oishinbo",
-        "native": "新 美味しんぼ"
-      },
-      "format": "TV",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 225,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "65053"
-        ],
-        "imdb": [
-          "tt46751870"
-        ],
-        "anidb": [
-          "20405"
-        ],
-        "simkl": [
-          "3256062"
-        ],
-        "anilist": [
-          "217008"
-        ],
-        "tmdb_tv": [
-          "337071"
-        ],
-        "livechart": [
-          "13808"
-        ],
-        "animeschedule": [
-          "shin-oishinbo"
-        ],
-        "animecountdown": [
-          "3256062"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/vAVj0jznAht0JYMkuHiB_cop6sv2FrdV",
-      "scraped_at_page": 633,
-      "cursor": "c1_5PE8gkUcNmfPGl4WBxh_5GjKg0DxZlk2iiGBtHq2T7587qozrdlcFpvh1HhAG5_Sg6r5BN3Op94kOr8etTOcEWmXzsrXx6Ha8MVRK_XpgRmgWzDfXCry21htAJ8xDGmN"
-    },
-    {
-      "id": "5waGR2m0j8Qq9LGKxcctiJdxNqXoF8Jm",
-      "name": "PUI PUI Molcar Special",
-      "title": {
-        "english": null,
-        "romaji": "PUI PUI Molcar Special",
-        "native": "PUI PUI モルカースペシャルエピソード"
-      },
-      "format": "SPECIAL",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 214,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "anilist": [
-          "214973"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/5waGR2m0j8Qq9LGKxcctiJdxNqXoF8Jm",
-      "scraped_at_page": 641,
-      "cursor": "c1_iZiWpFiJN2Mgnt3Fo3z5LxBgCGBN2wjMkvOIVv4WcID70v_qDsSBjaSJMqBGEMKTZ6V52096fZ_vKXHSEyOkT7j_IWzNm42ILZXYszdrYNwaayqC0DHuWg8LRdE_VJQ9"
-    },
-    {
-      "id": "obLJqDUQZXULHa_44Z-ik91qk6HzhB6t",
-      "name": "PokéOki SEASON 2",
-      "title": {
-        "english": null,
-        "romaji": "PokéOki SEASON 2",
-        "native": "ポケ起き SEASON 2"
-      },
-      "format": "ONA",
-      "status": "FINISHED",
-      "episodes": 4,
-      "episode_duration_minutes": 1,
-      "season": {
-        "season": "SUMMER",
-        "year": 2026
-      },
-      "average_score": null,
-      "popularity": 190,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64965"
-        ],
-        "kitsu": [
-          "51031"
-        ],
-        "anilist": [
-          "216625"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/obLJqDUQZXULHa_44Z-ik91qk6HzhB6t",
-      "scraped_at_page": 660,
-      "cursor": "c1_k-DphzM1sy4jxQFU7ExUhGWVGD9YjZhBBuhRm3rnn5UYiKcLNx8fWXQ0w7GTlyFKSJGpIrja4qmIuN890rXg0_4TxqhvKhKdwPyECP_xpkZ9iVTWSFiKqwmlMHcBOkA2"
-    },
-    {
-      "id": "imSV0cnvQkvdSsEnPoMUXZNuLrgoUbG-",
-      "name": "Cardfight!! Vanguard (Shinsaku TV Anime)",
-      "title": {
-        "english": null,
-        "romaji": "Cardfight!! Vanguard (Shinsaku TV Anime)",
-        "native": "カードファイト!! ヴァンガード (新作TVアニメ)"
-      },
-      "format": "TV",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 170,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "anilist": [
-          "214537"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/imSV0cnvQkvdSsEnPoMUXZNuLrgoUbG-",
-      "scraped_at_page": 679,
-      "cursor": "c1_cFRuJ6Xk8pd2hs0sD3e9E7vbjKT1tt_oaOIg6e_rFHhQxfDqfRhd9lu-ZBQI2eswZnNlprMAtHlPETghu9rjMM4g-VSQPBIwVEcJT8CfVArmAHgjPxJvbHJAOT4zpH7v"
-    },
-    {
-      "id": "XTzQmilJNiZUlWWIe01GnIttSRwr05uV",
-      "name": "Deng Xia Jiu Fa",
-      "title": {
-        "english": null,
-        "romaji": "Deng Xia Jiu Fa",
-        "native": "登霞九法"
-      },
-      "format": "ONA",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 169,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64624"
-        ],
-        "anilist": [
-          "214129"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/XTzQmilJNiZUlWWIe01GnIttSRwr05uV",
-      "scraped_at_page": 680,
-      "cursor": "c1_YyirRLxX-BoSxJrPRmpx2Xe6xfT5SCcSH8pOSrszX0CuhQoi3rSxaHiHmFszceBN7_fJTG3QhmmuRqSiYvre9ntot6hWIqgfmfHPvrYYLoVyEsNi93Xu_7OU6K1nyxmD"
-    },
-    {
-      "id": "-zoHyMyw69VuCPK0vR_dP7ykwnWPerE9",
-      "name": "Fate/Grand Order: 11th Anniversary Movie -Cosmos in the Lostbelt-",
-      "title": {
-        "english": null,
-        "romaji": "Fate/Grand Order: 11th Anniversary Movie -Cosmos in the Lostbelt-",
-        "native": "「Fate/Grand Order」11th Anniversary Movie -Cosmos in the Lostbelt-"
-      },
-      "format": "SPECIAL",
-      "status": "FINISHED",
-      "episodes": 1,
-      "episode_duration_minutes": 7,
-      "season": null,
-      "average_score": 62,
-      "popularity": 166,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "anilist": [
-          "214702"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/-zoHyMyw69VuCPK0vR_dP7ykwnWPerE9",
-      "scraped_at_page": 683,
-      "cursor": "c1_6EiaLBe8_euEouwqGjSVgv1w8dmF7aDXqrNuSLNb7-09Bces_RaVINsrEUOnT1Xoj6QSVCUnijaZmfnBqQOfZUlO_gfBHcBEpdObNugV22X69Dos-vIKaKMpvFXA71ub"
-    },
-    {
-      "id": "PuaMk-4giSXPHPSmHHVH0UN1vmm1F0vx",
-      "name": "Wishing Umbrella",
-      "title": {
-        "english": null,
-        "romaji": "Wishing Umbrella",
-        "native": "Wishing Umbrella"
-      },
-      "format": "MUSIC",
-      "status": "FINISHED",
-      "episodes": 1,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 161,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64972"
-        ],
-        "kitsu": [
-          "51050"
-        ],
-        "anilist": [
-          "216559"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/PuaMk-4giSXPHPSmHHVH0UN1vmm1F0vx",
-      "scraped_at_page": 688,
-      "cursor": "c1_vtE0LXd8SMWKZaurDsi7CuAPJlYZ-nsCXP1D1GWVUVzstSotWcZokyztUS30CvhaxS8wgnCxUR6igXgpp2jMmIuKgSdHWuqIzafbCMEY_A-MjZTEw6d1LCGr9vTRczC3"
-    },
-    {
-      "id": "j8fpDSygOpn6W6XtE0rRddxl1Xs6kh-Y",
-      "name": "THE FOX ELEVATOR BOY RENARD",
-      "title": {
-        "english": null,
-        "romaji": "THE FOX ELEVATOR BOY RENARD",
-        "native": "THE FOX ELEVATOR BOY RENARD"
-      },
-      "format": "MOVIE",
-      "status": "FINISHED",
-      "episodes": 1,
-      "episode_duration_minutes": 1,
-      "season": null,
-      "average_score": null,
-      "popularity": 151,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "anilist": [
-          "214072"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/j8fpDSygOpn6W6XtE0rRddxl1Xs6kh-Y",
-      "scraped_at_page": 698,
-      "cursor": "c1_aTwSEOb0JWOukASxerq1slqiH6fIhQPQf_RTdGnsZsX8vqnHkh9lvvZSiu5d8NX6aumZDakt543WpqqvOCtjN0m2nQTAy5dPKbjrzCeMJadwRJX8jlnyyXtBo8FfcDy0"
-    },
-    {
-      "id": "ptW34nH1nh-z8JIXbiVNDx37RsIi6iTI",
-      "name": "ambivalent garden",
-      "title": {
-        "english": "ambivalent garden",
-        "romaji": "Ninifuni no Niwa",
-        "native": "ににふにの庭"
-      },
-      "format": "MOVIE",
-      "status": "FINISHED",
-      "episodes": 1,
-      "episode_duration_minutes": 4,
-      "season": null,
-      "average_score": null,
-      "popularity": 136,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "65096"
-        ],
-        "anilist": [
-          "214071"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/ptW34nH1nh-z8JIXbiVNDx37RsIi6iTI",
-      "scraped_at_page": 715,
-      "cursor": "c1_OPGMpe4_ldbWI8svHIYREhqRzIamWLBEltE5EPJlsFVgxSXziBPQHfCtb17NpAJ3RtbALP6GtbMPtAmSexQsOKdTDEtZM1rTeSgrypGZcdVWXVw0QlXHv3rQrHqLn53v"
-    },
-    {
-      "id": "rOReSMmwUHObaRrlAAAt6ulbC3_ggbRx",
-      "name": "Yuusanchi! from Yuuhachi",
-      "title": {
-        "english": null,
-        "romaji": "Yuusanchi! from Yuuhachi",
-        "native": "ゆうさんち！from 遊ハち"
-      },
-      "format": "TV_SHORT",
-      "status": "RELEASING",
-      "episodes": null,
-      "episode_duration_minutes": 1,
-      "season": {
-        "season": "FALL",
-        "year": 2026
-      },
-      "average_score": null,
-      "popularity": 130,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64717"
-        ],
-        "kitsu": [
-          "51019"
-        ],
-        "anilist": [
-          "214593"
-        ],
-        "livechart": [
-          "13749"
-        ],
-        "animeschedule": [
-          "yuusanchi-from-yuu-hachi"
-        ],
-        "animenewsnetwork": [
-          "40393"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/rOReSMmwUHObaRrlAAAt6ulbC3_ggbRx",
-      "scraped_at_page": 721,
-      "cursor": "c1_9Em-9LLPL5FjuIH5bixou7_y5B0nRYAutfQtGcneyFVi1jfUAMBTrw8W3bPRU2yrSMNv_C5Hg7yIqvSz5PIOtIQSJTQf3K6HHg4rV_kR-hquTIzUQLBVWqeFyvUOJecq"
-    },
-    {
-      "id": "dZ9de5M-dd9kueiW21hpn3CSXNwpwiEY",
-      "name": "JUNK END",
-      "title": {
-        "english": null,
-        "romaji": "JUNK END",
-        "native": "JUNK END"
-      },
-      "format": "MOVIE",
-      "status": "NOT_YET_RELEASED",
-      "episodes": 1,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 94,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "anilist": [
-          "214018"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/dZ9de5M-dd9kueiW21hpn3CSXNwpwiEY",
-      "scraped_at_page": 762,
-      "cursor": "c1_JbmqRePpPe5qAjXyGPC135v8itkJuwF8lpaDBHYHkvy7TMI6VW15QSlk1i_pRehXgkrOYhTNVzljpKBk4yiys0iZlxKgvBApQCnGsmJS0kfKB8hlxiJBkpUdkduBhVsh"
-    },
-    {
-      "id": "Fk2EfW-uio8w-A7ju4wTwb5HaHLxbhCC",
-      "name": "20001 An Earth Odyssey",
-      "title": {
-        "english": "20001 An Earth Odyssey",
-        "romaji": "20001-nen Chikyuu no Tabi",
-        "native": "20001年 地球の旅"
-      },
-      "format": "MOVIE",
-      "status": "FINISHED",
-      "episodes": 1,
-      "episode_duration_minutes": 20,
-      "season": null,
-      "average_score": null,
-      "popularity": 94,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64902"
-        ],
-        "kitsu": [
-          "51040"
-        ],
-        "anilist": [
-          "214067"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/Fk2EfW-uio8w-A7ju4wTwb5HaHLxbhCC",
-      "scraped_at_page": 762,
-      "cursor": "c1_JbmqRePpPe5qAjXyGPC135v8itkJuwF8lpaDBHYHkvy7TMI6VW15QSlk1i_pRehXgkrOYhTNVzljpKBk4yiys0iZlxKgvBApQCnGsmJS0kfKB8hlxiJBkpUdkduBhVsh"
-    },
-    {
-      "id": "jOmApTyG0WT5KtmQSJ8GewcMFEWfHNhx",
-      "name": "PetitCure: Precure Fairies Season 4",
-      "title": {
-        "english": null,
-        "romaji": "PetitCure: Precure Fairies Season 4",
-        "native": "ぷちきゅあ～Precure Fairies～ シーズン4"
-      },
-      "format": "ONA",
-      "status": "RELEASING",
-      "episodes": null,
-      "episode_duration_minutes": 1,
-      "season": {
-        "season": "FALL",
-        "year": 2026
-      },
-      "average_score": null,
-      "popularity": 87,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "65095"
-        ],
-        "kitsu": [
-          "51123"
-        ],
-        "anilist": [
-          "217624"
-        ],
-        "animeschedule": [
-          "petitcure-precure-fairies-4th-season"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/jOmApTyG0WT5KtmQSJ8GewcMFEWfHNhx",
-      "scraped_at_page": 772,
-      "cursor": "c1_2kVO1-wm1NW18zbYwxEEit5id03ReDOfQGKhmYXkEfTdR68RlZwTVsuRHV4lIqWyLOp7tAXcx7SRWT2h909mw1nnlar3Hsv0NAHfIm6mSiR-f3SpRmuar5s7Y68adQmK"
-    },
-    {
-      "id": "bfbP9Uhq4stOpnhGu_MShTCBZ4VMsoX2",
-      "name": "Ling Long Movie",
-      "title": {
-        "english": null,
-        "romaji": "Ling Long Movie",
-        "native": "灵笼大电影"
-      },
-      "format": "MOVIE",
-      "status": "NOT_YET_RELEASED",
-      "episodes": 1,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 84,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "anilist": [
-          "214871"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/bfbP9Uhq4stOpnhGu_MShTCBZ4VMsoX2",
-      "scraped_at_page": 776,
-      "cursor": "c1_7L6SbbfQCgeu9fYEg41FfzHll1eUmPVDr_g4GQ7XB5LvtWlaEYfvSIohbiuMPzjioDLPQVpVVFTMTTjgyB_h6KPy5u-aHg1_vx_cOWnp8iupvkyaSKdjco1MS2KMmVID"
-    },
-    {
-      "id": "oV-i2epJ-70zBjTsgkhWFTMv3E0lZV1S",
-      "name": "We Will Rise Again",
-      "title": {
-        "english": null,
-        "romaji": "We Will Rise Again",
-        "native": "We Will Rise Again"
-      },
-      "format": "SPECIAL",
-      "status": "FINISHED",
-      "episodes": 1,
-      "episode_duration_minutes": 2,
-      "season": null,
-      "average_score": null,
-      "popularity": 76,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64769"
-        ],
-        "anilist": [
-          "214894"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/oV-i2epJ-70zBjTsgkhWFTMv3E0lZV1S",
-      "scraped_at_page": 787,
-      "cursor": "c1_yzyKDdawIRq5F2GdZZWnE8gAyLGjsFhECgqOCAQz38zl_jm2poKcmKJi7znV2sUJYgLsN138mS0QEoKs_ioqsXau_L5xWsqnPYU15u46asVXmM-cR5eeYWjNBQ79nrfT"
-    },
-    {
-      "id": "p95tMf8qS00YQQCa6O8EN1W7mZB_xJAC",
-      "name": "Nezumi-kun no Chokki (TV) 2nd Season",
-      "title": {
-        "english": null,
-        "romaji": "Nezumi-kun no Chokki (TV) 2nd Season",
-        "native": "ねずみくんのチョッキ (TV) 第2期"
-      },
-      "format": "TV_SHORT",
-      "status": "RELEASING",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": {
-        "season": "FALL",
-        "year": 2026
-      },
-      "average_score": null,
-      "popularity": 65,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64789"
-        ],
-        "kitsu": [
-          "51001"
-        ],
-        "anilist": [
-          "214968"
-        ],
-        "livechart": [
-          "13764"
-        ],
-        "anime_planet": [
-          "nezumi-kun-no-chokki-2026-season-2"
-        ],
-        "animeschedule": [
-          "nezumi-kun-no-chokki-tv-2nd-season"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/p95tMf8qS00YQQCa6O8EN1W7mZB_xJAC",
-      "scraped_at_page": 802,
-      "cursor": "c1_RwFiKe-YYW0HIzj62WrJpvxm0DR4ZtIz0F7uYhOHtcL99OPpu9EvKvaiqHo79-t7SUZ9n_YAs0VnqOltkvaX2RTO1VDiBgRvQs3zhpa4BLwCn0IyjkpSNgawhTT_AzhX"
-    },
-    {
-      "id": "__Qr_vEGObUXbxAvF-ENpNpUutdPCgYx",
-      "name": "Primeval Overlord",
-      "title": {
-        "english": "Primeval Overlord",
-        "romaji": "Taigu Shen Zun",
-        "native": "太古神尊"
-      },
-      "format": "ONA",
-      "status": "RELEASING",
-      "episodes": 40,
-      "episode_duration_minutes": 10,
-      "season": null,
-      "average_score": null,
-      "popularity": 65,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64710"
-        ],
-        "anidb": [
-          "20233"
-        ],
-        "simkl": [
-          "3200766"
-        ],
-        "anilist": [
-          "215526"
-        ],
-        "tmdb_tv": [
-          "330275"
-        ],
-        "animecountdown": [
-          "3200766"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/__Qr_vEGObUXbxAvF-ENpNpUutdPCgYx",
-      "scraped_at_page": 802,
-      "cursor": "c1_RwFiKe-YYW0HIzj62WrJpvxm0DR4ZtIz0F7uYhOHtcL99OPpu9EvKvaiqHo79-t7SUZ9n_YAs0VnqOltkvaX2RTO1VDiBgRvQs3zhpa4BLwCn0IyjkpSNgawhTT_AzhX"
-    },
-    {
-      "id": "UBilSdnmTSL0FO8R-c28FSTdoTuy-9Qj",
-      "name": "Sarangui Heartsping: Goraeboseok-ui Jeonseol",
-      "title": {
-        "english": null,
-        "romaji": "Sarangui Heartsping: Goraeboseok-ui Jeonseol",
-        "native": "사랑의 하츄핑: 고래보석의 전설"
-      },
-      "format": "MOVIE",
-      "status": "RELEASING",
-      "episodes": 1,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 60,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "anilist": [
-          "213958"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/UBilSdnmTSL0FO8R-c28FSTdoTuy-9Qj",
-      "scraped_at_page": 809,
-      "cursor": "c1_wnBpca6Ki4GAMLlr_cC5BCcaX9BIBhgxcZOxe2Wr10eSjoqt5r4KhzkSS0te5ne07g3VZlg0lLNO5f-Q_LvuEqdsS9SgJ92NvtYJ2vQXFab0dptBiWiNueuW7ysS71l8"
-    },
-    {
-      "id": "HOiOFCbAsEQqy2Px--DIwwqBeXcNwu8e",
-      "name": "1999! Occult Countermeasures Department",
-      "title": {
-        "english": "1999! Occult Countermeasures Department",
-        "romaji": "1999! Shenmi Xue Duice Bu",
-        "native": "1999！神秘学对策部"
-      },
-      "format": "ONA",
-      "status": "FINISHED",
-      "episodes": 8,
-      "episode_duration_minutes": 6,
-      "season": null,
-      "average_score": null,
-      "popularity": 56,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64724"
-        ],
-        "anidb": [
-          "20262"
-        ],
-        "simkl": [
-          "3211430"
-        ],
-        "anilist": [
-          "217391"
-        ],
-        "tmdb_tv": [
-          "330506"
-        ],
-        "animecountdown": [
-          "3211430"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/HOiOFCbAsEQqy2Px--DIwwqBeXcNwu8e",
-      "scraped_at_page": 816,
-      "cursor": "c1_PMjpEeKACxudOkSpKhSeXRLoYdFKNa6jje3zLwqL2N9xQkQULpsCOhDsqYx8RU0d3klYkQc9-NkOTAXTXw6xebm1MkZUIEtKD4xRh-G0GV1YxXGaZAPejlFPdj_Ub8IZ"
-    },
-    {
-      "id": "cJ2WL_-Kf96UOVN93gqOMt8T5PxViZ_R",
-      "name": "Han ye Deng Zhu",
-      "title": {
-        "english": null,
-        "romaji": "Han ye Deng Zhu",
-        "native": "寒夜灯柱"
-      },
-      "format": "MOVIE",
-      "status": "FINISHED",
-      "episodes": 1,
-      "episode_duration_minutes": 90,
-      "season": {
-        "season": "WINTER",
-        "year": 2026
-      },
-      "average_score": null,
-      "popularity": 52,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64598"
-        ],
-        "kitsu": [
-          "50864"
-        ],
-        "anilist": [
-          "213928"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/cJ2WL_-Kf96UOVN93gqOMt8T5PxViZ_R",
-      "scraped_at_page": 822,
-      "cursor": "c1_q2URPp_GSPxLWMaPepS3M1iAxlbE0XUAaM7dTHovvj82aoOCUY3VhBK931maC7ZzXoyX5z17fUgXpLX4lRMdhcDY4WylS-6uQKS_2M-IF2wxx1xjHlauYsMemgOFp5c5"
-    },
-    {
-      "id": "KA5z7BPzQmv9hMo9TG7kVhy_Jfn8WUi7",
-      "name": "Stella Sora Anime PVs",
-      "title": {
-        "english": null,
-        "romaji": "Stella Sora Anime PVs",
-        "native": "ステラソラ アニメPVs"
-      },
-      "format": "SPECIAL",
-      "status": "RELEASING",
-      "episodes": null,
-      "episode_duration_minutes": 1,
-      "season": null,
-      "average_score": null,
-      "popularity": 49,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "anilist": [
-          "214539"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/KA5z7BPzQmv9hMo9TG7kVhy_Jfn8WUi7",
-      "scraped_at_page": 827,
-      "cursor": "c1_n4UiKOfmaeoOdGKRIFfx-zWZMdtC8gn27m7O6btHAx1cH4F-aID-UYUA7UXsNn4ocFMS15K_uLfkx22LtU2l7RIUZf8eHXecXWbJDh3E3BHtVDpocRvCjEUmSw-UiKYL"
-    },
-    {
-      "id": "GedWsuFoDfnoY6gH-Jn2q9PE7KLXBFPR",
-      "name": "Mazenchu",
-      "title": {
-        "english": null,
-        "romaji": "Mazenchu",
-        "native": "マゼンチュ"
-      },
-      "format": "TV_SHORT",
-      "status": "RELEASING",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": {
-        "season": "FALL",
-        "year": 2026
-      },
-      "average_score": null,
-      "popularity": 49,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "65007"
-        ],
-        "anilist": [
-          "217577"
-        ],
-        "livechart": [
-          "13800"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/GedWsuFoDfnoY6gH-Jn2q9PE7KLXBFPR",
-      "scraped_at_page": 827,
-      "cursor": "c1_n4UiKOfmaeoOdGKRIFfx-zWZMdtC8gn27m7O6btHAx1cH4F-aID-UYUA7UXsNn4ocFMS15K_uLfkx22LtU2l7RIUZf8eHXecXWbJDh3E3BHtVDpocRvCjEUmSw-UiKYL"
-    },
-    {
-      "id": "IPqDja00B0d6P7rrmPOJtMvSXEEAOdUx",
-      "name": "Astral lamp",
-      "title": {
-        "english": null,
-        "romaji": "Astral lamp",
-        "native": "Astral lamp"
-      },
-      "format": "MUSIC",
-      "status": "FINISHED",
-      "episodes": 1,
-      "episode_duration_minutes": 4,
-      "season": null,
-      "average_score": null,
-      "popularity": 46,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "anilist": [
-          "214892"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/IPqDja00B0d6P7rrmPOJtMvSXEEAOdUx",
-      "scraped_at_page": 832,
-      "cursor": "c1_u1W_xjckNMsHgz1X1k5xCSVNm_qR1PrtE0IZjlQ2wvd5Mtz3ri-dXN0kxnVDQ_XvpqevpgNVj9pEI7D5FYVSjGrs5IeJ-50WVawUQSkGU6KSW8BhA65yvxIQtR2MkSPW"
-    },
-    {
-      "id": "OR4sCr2ED_yKMQdgl6BGqkh_zYYg1Gi6",
-      "name": "Di Ling Ai: Shui Xin Chan",
-      "title": {
-        "english": null,
-        "romaji": "Di Ling Ai: Shui Xin Chan",
-        "native": "缔灵爱水心缠"
-      },
-      "format": "ONA",
-      "status": "RELEASING",
-      "episodes": 20,
-      "episode_duration_minutes": 14,
-      "season": null,
-      "average_score": null,
-      "popularity": 20,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "mal": [
-          "64754"
-        ],
-        "anilist": [
-          "214829"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/OR4sCr2ED_yKMQdgl6BGqkh_zYYg1Gi6",
-      "scraped_at_page": 864,
-      "cursor": "c1_L26L-9GBAGF9PKgZt5yVKsv7d53BoTTFdC7ilyDlU6TDjczTTXD-pesMXXvfefolM9FKqC0jQjxtsn0YmLffzCLb_TVELDdXkZQHdgNrUHoY-tFkTMLV2RfSvGU05vH2"
-    },
-    {
-      "id": "_v3uPi-jF_VPeD_JKlQxmIQpc8h0mRk4",
-      "name": "Liang Yao",
-      "title": {
-        "english": null,
-        "romaji": "Liang Yao",
-        "native": "良药"
-      },
-      "format": "ONA",
-      "status": "NOT_YET_RELEASED",
-      "episodes": null,
-      "episode_duration_minutes": null,
-      "season": null,
-      "average_score": null,
-      "popularity": 20,
-      "is_adult": false,
-      "genres": [],
-      "external_ids": {
-        "anilist": [
-          "214872"
-        ]
-      },
-      "source_miruro_url": "https://miruro.tv/watch/_v3uPi-jF_VPeD_JKlQxmIQpc8h0mRk4",
-      "scraped_at_page": 864,
-      "cursor": "c1_L26L-9GBAGF9PKgZt5yVKsv7d53BoTTFdC7ilyDlU6TDjczTTXD-pesMXXvfefolM9FKqC0jQjxtsn0YmLffzCLb_TVELDdXkZQHdgNrUHoY-tFkTMLV2RfSvGU05vH2"
-    }
-  ]
-}
+  {
+    "sources": [
+      "https://miruro.tv/watch/q_G9I48tTkKjrINDaKobBeIQTACo0Eom",
+      "https://anilist.co/anime/216624",
+      "https://myanimelist.net/anime/64950",
+      "https://kitsu.app/anime/51025",
+      "https://anidb.net/anime/20345",
+      "https://anime-planet.com/anime/sss-class-revival-hunter",
+      "https://simkl.com/anime/3244808",
+      "https://animecountdown.com/3244808",
+      "https://livechart.me/anime/13796"
+    ],
+    "title": "SSS-Class Revival Hunter",
+    "type": "TV",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx216624-ZgSowlLTtu3G.png",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx216624-ZgSowlLTtu3G.png",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "Shishite Ikiru SSS-kyuu Hunter",
+      "死して生きるSSS級ハンター"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 698051220,
+    "Miruro_Id": "q_G9I48tTkKjrINDaKobBeIQTACo0Eom"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/JRMfKDotgS9PrTVjitmn2Ybo7dHtZTWl",
+      "https://anilist.co/anime/214650",
+      "https://myanimelist.net/anime/64726",
+      "https://anidb.net/anime/20238",
+      "https://simkl.com/anime/3203588",
+      "https://anisearch.com/anime/21882",
+      "https://animecountdown.com/3203588",
+      "https://livechart.me/anime/13754"
+    ],
+    "title": "Mato Seihei no Slave 3",
+    "type": "TV",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214650-yjbJc0iQkJIW.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214650-yjbJc0iQkJIW.jpg",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "魔都精兵のスレイブ"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 507404239,
+    "Miruro_Id": "JRMfKDotgS9PrTVjitmn2Ybo7dHtZTWl"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/qzDseD3qC2610HAru8rYGjK7SFM6aD_Y",
+      "https://anilist.co/anime/213877",
+      "https://myanimelist.net/anime/64555",
+      "https://anidb.net/anime/20170",
+      "https://anime-planet.com/anime/murcielago",
+      "https://simkl.com/anime/3173588",
+      "https://animecountdown.com/3173588",
+      "https://livechart.me/anime/13723"
+    ],
+    "title": "MURCIÉLAGO",
+    "type": "TV",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx213877-NK48aPaVO29y.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx213877-NK48aPaVO29y.jpg",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "ムルシエラゴ"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 736449311,
+    "Miruro_Id": "qzDseD3qC2610HAru8rYGjK7SFM6aD_Y"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/pUKa5RY22Q5jo22M7-hyeBBbLIIU53AN",
+      "https://anilist.co/anime/214368",
+      "https://myanimelist.net/anime/64664",
+      "https://anidb.net/anime/20208",
+      "https://anime-planet.com/anime/kusunokis-flunking-her-high-school-glow-up",
+      "https://simkl.com/anime/3193828",
+      "https://animecountdown.com/3193828",
+      "https://livechart.me/anime/13741"
+    ],
+    "title": "Kusunoki-san wa Koukou Debut ni Shippaishiteiru",
+    "type": "TV",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214368-ZrbtKFz8hWXe.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214368-ZrbtKFz8hWXe.jpg",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "楠木さんは高校デビューに失敗している"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 732845329,
+    "Miruro_Id": "pUKa5RY22Q5jo22M7-hyeBBbLIIU53AN"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/x6Q-U1JCaPfyL8gPc0We1CxUnEbtppZA",
+      "https://anilist.co/anime/214044",
+      "https://myanimelist.net/anime/64599",
+      "https://kitsu.app/anime/50844",
+      "https://anidb.net/anime/20194",
+      "https://anime-planet.com/anime/noa-senpai-wa-tomodachi",
+      "https://simkl.com/anime/3183628",
+      "https://anisearch.com/anime/21846",
+      "https://animecountdown.com/3183628",
+      "https://livechart.me/anime/13732"
+    ],
+    "title": "Noa-senpai wa Tomodachi.",
+    "type": "TV",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214044-dVL7POwzoaAk.png",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214044-dVL7POwzoaAk.png",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "のあ先輩はともだち。"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 448275428,
+    "Miruro_Id": "x6Q-U1JCaPfyL8gPc0We1CxUnEbtppZA"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/v0trK2muVnVnqjIKvlcrM4eW0EZbQrtN",
+      "https://anilist.co/anime/214863",
+      "https://myanimelist.net/anime/64768",
+      "https://anidb.net/anime/20259",
+      "https://simkl.com/anime/3211426",
+      "https://anisearch.com/anime/21891",
+      "https://animecountdown.com/3211426",
+      "https://livechart.me/anime/13763"
+    ],
+    "title": "Akuyaku no Ending wa Shi nomi",
+    "type": "TV",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214863-X04Jx4nyv06q.png",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214863-X04Jx4nyv06q.png",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "悪役のエンディングは死のみ"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 495299318,
+    "Miruro_Id": "v0trK2muVnVnqjIKvlcrM4eW0EZbQrtN"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/1fi_oOVKxqrMynCswoLbgZikwY1SNMCr",
+      "https://anilist.co/anime/214215",
+      "https://myanimelist.net/anime/64640",
+      "https://anidb.net/anime/20202",
+      "https://anime-planet.com/anime/sometimes-even-reality-is-a-lie",
+      "https://simkl.com/anime/3189158",
+      "https://anisearch.com/anime/21858",
+      "https://animecountdown.com/3189158",
+      "https://livechart.me/anime/13736"
+    ],
+    "title": "Real mo Tama ni wa Uso wo Tsuku",
+    "type": "TV",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214215-1CCqgO8bk0ne.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214215-1CCqgO8bk0ne.jpg",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "現実もたまには嘘をつく"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 482787023,
+    "Miruro_Id": "1fi_oOVKxqrMynCswoLbgZikwY1SNMCr"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/IJiimigfxj1qdjIE73Fd7Z93x1wQSmjI",
+      "https://anilist.co/anime/213891",
+      "https://myanimelist.net/anime/64562",
+      "https://kitsu.app/anime/50836",
+      "https://livechart.me/anime/13726"
+    ],
+    "title": "Mononoke (Shin Project)",
+    "type": "SPECIAL",
+    "episodes": 1,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b213891-1IP1G59ARF7k.png",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b213891-1IP1G59ARF7k.png",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "モノノ怪 (新プロジェクト)"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 241568417,
+    "Miruro_Id": "IJiimigfxj1qdjIE73Fd7Z93x1wQSmjI"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/iYJ2aRQB4jhgPzPFrDqz7fkmeKsB35m1",
+      "https://anilist.co/anime/214332",
+      "https://myanimelist.net/anime/64658",
+      "https://anidb.net/anime/20206",
+      "https://anime-planet.com/anime/studio-cabana",
+      "https://simkl.com/anime/3192846",
+      "https://anisearch.com/anime/21861",
+      "https://animecountdown.com/3192846",
+      "https://livechart.me/anime/13738"
+    ],
+    "title": "Studio Cabana",
+    "type": "TV",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214332-6Gd3VRcq1sFt.png",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214332-6Gd3VRcq1sFt.png",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "スタジオカバナ"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 643079520,
+    "Miruro_Id": "iYJ2aRQB4jhgPzPFrDqz7fkmeKsB35m1"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/aOXiyClrUE6yLtTwFoN1luqrG9Rpdnea",
+      "https://anilist.co/anime/214380",
+      "https://myanimelist.net/anime/64667",
+      "https://kitsu.app/anime/50847",
+      "https://anidb.net/anime/20210",
+      "https://anime-planet.com/anime/mobile-suit-gundam-rg-xarx-zero",
+      "https://simkl.com/anime/3193832",
+      "https://animecountdown.com/3193832",
+      "https://livechart.me/anime/13729"
+    ],
+    "title": "Kidou Senshi Gundam RG XARX-ZERO",
+    "type": "SPECIAL",
+    "episodes": 1,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214380-s4oDV8jyL1zQ.png",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214380-s4oDV8jyL1zQ.png",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "機動戦士ガンダムRG XARX-ZERO"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 469491205,
+    "Miruro_Id": "aOXiyClrUE6yLtTwFoN1luqrG9Rpdnea"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/KpxATKeIz5rym_69NDSQDjdeCKO8mgrG",
+      "https://anilist.co/anime/213879",
+      "https://myanimelist.net/anime/64556",
+      "https://anidb.net/anime/20171",
+      "https://simkl.com/anime/3173590",
+      "https://anisearch.com/anime/21843",
+      "https://animecountdown.com/3173590",
+      "https://livechart.me/anime/13724"
+    ],
+    "title": "Jurassic Shadows",
+    "type": "SPECIAL",
+    "episodes": 1,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx213879-bHa3RsvLp5mc.png",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx213879-bHa3RsvLp5mc.png",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "Ryuugeshou no Shinobi",
+      "竜化粧の忍"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 460909693,
+    "Miruro_Id": "KpxATKeIz5rym_69NDSQDjdeCKO8mgrG"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/wxtoUxQyZX8ejXHUAw8PbuNPBVbgD98o",
+      "https://anilist.co/anime/214426",
+      "https://myanimelist.net/anime/64672",
+      "https://kitsu.app/anime/50862"
+    ],
+    "title": "Koutetsujou no Kabaneri: Mumei Ranman",
+    "type": "SPECIAL",
+    "episodes": 1,
+    "status": "FINISHED",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214426-tLtv1k0TADEG.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214426-tLtv1k0TADEG.jpg",
+    "duration": {
+      "value": 360,
+      "unit": "SECONDS"
+    },
+    "score": {
+      "arithmeticGeometricMean": 6.2,
+      "arithmeticMean": 6.2,
+      "median": 6.2
+    },
+    "synonyms": [
+      "甲鉄城のカバネリ 無名爛漫"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 631984178,
+    "Miruro_Id": "wxtoUxQyZX8ejXHUAw8PbuNPBVbgD98o"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/-2vfXcRWEVLH6-9Kbt8J3SoneDP6SI_M",
+      "https://anilist.co/anime/217283",
+      "https://myanimelist.net/anime/65052",
+      "https://anidb.net/anime/20413",
+      "https://simkl.com/anime/3261502",
+      "https://animecountdown.com/3261502",
+      "https://livechart.me/anime/13820"
+    ],
+    "title": "Phantom Busters",
+    "type": "TV",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx217283-hMHG9O1EPutg.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx217283-hMHG9O1EPutg.jpg",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "ファントムバスターズ"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 529612879,
+    "Miruro_Id": "-2vfXcRWEVLH6-9Kbt8J3SoneDP6SI_M"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/G93YKJHbEInm6n5y0ZIKSTPgVmT6WxMj",
+      "https://anilist.co/anime/214049",
+      "https://myanimelist.net/anime/64600",
+      "https://anidb.net/anime/20193",
+      "https://simkl.com/anime/3183626",
+      "https://animecountdown.com/3183626",
+      "https://livechart.me/anime/13266"
+    ],
+    "title": "Kizuguchi to Houtai",
+    "type": "TV",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214049-8lsk5vf0XIdu.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214049-8lsk5vf0XIdu.jpg",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "傷口と包帯"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 837756257,
+    "Miruro_Id": "G93YKJHbEInm6n5y0ZIKSTPgVmT6WxMj"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/X8dsM4hbjPcm4VreXKl3FzZH5gzAEmmo",
+      "https://anilist.co/anime/217330",
+      "https://myanimelist.net/anime/65070",
+      "https://kitsu.app/anime/51086",
+      "https://anidb.net/anime/20416",
+      "https://anime-planet.com/anime/that-time-i-got-reincarnated-as-a-slime-claymans-revenge",
+      "https://simkl.com/anime/3263232",
+      "https://animecountdown.com/3263232",
+      "https://livechart.me/anime/13823"
+    ],
+    "title": "Tensei Shitara Slime Datta Ken: Clayman REVENGE",
+    "type": "TV",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx217330-sk1dvlFIsM2O.png",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx217330-sk1dvlFIsM2O.png",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "転生したらスライムだった件 クレイマンREVENGE"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 575091958,
+    "Miruro_Id": "X8dsM4hbjPcm4VreXKl3FzZH5gzAEmmo"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/OnKK72Xu8jIL5OCc4DC_2eL3tXjYiK74",
+      "https://anilist.co/anime/217457",
+      "https://myanimelist.net/anime/65080",
+      "https://anidb.net/anime/20423",
+      "https://anime-planet.com/anime/houkago-no-idol-ni-wa-himitsu-ga-aru",
+      "https://simkl.com/anime/3266754",
+      "https://animecountdown.com/3266754",
+      "https://livechart.me/anime/13830"
+    ],
+    "title": "Houkago no Idol ni wa Himitsu ga Aru",
+    "type": "TV",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx217457-6ULbOL7Wg4pU.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx217457-6ULbOL7Wg4pU.jpg",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "放課後のアイドルには秘密がある"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 597861747,
+    "Miruro_Id": "OnKK72Xu8jIL5OCc4DC_2eL3tXjYiK74"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/lrHLrNhddPiW5gSb55EphJcMbVTkSepf",
+      "https://anilist.co/anime/214725",
+      "https://myanimelist.net/anime/64731",
+      "https://livechart.me/anime/13750"
+    ],
+    "title": "Digimon (Shinsaku Anime)",
+    "type": "SPECIAL",
+    "episodes": 1,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214725-mEFQHdswYkwU.png",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214725-mEFQHdswYkwU.png",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "デジモン (新作アニメ)"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 394097318,
+    "Miruro_Id": "lrHLrNhddPiW5gSb55EphJcMbVTkSepf"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/H83dKsNUG9MF8kDyLXhJbfcr5UheNkIc",
+      "https://anilist.co/anime/213929",
+      "https://myanimelist.net/anime/64569",
+      "https://kitsu.app/anime/50838",
+      "https://anidb.net/anime/20179",
+      "https://anime-planet.com/anime/7-nin-no-nemuri-hime",
+      "https://simkl.com/anime/3176932",
+      "https://anisearch.com/anime/21841",
+      "https://animecountdown.com/3176932",
+      "https://livechart.me/anime/13727"
+    ],
+    "title": "7-nin no Nemuri Hime",
+    "type": "TV",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx213929-Bdnd6nUcLlFU.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx213929-Bdnd6nUcLlFU.jpg",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "7人の眠り姫"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 598269574,
+    "Miruro_Id": "H83dKsNUG9MF8kDyLXhJbfcr5UheNkIc"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/xJbpWPVGd5F6UUVrDCrGtuO4pcQJHv0e",
+      "https://anilist.co/anime/213987",
+      "https://myanimelist.net/anime/64584",
+      "https://kitsu.app/anime/50840"
+    ],
+    "title": "Hei Bai",
+    "type": "ONA",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx213987-rPrDDLZsbZjD.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx213987-rPrDDLZsbZjD.jpg",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "黑白双龙"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 670263269,
+    "Miruro_Id": "xJbpWPVGd5F6UUVrDCrGtuO4pcQJHv0e"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/VbO7ZjePA9_hNdDwXQCfsaTUkRxdqLUa",
+      "https://anilist.co/anime/213952",
+      "https://myanimelist.net/anime/64573",
+      "https://anidb.net/anime/20186",
+      "https://simkl.com/anime/3178022",
+      "https://anisearch.com/anime/21842",
+      "https://animecountdown.com/3178022",
+      "https://livechart.me/anime/13728"
+    ],
+    "title": "Watashi wo Center ni Suru to Chikaimasuka?",
+    "type": "TV",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx213952-1DegwC5aES0U.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx213952-1DegwC5aES0U.jpg",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "私をセンターにすると誓いますか？"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 109027903,
+    "Miruro_Id": "VbO7ZjePA9_hNdDwXQCfsaTUkRxdqLUa"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/6O0nNMlfPpNCV314Rvu4il5MfUTh7xeI",
+      "https://anilist.co/anime/213873",
+      "https://myanimelist.net/anime/64552",
+      "https://anime-planet.com/anime/s-rank-boukensha-de-aru-ore-no-musume-tachi-wa-juudo-no-father-complex-deshita",
+      "https://simkl.com/anime/3173576",
+      "https://anisearch.com/anime/21838",
+      "https://animecountdown.com/3173576",
+      "https://livechart.me/anime/13721"
+    ],
+    "title": "S-Rank Boukensha de Aru Ore no Musumetachi wa Juudo no Father-con Deshita",
+    "type": "TV",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx213873-yF133xDzwpEw.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx213873-yF133xDzwpEw.jpg",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "Sランク冒険者である俺の娘たちは重度のファザコンでした"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 592763870,
+    "Miruro_Id": "6O0nNMlfPpNCV314Rvu4il5MfUTh7xeI"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/I0C5Y_apUVjzVg4SvtH6dnlA3QnyaDuH",
+      "https://anilist.co/anime/214969",
+      "https://myanimelist.net/anime/64782",
+      "https://anidb.net/anime/20263",
+      "https://anime-planet.com/anime/akazukin-tabi-no-tochuu-de-shitai-to-deau",
+      "https://simkl.com/anime/3212352",
+      "https://anisearch.com/anime/21892",
+      "https://animecountdown.com/3212352",
+      "https://livechart.me/anime/13765"
+    ],
+    "title": "Akazukin, Tabi no Tochuu de Shitai to Deau.",
+    "type": "TV",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214969-1bRdzmZnYFbq.png",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214969-1bRdzmZnYFbq.png",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "赤ずきん、旅の途中で死体と出会う。"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 828342635,
+    "Miruro_Id": "I0C5Y_apUVjzVg4SvtH6dnlA3QnyaDuH"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/OFlSoBNptQGDiYeLSc2Ck9ZY5jW4ZjME",
+      "https://anilist.co/anime/213878"
+    ],
+    "title": "4th Project (Provisional Title)",
+    "type": "SPECIAL",
+    "episodes": 1,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx213878-P0cHS1je1dkH.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx213878-P0cHS1je1dkH.jpg",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "4th Project（仮）"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 256156824,
+    "Miruro_Id": "OFlSoBNptQGDiYeLSc2Ck9ZY5jW4ZjME"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/XSXPubbmgH20ef44A5ln-vdpaTghQveQ",
+      "https://anilist.co/anime/216558",
+      "https://myanimelist.net/anime/65050",
+      "https://kitsu.app/anime/51010",
+      "https://anidb.net/anime/20410",
+      "https://simkl.com/anime/3260366",
+      "https://animecountdown.com/3260366",
+      "https://livechart.me/anime/13794"
+    ],
+    "title": "Odekake Hololive",
+    "type": "TV",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx216558-qq8Xjci6iiXw.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx216558-qq8Xjci6iiXw.jpg",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "おでかけホロライブ"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 211744714,
+    "Miruro_Id": "XSXPubbmgH20ef44A5ln-vdpaTghQveQ"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/GSItDINJSOBo47vtK-dATLym4xflIcbj",
+      "https://anilist.co/anime/214451",
+      "https://myanimelist.net/anime/64685",
+      "https://anidb.net/anime/20215",
+      "https://anime-planet.com/anime/mii-chan-to-yamada-san",
+      "https://simkl.com/anime/3195854",
+      "https://animecountdown.com/3195854",
+      "https://livechart.me/anime/13745"
+    ],
+    "title": "Mii-chan to Yamada-san",
+    "type": "SPECIAL",
+    "episodes": 1,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b214451-yqTC8bmhmiM2.png",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b214451-yqTC8bmhmiM2.png",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "みいちゃんと山田さん"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 206972864,
+    "Miruro_Id": "GSItDINJSOBo47vtK-dATLym4xflIcbj"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/WbQhkF2kiPvBnheFNn2zFqVdAw6n_9OK",
+      "https://anilist.co/anime/213867",
+      "https://myanimelist.net/anime/64554",
+      "https://livechart.me/anime/13722"
+    ],
+    "title": "Milky☆Byway Spring Special: Terror on Chelovin's Day",
+    "type": "SPECIAL",
+    "episodes": 1,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b213867-nZsdp1SSiuh7.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b213867-nZsdp1SSiuh7.jpg",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "Milky☆Byway Spring Special: Kyoufu no Chelovin Party",
+      "ミルキー☆バイウェイ スプリングスペシャル “恐怖のチェロビン・パーティー”"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 418812218,
+    "Miruro_Id": "WbQhkF2kiPvBnheFNn2zFqVdAw6n_9OK"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/yAHVyL_jcv_WOnxswlNzLq86Yyu_jQaU",
+      "https://anilist.co/anime/214055",
+      "https://myanimelist.net/anime/64608",
+      "https://anidb.net/anime/20196",
+      "https://simkl.com/anime/3184602",
+      "https://anisearch.com/anime/21855",
+      "https://animecountdown.com/3184602",
+      "https://livechart.me/anime/13734"
+    ],
+    "title": "Toratsugumi: Tsugumi Project",
+    "type": "TV",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214055-zqLxU88Wtnek.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214055-zqLxU88Wtnek.jpg",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "虎鶫　－ＴＳＵＧＵＭＩ　ＰＲＯＪＥＣＴ－"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 197589475,
+    "Miruro_Id": "yAHVyL_jcv_WOnxswlNzLq86Yyu_jQaU"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/05L6UfEBcqk58XPzKRNaXt9_m61yzuW2",
+      "https://anilist.co/anime/214461",
+      "https://myanimelist.net/anime/64665",
+      "https://anidb.net/anime/20209",
+      "https://anime-planet.com/anime/because-i-the-true-saint-was-banished-that-country-is-done-for",
+      "https://simkl.com/anime/3193830",
+      "https://anisearch.com/anime/21879",
+      "https://animecountdown.com/3193830",
+      "https://livechart.me/anime/13742"
+    ],
+    "title": "Shin no Seijo de aru Watashi wa Tsuihou Saremashita. Dakara Kono Kuni wa Mou Owari desu",
+    "type": "TV",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214461-BoVsaagZiyLJ.png",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214461-BoVsaagZiyLJ.png",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "真の聖女である私は追放されました。だからこの国はもう終わりです"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 144627745,
+    "Miruro_Id": "05L6UfEBcqk58XPzKRNaXt9_m61yzuW2"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/d7TH6fMjlutxb49MJLMVEboqUa7PZXs2",
+      "https://anilist.co/anime/218216",
+      "https://myanimelist.net/anime/65180",
+      "https://kitsu.app/anime/51128"
+    ],
+    "title": "Nue no Onmyouji",
+    "type": "TV",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx218216-H2xJqVSDyHmE.png",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx218216-H2xJqVSDyHmE.png",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "鵺の陰陽師"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 900877032,
+    "Miruro_Id": "d7TH6fMjlutxb49MJLMVEboqUa7PZXs2"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/n079s70X8lPV0930N59SPRK0xR4lKmg7",
+      "https://anilist.co/anime/214854",
+      "https://myanimelist.net/anime/64751",
+      "https://anidb.net/anime/20254",
+      "https://anime-planet.com/anime/destiny-unchain-online-how-i-became-the-crimson-devil",
+      "https://simkl.com/anime/3207938",
+      "https://anisearch.com/anime/21893",
+      "https://animecountdown.com/3207938",
+      "https://livechart.me/anime/13759"
+    ],
+    "title": "Destiny Unchain Online",
+    "type": "TV",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214854-3W8T7CHOFU4D.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214854-3W8T7CHOFU4D.jpg",
+    "duration": null,
+    "score": null,
+    "synonyms": [],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 673544927,
+    "Miruro_Id": "n079s70X8lPV0930N59SPRK0xR4lKmg7"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/eYMxxOxlinTTAW7eJ5u11F2JDHMNwJwI",
+      "https://anilist.co/anime/216644",
+      "https://myanimelist.net/anime/64960",
+      "https://kitsu.app/anime/51026",
+      "https://anidb.net/anime/20346",
+      "https://simkl.com/anime/3246090",
+      "https://animecountdown.com/3246090",
+      "https://livechart.me/anime/13797"
+    ],
+    "title": "EAT-MAN The Over Order",
+    "type": "TV",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx216644-gYqZZL1r2BGT.png",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx216644-gYqZZL1r2BGT.png",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "EAT-MAN: The Over Order"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 340913332,
+    "Miruro_Id": "eYMxxOxlinTTAW7eJ5u11F2JDHMNwJwI"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/mqmVFYQKxNQW40VrYbGQTfRjmnZrWAiq",
+      "https://anilist.co/anime/214582",
+      "https://myanimelist.net/anime/64712",
+      "https://anidb.net/anime/20234",
+      "https://simkl.com/anime/3200768",
+      "https://animecountdown.com/3200768",
+      "https://livechart.me/anime/13748"
+    ],
+    "title": "Tsuihou Sareta Shounin wa Kin no Chikara de Sekai wo Sukuu",
+    "type": "TV",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214582-KkXMNUZQlmPt.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214582-KkXMNUZQlmPt.jpg",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "追放された商人は金の力で世界を救う"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 876195519,
+    "Miruro_Id": "mqmVFYQKxNQW40VrYbGQTfRjmnZrWAiq"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/I9_oa3xWit_7BrkxVh04UYQM265AYtqy",
+      "https://anilist.co/anime/214484",
+      "https://myanimelist.net/anime/64694",
+      "https://anisearch.com/anime/21863",
+      "https://livechart.me/anime/13746"
+    ],
+    "title": "Senren＊Banka",
+    "type": "TV",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214484-2CgnAUxAYGcj.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214484-2CgnAUxAYGcj.jpg",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "千恋＊万花"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 461741006,
+    "Miruro_Id": "I9_oa3xWit_7BrkxVh04UYQM265AYtqy"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/YYvzkotUHbjESoNGEBdjoX40qic6jS0d",
+      "https://anilist.co/anime/214442",
+      "https://myanimelist.net/anime/64693",
+      "https://anidb.net/anime/20214",
+      "https://simkl.com/anime/3195852",
+      "https://animecountdown.com/3195852",
+      "https://livechart.me/anime/13744"
+    ],
+    "title": "Ginga Tetsudou 999 Movie (Provisional Title)",
+    "type": "MOVIE",
+    "episodes": 1,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214442-fi1lkNH4WFJz.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214442-fi1lkNH4WFJz.jpg",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "銀河鉄道999 新作劇場アニメーション"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 361807677,
+    "Miruro_Id": "YYvzkotUHbjESoNGEBdjoX40qic6jS0d"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/mhH6ikyRr1cicvXf9Czqw3YYiaI5eRAr",
+      "https://anilist.co/anime/214246",
+      "https://myanimelist.net/anime/64643",
+      "https://anidb.net/anime/20203",
+      "https://simkl.com/anime/3189992",
+      "https://anisearch.com/anime/21859",
+      "https://animecountdown.com/3189992",
+      "https://livechart.me/anime/13737"
+    ],
+    "title": "Yura Yura Q",
+    "type": "TV",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214246-ZO85EkWWV7pI.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214246-ZO85EkWWV7pI.jpg",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "ゆらゆらＱ"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 286436437,
+    "Miruro_Id": "mhH6ikyRr1cicvXf9Czqw3YYiaI5eRAr"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/scA6Xhwoddv5cMMoMZLCYRgl03d16lbc",
+      "https://anilist.co/anime/214070"
+    ],
+    "title": "Dust of the Simulacrum",
+    "type": "MOVIE",
+    "episodes": 1,
+    "status": "FINISHED",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214070-DvLRZXO5xGo6.png",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214070-DvLRZXO5xGo6.png",
+    "duration": {
+      "value": 1260,
+      "unit": "SECONDS"
+    },
+    "score": null,
+    "synonyms": [
+      "Sazin no Nakade",
+      "砂塵ノ中デ"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 394438330,
+    "Miruro_Id": "scA6Xhwoddv5cMMoMZLCYRgl03d16lbc"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/n9Rp5ECH2bC2LXN5F7xV5Wfc5uOu_KBK",
+      "https://anilist.co/anime/214893",
+      "https://myanimelist.net/anime/64786",
+      "https://kitsu.app/anime/50889"
+    ],
+    "title": "Kyapi",
+    "type": "SPECIAL",
+    "episodes": 1,
+    "status": "FINISHED",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214893-WoxSDFCR0xmm.png",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214893-WoxSDFCR0xmm.png",
+    "duration": {
+      "value": 180,
+      "unit": "SECONDS"
+    },
+    "score": {
+      "arithmeticGeometricMean": 6.1,
+      "arithmeticMean": 6.1,
+      "median": 6.1
+    },
+    "synonyms": [
+      "きゃぴ"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 991037405,
+    "Miruro_Id": "n9Rp5ECH2bC2LXN5F7xV5Wfc5uOu_KBK"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/kTxFpppd4NW3IrwUlsQtfnS6wR1MuHI2",
+      "https://anilist.co/anime/217317",
+      "https://myanimelist.net/anime/65069",
+      "https://anidb.net/anime/20415",
+      "https://simkl.com/anime/3263230",
+      "https://anisearch.com/anime/21992",
+      "https://animecountdown.com/3263230",
+      "https://livechart.me/anime/13821"
+    ],
+    "title": "Elf-sensei no Toire wa Doko desu ka?",
+    "type": "SPECIAL",
+    "episodes": 1,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx217317-jfmd0PPhuXZU.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx217317-jfmd0PPhuXZU.jpg",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "エルフ先生のトイレはどこですか？"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 337577233,
+    "Miruro_Id": "kTxFpppd4NW3IrwUlsQtfnS6wR1MuHI2"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/HcY6z61FWfZbRDI-TzuGGv8zyxFPpmA3",
+      "https://anilist.co/anime/214749",
+      "https://myanimelist.net/anime/64737",
+      "https://anidb.net/anime/20246",
+      "https://simkl.com/anime/3204460",
+      "https://anisearch.com/anime/21883",
+      "https://animecountdown.com/3204460",
+      "https://livechart.me/anime/13756"
+    ],
+    "title": "Dokagui Daisuki! Mochizuki-san",
+    "type": "TV",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214749-OkNRm138QZPn.png",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214749-OkNRm138QZPn.png",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "ドカ食いダイスキ! もちづきさん"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 192760139,
+    "Miruro_Id": "HcY6z61FWfZbRDI-TzuGGv8zyxFPpmA3"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/K0Xw5xnmEgcjYOmS4SRsY1U-aI58Ad1r",
+      "https://anilist.co/anime/214483",
+      "https://myanimelist.net/anime/64695",
+      "https://anidb.net/anime/20228",
+      "https://simkl.com/anime/3197786",
+      "https://animecountdown.com/3197786",
+      "https://livechart.me/anime/13747"
+    ],
+    "title": "Odoru Sennen Kazoku",
+    "type": "TV",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214483-NV4TuIJBSFjv.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214483-NV4TuIJBSFjv.jpg",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "踊る千年家族"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 357437270,
+    "Miruro_Id": "K0Xw5xnmEgcjYOmS4SRsY1U-aI58Ad1r"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/u0Z88gilK9vz5iqvSUVKVUa6y9VlcVxv",
+      "https://anilist.co/anime/214559",
+      "https://myanimelist.net/anime/64711",
+      "https://kitsu.app/anime/50865"
+    ],
+    "title": "BooooM!!!",
+    "type": "SPECIAL",
+    "episodes": 1,
+    "status": "FINISHED",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214559-IBSQAPAnqKQS.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214559-IBSQAPAnqKQS.jpg",
+    "duration": {
+      "value": 180,
+      "unit": "SECONDS"
+    },
+    "score": {
+      "arithmeticGeometricMean": 6.2,
+      "arithmeticMean": 6.2,
+      "median": 6.2
+    },
+    "synonyms": [],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 162513375,
+    "Miruro_Id": "u0Z88gilK9vz5iqvSUVKVUa6y9VlcVxv"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/3uvN4tY7c3KxtJT41KGV4DnccccpS3AX",
+      "https://anilist.co/anime/214855",
+      "https://myanimelist.net/anime/64725",
+      "https://anidb.net/anime/20278",
+      "https://anime-planet.com/anime/fategrand-order-fujimaru-ritsuka-wa-wakaranai-season-4",
+      "https://simkl.com/anime/3222038",
+      "https://anisearch.com/anime/21884",
+      "https://animecountdown.com/3222038",
+      "https://livechart.me/anime/13752"
+    ],
+    "title": "Fate/Grand Order: Fujimaru Ritsuka wa Wakaranai Season 4",
+    "type": "ONA",
+    "episodes": null,
+    "status": "ONGOING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b214855-PbAsjXJq3NB7.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b214855-PbAsjXJq3NB7.jpg",
+    "duration": {
+      "value": 120,
+      "unit": "SECONDS"
+    },
+    "score": null,
+    "synonyms": [
+      "Fate/Grand Order 藤丸立香はわからない Season4"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 687186004,
+    "Miruro_Id": "3uvN4tY7c3KxtJT41KGV4DnccccpS3AX"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/vAVj0jznAht0JYMkuHiB_cop6sv2FrdV",
+      "https://anilist.co/anime/217008",
+      "https://myanimelist.net/anime/65053",
+      "https://anidb.net/anime/20405",
+      "https://simkl.com/anime/3256062",
+      "https://animecountdown.com/3256062",
+      "https://livechart.me/anime/13808"
+    ],
+    "title": "Shin Oishinbo",
+    "type": "TV",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx217008-bNZ602urvkD3.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx217008-bNZ602urvkD3.jpg",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "新 美味しんぼ"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 676726635,
+    "Miruro_Id": "vAVj0jznAht0JYMkuHiB_cop6sv2FrdV"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/5waGR2m0j8Qq9LGKxcctiJdxNqXoF8Jm",
+      "https://anilist.co/anime/214973"
+    ],
+    "title": "PUI PUI Molcar Special",
+    "type": "SPECIAL",
+    "episodes": 1,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214973-KBWQ0gFtXs3I.png",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214973-KBWQ0gFtXs3I.png",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "PUI PUI モルカースペシャルエピソード"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 106845954,
+    "Miruro_Id": "5waGR2m0j8Qq9LGKxcctiJdxNqXoF8Jm"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/obLJqDUQZXULHa_44Z-ik91qk6HzhB6t",
+      "https://anilist.co/anime/216625",
+      "https://myanimelist.net/anime/64965",
+      "https://kitsu.app/anime/51031"
+    ],
+    "title": "PokéOki SEASON 2",
+    "type": "ONA",
+    "episodes": 4,
+    "status": "FINISHED",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx216625-tp4JIRrSoK3B.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx216625-tp4JIRrSoK3B.jpg",
+    "duration": {
+      "value": 60,
+      "unit": "SECONDS"
+    },
+    "score": null,
+    "synonyms": [
+      "ポケ起き SEASON 2"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 554542392,
+    "Miruro_Id": "obLJqDUQZXULHa_44Z-ik91qk6HzhB6t"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/imSV0cnvQkvdSsEnPoMUXZNuLrgoUbG-",
+      "https://anilist.co/anime/214537"
+    ],
+    "title": "Cardfight!! Vanguard (Shinsaku TV Anime)",
+    "type": "TV",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214537-990UgdCwzNND.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214537-990UgdCwzNND.jpg",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "カードファイト!! ヴァンガード (新作TVアニメ)"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 897638888,
+    "Miruro_Id": "imSV0cnvQkvdSsEnPoMUXZNuLrgoUbG-"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/XTzQmilJNiZUlWWIe01GnIttSRwr05uV",
+      "https://anilist.co/anime/214129",
+      "https://myanimelist.net/anime/64624"
+    ],
+    "title": "Deng Xia Jiu Fa",
+    "type": "ONA",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214129-JWOkyC14kdyI.png",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214129-JWOkyC14kdyI.png",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "登霞九法"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 545969365,
+    "Miruro_Id": "XTzQmilJNiZUlWWIe01GnIttSRwr05uV"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/-zoHyMyw69VuCPK0vR_dP7ykwnWPerE9",
+      "https://anilist.co/anime/214702"
+    ],
+    "title": "Fate/Grand Order: 11th Anniversary Movie -Cosmos in the Lostbelt-",
+    "type": "SPECIAL",
+    "episodes": 1,
+    "status": "FINISHED",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214702-PKuaIaswbhJ4.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214702-PKuaIaswbhJ4.jpg",
+    "duration": {
+      "value": 420,
+      "unit": "SECONDS"
+    },
+    "score": {
+      "arithmeticGeometricMean": 6.2,
+      "arithmeticMean": 6.2,
+      "median": 6.2
+    },
+    "synonyms": [
+      "「Fate/Grand Order」11th Anniversary Movie -Cosmos in the Lostbelt-"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 701786357,
+    "Miruro_Id": "-zoHyMyw69VuCPK0vR_dP7ykwnWPerE9"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/PuaMk-4giSXPHPSmHHVH0UN1vmm1F0vx",
+      "https://anilist.co/anime/216559",
+      "https://myanimelist.net/anime/64972",
+      "https://kitsu.app/anime/51050"
+    ],
+    "title": "Wishing Umbrella",
+    "type": "SPECIAL",
+    "episodes": 1,
+    "status": "FINISHED",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b216559-apIMOQYYP9vA.png",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b216559-apIMOQYYP9vA.png",
+    "duration": null,
+    "score": null,
+    "synonyms": [],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 129531879,
+    "Miruro_Id": "PuaMk-4giSXPHPSmHHVH0UN1vmm1F0vx"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/j8fpDSygOpn6W6XtE0rRddxl1Xs6kh-Y",
+      "https://anilist.co/anime/214072"
+    ],
+    "title": "THE FOX ELEVATOR BOY RENARD",
+    "type": "MOVIE",
+    "episodes": 1,
+    "status": "FINISHED",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214072-6C3fKKjaZzV5.png",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214072-6C3fKKjaZzV5.png",
+    "duration": {
+      "value": 60,
+      "unit": "SECONDS"
+    },
+    "score": null,
+    "synonyms": [],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 295575925,
+    "Miruro_Id": "j8fpDSygOpn6W6XtE0rRddxl1Xs6kh-Y"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/ptW34nH1nh-z8JIXbiVNDx37RsIi6iTI",
+      "https://anilist.co/anime/214071",
+      "https://myanimelist.net/anime/65096"
+    ],
+    "title": "ambivalent garden",
+    "type": "MOVIE",
+    "episodes": 1,
+    "status": "FINISHED",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214071-WkAlx4fU6UBj.png",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214071-WkAlx4fU6UBj.png",
+    "duration": {
+      "value": 240,
+      "unit": "SECONDS"
+    },
+    "score": null,
+    "synonyms": [
+      "Ninifuni no Niwa",
+      "ににふにの庭"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 955147658,
+    "Miruro_Id": "ptW34nH1nh-z8JIXbiVNDx37RsIi6iTI"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/rOReSMmwUHObaRrlAAAt6ulbC3_ggbRx",
+      "https://anilist.co/anime/214593",
+      "https://myanimelist.net/anime/64717",
+      "https://kitsu.app/anime/51019",
+      "https://livechart.me/anime/13749"
+    ],
+    "title": "Yuusanchi! from Yuuhachi",
+    "type": "TV",
+    "episodes": null,
+    "status": "ONGOING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214593-WZ0HaPSRae2E.png",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214593-WZ0HaPSRae2E.png",
+    "duration": {
+      "value": 60,
+      "unit": "SECONDS"
+    },
+    "score": null,
+    "synonyms": [
+      "ゆうさんち！from 遊ハち"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 726144825,
+    "Miruro_Id": "rOReSMmwUHObaRrlAAAt6ulbC3_ggbRx"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/dZ9de5M-dd9kueiW21hpn3CSXNwpwiEY",
+      "https://anilist.co/anime/214018"
+    ],
+    "title": "JUNK END",
+    "type": "MOVIE",
+    "episodes": 1,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/default.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/default.jpg",
+    "duration": null,
+    "score": null,
+    "synonyms": [],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 316346279,
+    "Miruro_Id": "dZ9de5M-dd9kueiW21hpn3CSXNwpwiEY"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/Fk2EfW-uio8w-A7ju4wTwb5HaHLxbhCC",
+      "https://anilist.co/anime/214067",
+      "https://myanimelist.net/anime/64902",
+      "https://kitsu.app/anime/51040"
+    ],
+    "title": "20001 An Earth Odyssey",
+    "type": "MOVIE",
+    "episodes": 1,
+    "status": "FINISHED",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214067-695OvCTmT3ZB.png",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214067-695OvCTmT3ZB.png",
+    "duration": {
+      "value": 1200,
+      "unit": "SECONDS"
+    },
+    "score": null,
+    "synonyms": [
+      "20001-nen Chikyuu no Tabi",
+      "20001年 地球の旅"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 890047650,
+    "Miruro_Id": "Fk2EfW-uio8w-A7ju4wTwb5HaHLxbhCC"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/jOmApTyG0WT5KtmQSJ8GewcMFEWfHNhx",
+      "https://anilist.co/anime/217624",
+      "https://myanimelist.net/anime/65095",
+      "https://kitsu.app/anime/51123"
+    ],
+    "title": "PetitCure: Precure Fairies Season 4",
+    "type": "ONA",
+    "episodes": null,
+    "status": "ONGOING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx217624-Cwkze5dZ5txL.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx217624-Cwkze5dZ5txL.jpg",
+    "duration": {
+      "value": 60,
+      "unit": "SECONDS"
+    },
+    "score": null,
+    "synonyms": [
+      "ぷちきゅあ～Precure Fairies～ シーズン4"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 745425012,
+    "Miruro_Id": "jOmApTyG0WT5KtmQSJ8GewcMFEWfHNhx"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/bfbP9Uhq4stOpnhGu_MShTCBZ4VMsoX2",
+      "https://anilist.co/anime/214871"
+    ],
+    "title": "Ling Long Movie",
+    "type": "MOVIE",
+    "episodes": 1,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214871-lCtFPssaALxJ.png",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214871-lCtFPssaALxJ.png",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "灵笼大电影"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 361528268,
+    "Miruro_Id": "bfbP9Uhq4stOpnhGu_MShTCBZ4VMsoX2"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/oV-i2epJ-70zBjTsgkhWFTMv3E0lZV1S",
+      "https://anilist.co/anime/214894",
+      "https://myanimelist.net/anime/64769"
+    ],
+    "title": "We Will Rise Again",
+    "type": "SPECIAL",
+    "episodes": 1,
+    "status": "FINISHED",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214894-KjyPf2DrTdIb.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214894-KjyPf2DrTdIb.jpg",
+    "duration": {
+      "value": 120,
+      "unit": "SECONDS"
+    },
+    "score": null,
+    "synonyms": [],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 905235371,
+    "Miruro_Id": "oV-i2epJ-70zBjTsgkhWFTMv3E0lZV1S"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/p95tMf8qS00YQQCa6O8EN1W7mZB_xJAC",
+      "https://anilist.co/anime/214968",
+      "https://myanimelist.net/anime/64789",
+      "https://kitsu.app/anime/51001",
+      "https://anime-planet.com/anime/nezumi-kun-no-chokki-2026-season-2",
+      "https://livechart.me/anime/13764"
+    ],
+    "title": "Nezumi-kun no Chokki (TV) 2nd Season",
+    "type": "TV",
+    "episodes": null,
+    "status": "ONGOING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214968-rrPSP2nKF40C.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214968-rrPSP2nKF40C.jpg",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "ねずみくんのチョッキ (TV) 第2期"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 734509740,
+    "Miruro_Id": "p95tMf8qS00YQQCa6O8EN1W7mZB_xJAC"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/__Qr_vEGObUXbxAvF-ENpNpUutdPCgYx",
+      "https://anilist.co/anime/215526",
+      "https://myanimelist.net/anime/64710",
+      "https://anidb.net/anime/20233",
+      "https://simkl.com/anime/3200766",
+      "https://animecountdown.com/3200766"
+    ],
+    "title": "Primeval Overlord",
+    "type": "ONA",
+    "episodes": 40,
+    "status": "ONGOING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx215526-z36fLEPzhEO4.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx215526-z36fLEPzhEO4.jpg",
+    "duration": {
+      "value": 600,
+      "unit": "SECONDS"
+    },
+    "score": null,
+    "synonyms": [
+      "Taigu Shen Zun",
+      "太古神尊"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 693361944,
+    "Miruro_Id": "__Qr_vEGObUXbxAvF-ENpNpUutdPCgYx"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/UBilSdnmTSL0FO8R-c28FSTdoTuy-9Qj",
+      "https://anilist.co/anime/213958"
+    ],
+    "title": "Sarangui Heartsping: Goraeboseok-ui Jeonseol",
+    "type": "MOVIE",
+    "episodes": 1,
+    "status": "ONGOING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx213958-dNZEWf0y9ZzD.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx213958-dNZEWf0y9ZzD.jpg",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "사랑의 하츄핑: 고래보석의 전설"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 667851393,
+    "Miruro_Id": "UBilSdnmTSL0FO8R-c28FSTdoTuy-9Qj"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/HOiOFCbAsEQqy2Px--DIwwqBeXcNwu8e",
+      "https://anilist.co/anime/217391",
+      "https://myanimelist.net/anime/64724",
+      "https://anidb.net/anime/20262",
+      "https://simkl.com/anime/3211430",
+      "https://animecountdown.com/3211430"
+    ],
+    "title": "1999! Occult Countermeasures Department",
+    "type": "ONA",
+    "episodes": 8,
+    "status": "FINISHED",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx217391-nKdq0Eekom5a.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx217391-nKdq0Eekom5a.jpg",
+    "duration": {
+      "value": 360,
+      "unit": "SECONDS"
+    },
+    "score": null,
+    "synonyms": [
+      "1999! Shenmi Xue Duice Bu",
+      "1999！神秘学对策部"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 459489627,
+    "Miruro_Id": "HOiOFCbAsEQqy2Px--DIwwqBeXcNwu8e"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/cJ2WL_-Kf96UOVN93gqOMt8T5PxViZ_R",
+      "https://anilist.co/anime/213928",
+      "https://myanimelist.net/anime/64598",
+      "https://kitsu.app/anime/50864"
+    ],
+    "title": "Han ye Deng Zhu",
+    "type": "MOVIE",
+    "episodes": 1,
+    "status": "FINISHED",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b213928-524kEtgeNjM4.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b213928-524kEtgeNjM4.jpg",
+    "duration": {
+      "value": 5400,
+      "unit": "SECONDS"
+    },
+    "score": null,
+    "synonyms": [
+      "寒夜灯柱"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 566124089,
+    "Miruro_Id": "cJ2WL_-Kf96UOVN93gqOMt8T5PxViZ_R"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/KA5z7BPzQmv9hMo9TG7kVhy_Jfn8WUi7",
+      "https://anilist.co/anime/214539"
+    ],
+    "title": "Stella Sora Anime PVs",
+    "type": "SPECIAL",
+    "episodes": 1,
+    "status": "ONGOING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214539-l42Phh0RVi0A.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214539-l42Phh0RVi0A.jpg",
+    "duration": {
+      "value": 60,
+      "unit": "SECONDS"
+    },
+    "score": null,
+    "synonyms": [
+      "ステラソラ アニメPVs"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 487198537,
+    "Miruro_Id": "KA5z7BPzQmv9hMo9TG7kVhy_Jfn8WUi7"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/GedWsuFoDfnoY6gH-Jn2q9PE7KLXBFPR",
+      "https://anilist.co/anime/217577",
+      "https://myanimelist.net/anime/65007",
+      "https://livechart.me/anime/13800"
+    ],
+    "title": "Mazenchu",
+    "type": "TV",
+    "episodes": null,
+    "status": "ONGOING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx217577-bYfoFScj9Pwi.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx217577-bYfoFScj9Pwi.jpg",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "マゼンチュ"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 630026569,
+    "Miruro_Id": "GedWsuFoDfnoY6gH-Jn2q9PE7KLXBFPR"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/IPqDja00B0d6P7rrmPOJtMvSXEEAOdUx",
+      "https://anilist.co/anime/214892"
+    ],
+    "title": "Astral lamp",
+    "type": "SPECIAL",
+    "episodes": 1,
+    "status": "FINISHED",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214892-Ocb9A6tiuX2G.png",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx214892-Ocb9A6tiuX2G.png",
+    "duration": {
+      "value": 240,
+      "unit": "SECONDS"
+    },
+    "score": null,
+    "synonyms": [],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 420453132,
+    "Miruro_Id": "IPqDja00B0d6P7rrmPOJtMvSXEEAOdUx"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/OR4sCr2ED_yKMQdgl6BGqkh_zYYg1Gi6",
+      "https://anilist.co/anime/214829",
+      "https://myanimelist.net/anime/64754"
+    ],
+    "title": "Di Ling Ai: Shui Xin Chan",
+    "type": "ONA",
+    "episodes": 20,
+    "status": "ONGOING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b214829-IPcn2o0Z55Nm.jpg",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b214829-IPcn2o0Z55Nm.jpg",
+    "duration": {
+      "value": 840,
+      "unit": "SECONDS"
+    },
+    "score": null,
+    "synonyms": [
+      "缔灵爱水心缠"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 221489872,
+    "Miruro_Id": "OR4sCr2ED_yKMQdgl6BGqkh_zYYg1Gi6"
+  },
+  {
+    "sources": [
+      "https://miruro.tv/watch/_v3uPi-jF_VPeD_JKlQxmIQpc8h0mRk4",
+      "https://anilist.co/anime/214872"
+    ],
+    "title": "Liang Yao",
+    "type": "ONA",
+    "episodes": null,
+    "status": "UPCOMING",
+    "animeSeason": null,
+    "picture": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b214872-fdrQ5HVFdVSU.png",
+    "thumbnail": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b214872-fdrQ5HVFdVSU.png",
+    "duration": null,
+    "score": null,
+    "synonyms": [
+      "良药"
+    ],
+    "studios": [],
+    "producers": [],
+    "relatedAnime": [],
+    "tags": [],
+    "Hianime_Id": null,
+    "AniSora_Id": 402513209,
+    "Miruro_Id": "_v3uPi-jF_VPeD_JKlQxmIQpc8h0mRk4"
+  }
+]
