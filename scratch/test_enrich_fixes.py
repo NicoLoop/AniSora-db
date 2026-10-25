@@ -10,7 +10,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 
 from enrich_anime import (
     AniSoraIdGenerator,
-    AdaptiveConcurrencyController,
+    RatePacer,
     ReorderBufferWriter,
     CheckpointDB,
     normalize_title,
@@ -19,10 +19,10 @@ from enrich_anime import (
 
 async def test_anisora_id_generator():
     print("Testing AniSoraIdGenerator...")
-    with tempfile.NamedTemporaryFile(suffix=".db", delete=False) as tf:
-        db_path = tf.name
+    with tempfile.NamedTemporaryFile(suffix=".sql", delete=False) as tf:
+        sql_path = tf.name
     try:
-        db = CheckpointDB(db_path)
+        db = CheckpointDB(sql_path)
         gen = AniSoraIdGenerator(db, 100000000, 999999999)
 
         # 1. Reject invalid range
@@ -40,41 +40,26 @@ async def test_anisora_id_generator():
         print("✓ AniSoraIdGenerator passed!")
     finally:
         try:
-            if os.path.exists(db_path):
-                os.remove(db_path)
+            if os.path.exists(sql_path):
+                os.remove(sql_path)
         except Exception:
             pass
 
-async def test_adaptive_concurrency():
-    print("Testing AdaptiveConcurrencyController...")
-    throttler = AdaptiveConcurrencyController(target_concurrency=10, min_concurrency=2)
-    assert throttler.current_limit == 10
-    
-    # Acquire 5 slots
-    for _ in range(5):
-        await throttler.acquire()
-    assert throttler.active_count == 5
+async def test_rate_pacer():
+    print("Testing RatePacer (50 req/s non-blocking)...")
+    pacer = RatePacer(target_rps=50.0)
+    assert pacer.target_rps == 50.0
+    assert abs(pacer.interval - 0.02) < 1e-4
 
-    # Trigger overload
-    await throttler.record_overload("Test 429")
-    assert throttler.current_limit == 7  # 10 * 0.7
-    assert throttler._is_paused is True
-
-    # Release 5 slots
-    for _ in range(5):
-        throttler.release()
-    assert throttler.active_count == 0
-
-    # Wait for cooldown
-    await asyncio.sleep(2.8)
-    assert throttler._is_paused is False
-
-    # Acquire again
-    await throttler.acquire()
-    assert throttler.active_count == 1
-    throttler.release()
-
-    print("✓ AdaptiveConcurrencyController passed!")
+    import time
+    t0 = time.monotonic()
+    for _ in range(10):
+        await pacer.pace()
+    t1 = time.monotonic()
+    # 10 iterations at 0.02s should take approx 0.18-0.22s
+    print(f"  Paced 10 requests in {t1 - t0:.4f}s (target ~0.20s)")
+    assert (t1 - t0) >= 0.15, "Pacer was too fast"
+    print("✓ RatePacer passed!")
 
 async def test_reorder_writer_graceful_stop():
     print("Testing ReorderBufferWriter graceful stop...")
@@ -123,7 +108,7 @@ async def test_normalization():
 
 async def main():
     await test_anisora_id_generator()
-    await test_adaptive_concurrency()
+    await test_rate_pacer()
     await test_reorder_writer_graceful_stop()
     await test_normalization()
     print("\nALL VERIFICATION TESTS PASSED SUCCESSFULLY!")

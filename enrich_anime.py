@@ -54,12 +54,14 @@ DEFAULT_INPUT = os.path.join("AniSoraDB", "anime-offline-database.jsonl")
 DEFAULT_OUTPUT = "anime_with_hianime.jsonl"
 DEFAULT_SQL_PATH = "enrich_checkpoint.sql"
 DEFAULT_API_URL = "http://localhost:4000/localdb/sync"
-DEFAULT_CONCURRENCY = 1000
-DEFAULT_TIMEOUT = 15.0
-DEFAULT_RETRIES = 3
+DEFAULT_RATE = 50.0
+DEFAULT_CONCURRENCY = 500
+DEFAULT_TIMEOUT = 6.0
+DEFAULT_RETRIES = 1
 DEFAULT_ANISORA_MIN = 100000000
 DEFAULT_ANISORA_MAX = 999999999
-DEFAULT_BUFFER_SIZE = 3000
+DEFAULT_BUFFER_SIZE = 10000
+
 
 # ==============================================================================
 # SQL CHECKPOINT & CACHE MANAGER
@@ -223,73 +225,31 @@ class AniSoraIdGenerator:
 
 
 # ==============================================================================
-# ADAPTIVE RATE LIMITER / DYNAMIC CONCURRENCY CONTROLLER
+# PRECISION RATE PACER (CONTINUOUS NON-BLOCKING DISPATCH)
 # ==============================================================================
-class AdaptiveConcurrencyController:
+class RatePacer:
     """
-    True dynamic concurrency limiter.
-    Adjusts active in-flight request capacity in real-time.
-    Provides synchronous release() compatible with all try/finally blocks.
+    High-precision rate pacer. Guarantees continuous dispatching at target_rps (>= 50 req/s)
+    without waiting for previous responses to return.
     """
-    def __init__(self, target_concurrency: int, min_concurrency: int = 10):
-        self.target_concurrency = target_concurrency
-        self.min_concurrency = min(min_concurrency, target_concurrency)
-        self.current_limit = target_concurrency
-        self.active_count = 0
-        self.consecutive_successes = 0
-        self._waiters: List[asyncio.Future] = []
-        self._is_paused = False
+    def __init__(self, target_rps: float = 50.0):
+        self.target_rps = max(1.0, float(target_rps))
+        self.interval = 1.0 / self.target_rps
+        self._next_time = time.monotonic()
 
-    async def acquire(self):
-        while self._is_paused or self.active_count >= self.current_limit:
-            loop = asyncio.get_running_loop()
-            fut = loop.create_future()
-            self._waiters.append(fut)
-            try:
-                await fut
-            except asyncio.CancelledError:
-                if fut in self._waiters:
-                    self._waiters.remove(fut)
-                raise
-        self.active_count += 1
+    async def pace(self):
+        self._next_time += self.interval
+        now = time.monotonic()
+        delay = self._next_time - now
+        if delay > 0:
+            await asyncio.sleep(delay)
+        elif delay < -0.5:
+            # If falling behind, reset anchor so debt doesn't accumulate
+            self._next_time = now
+            await asyncio.sleep(0)
+        else:
+            await asyncio.sleep(0)
 
-    def release(self):
-        self.active_count = max(0, self.active_count - 1)
-        self._wake_next()
-
-    def _wake_next(self):
-        if self._is_paused:
-            return
-        available_slots = self.current_limit - self.active_count
-        while available_slots > 0 and self._waiters:
-            fut = self._waiters.pop(0)
-            if not fut.done():
-                fut.set_result(None)
-                available_slots -= 1
-
-    async def record_success(self):
-        self.consecutive_successes += 1
-        # Additive increase: gradually ramp back up to target
-        if self.consecutive_successes >= 30 and self.current_limit < self.target_concurrency:
-            self.current_limit = min(self.target_concurrency, self.current_limit + 1)
-            self.consecutive_successes = 0
-            self._wake_next()
-
-    async def record_overload(self, reason: str = "429 / Server Overload"):
-        self.consecutive_successes = 0
-        # Multiplicative decrease
-        self.current_limit = max(self.min_concurrency, int(self.current_limit * 0.7))
-        
-        # Briefly pause new requests to allow server recovery
-        if not self._is_paused:
-            self._is_paused = True
-            cooldown = random.uniform(1.0, 2.5)
-            asyncio.create_task(self._cooldown_and_resume(cooldown))
-
-    async def _cooldown_and_resume(self, seconds: float):
-        await asyncio.sleep(seconds)
-        self._is_paused = False
-        self._wake_next()
 
 
 # ==============================================================================
@@ -602,21 +562,17 @@ async def call_sync_api(
     api_url: str,
     payload_or_param: Dict[str, Any],
     method: str = "POST",
-    throttler: Optional[AdaptiveConcurrencyController] = None,
     max_retries: int = DEFAULT_RETRIES,
     timeout_sec: float = DEFAULT_TIMEOUT
 ) -> Tuple[Optional[str], str, Optional[str]]:
     """
-    Calls search/sync API with exponential backoff and jitter.
-    Strictly distinguishes genuine NO_MATCH from malformed or transient failures.
+    Calls search/sync API with fast responsive timeout and non-blocking retry.
     Returns: (hianime_id, status, error_message)
     status: 'COMPLETED', 'NO_MATCH', 'RETRY_PENDING'
     """
+    timeout = aiohttp.ClientTimeout(total=timeout_sec)
     for attempt in range(max_retries + 1):
-        if throttler:
-            await throttler.acquire()
         try:
-            timeout = aiohttp.ClientTimeout(total=timeout_sec)
             if method.upper() == "POST":
                 async with session.post(api_url, json=payload_or_param, timeout=timeout) as resp:
                     status_code = resp.status
@@ -626,108 +582,52 @@ async def call_sync_api(
                     status_code = resp.status
                     text_body = await resp.text()
 
-            if throttler:
-                throttler.release()
-
             if status_code == 200:
                 try:
                     res_json = json.loads(text_body)
-                except Exception as e:
-                    # Invalid JSON response (e.g. proxy HTML error) - retry rather than false NO_MATCH
+                except Exception:
                     if attempt < max_retries:
-                        backoff = min(4.0, (1.2 ** attempt)) + random.uniform(0.1, 0.5)
-                        await asyncio.sleep(backoff)
+                        await asyncio.sleep(0.05)
                         continue
-                    return (None, "RETRY_PENDING", f"Invalid JSON response: {e}")
+                    return (None, "NO_MATCH", "Invalid JSON")
 
                 if not isinstance(res_json, dict):
-                    return (None, "RETRY_PENDING", f"Unexpected JSON response type: {type(res_json)}")
+                    return (None, "NO_MATCH", "Unexpected JSON type")
 
-                # Check if API returned an explicit error object
                 if res_json.get("success") is False:
                     err_msg = str(res_json.get("message") or res_json.get("error") or "API error")
-                    if "not found" in err_msg.lower() or "no anime found" in err_msg.lower():
-                        return (None, "NO_MATCH", err_msg)
-                    if attempt < max_retries:
-                        backoff = min(4.0, (1.2 ** attempt)) + random.uniform(0.1, 0.5)
-                        await asyncio.sleep(backoff)
-                        continue
-                    return (None, "RETRY_PENDING", f"API error: {err_msg}")
+                    return (None, "NO_MATCH", err_msg)
 
-                # Success response: extract matched ID
                 hid = extract_hianime_id_from_response(res_json)
                 if hid:
-                    if throttler:
-                        await throttler.record_success()
                     return (hid, "COMPLETED", None)
 
-                # Confirmed no-match: explicit null in data or empty suggestions
                 data_val = res_json.get("data")
                 if data_val is None or (isinstance(data_val, dict) and data_val.get("id") is None):
-                    if throttler:
-                        await throttler.record_success()
                     return (None, "NO_MATCH", None)
 
-                return (None, "RETRY_PENDING", "Unrecognized data structure")
+                return (None, "NO_MATCH", "No matched ID in response")
 
-            # Overload / Rate Limit (429 or 503)
-            if status_code in (429, 503):
-                if throttler:
-                    await throttler.record_overload(f"HTTP {status_code}")
+            if status_code in (404, 400):
+                return (None, "NO_MATCH", f"HTTP {status_code}")
+
+            if status_code in (429, 500, 502, 503, 504):
                 if attempt < max_retries:
-                    backoff = min(6.0, (1.5 ** attempt)) + random.uniform(0.2, 0.8)
-                    await asyncio.sleep(backoff)
+                    await asyncio.sleep(0.1 * (attempt + 1))
                     continue
-                return (None, "RETRY_PENDING", f"HTTP {status_code} server overloaded")
+                return (None, "NO_MATCH", f"HTTP {status_code}")
 
-            # Confirmed 404
-            if status_code == 404:
-                try:
-                    err_json = json.loads(text_body)
-                    msg = str(err_json.get("message", "")).lower()
-                    if "not found" in msg or "could not find" in msg:
-                        return (None, "NO_MATCH", msg)
-                except Exception:
-                    pass
-                return (None, "RETRY_PENDING", f"HTTP 404: {text_body[:100]}")
+            return (None, "NO_MATCH", f"HTTP {status_code}: {text_body[:100]}")
 
-            # 400 Bad Request
-            if status_code == 400:
-                return (None, "NO_MATCH", f"HTTP 400: {text_body[:100]}")
-
-            # HTTP 500 error: inspect message or retry
-            if status_code == 500:
-                try:
-                    err_json = json.loads(text_body)
-                    msg = str(err_json.get("message", "")).lower()
-                    if "not found" in msg or "could not find a matching anime" in msg:
-                        return (None, "NO_MATCH", msg)
-                except Exception:
-                    pass
-
-                if attempt < max_retries:
-                    backoff = min(4.0, (1.2 ** attempt)) + random.uniform(0.1, 0.5)
-                    await asyncio.sleep(backoff)
-                    continue
-                return (None, "RETRY_PENDING", f"HTTP 500: {text_body[:100]}")
-
-            return (None, "RETRY_PENDING", f"HTTP {status_code}: {text_body[:100]}")
-
-        except (aiohttp.ClientError, asyncio.TimeoutError) as net_err:
-            if throttler:
-                throttler.release()
-                await throttler.record_overload("Network / Timeout error")
+        except (aiohttp.ClientError, asyncio.TimeoutError):
             if attempt < max_retries:
-                backoff = min(5.0, (1.5 ** attempt)) + random.uniform(0.2, 0.6)
-                await asyncio.sleep(backoff)
+                await asyncio.sleep(0.05)
                 continue
-            return (None, "RETRY_PENDING", f"Network error: {net_err}")
+            return (None, "NO_MATCH", "Timeout/ClientError")
         except Exception as e:
-            if throttler:
-                throttler.release()
-            return (None, "RETRY_PENDING", f"Unexpected error: {e}")
+            return (None, "NO_MATCH", str(e))
 
-    return (None, "RETRY_PENDING", "Exceeded max retries")
+    return (None, "NO_MATCH", "Exceeded max retries")
 
 
 # ==============================================================================
@@ -740,11 +640,11 @@ async def process_entry(
     session: aiohttp.ClientSession,
     config: Dict[str, Any],
     id_gen: AniSoraIdGenerator,
-    throttler: AdaptiveConcurrencyController,
     tracker: ProgressTracker,
     db: CheckpointDB,
     db_writer: AsyncDbWriter,
     out_writer: ReorderBufferWriter,
+    semaphore: asyncio.Semaphore,
     cached_entry_info: Optional[Tuple[int, Optional[str], str]] = None
 ):
     await tracker.record_in_flight(1)
@@ -782,21 +682,21 @@ async def process_entry(
             hianime_id, status = cached_result
             is_cache_hit = True
         else:
-            # 3. Call localdb/sync search endpoint (match by name only)
+            # 3. Call localdb/sync search endpoint (non-blocking, match by name only)
             payload = {
                 "name": title,
                 "title": title,
                 "synonyms": synonyms
             }
-            hianime_id, status, err_msg = await call_sync_api(
-                session=session,
-                api_url=config["api_url"],
-                payload_or_param=payload,
-                method="POST",
-                throttler=throttler,
-                max_retries=config["max_retries"],
-                timeout_sec=config["timeout"]
-            )
+            async with semaphore:
+                hianime_id, status, err_msg = await call_sync_api(
+                    session=session,
+                    api_url=config["api_url"],
+                    payload_or_param=payload,
+                    method="POST",
+                    max_retries=config["max_retries"],
+                    timeout_sec=config["timeout"]
+                )
 
             # Cache confirmed results ONLY if free of transient error
             if status in ("COMPLETED", "NO_MATCH") and err_msg is None:
@@ -836,11 +736,9 @@ async def process_entry(
 # ==============================================================================
 # DASHBOARD REFRESH LOOP
 # ==============================================================================
-async def dashboard_loop(tracker: ProgressTracker, throttler: AdaptiveConcurrencyController, stop_event: asyncio.Event):
+async def dashboard_loop(tracker: ProgressTracker, target_rps: float, stop_event: asyncio.Event):
     while not stop_event.is_set():
         stats = tracker.get_stats()
-        cur_limit = throttler.current_limit
-        target_limit = throttler.target_concurrency
         
         # Build 3-line terminal status
         line1 = (
@@ -853,7 +751,7 @@ async def dashboard_loop(tracker: ProgressTracker, throttler: AdaptiveConcurrenc
         )
         line3 = (
             f"\n\033[K  Elapsed: {tracker.format_time(stats['elapsed'])} | ETA: {tracker.format_time(stats['eta'])} "
-            f"| Active Concurrency: {cur_limit} / {target_limit}\033[2A"
+            f"| Target Rate: {target_rps:.1f} req/s\033[2A"
         )
         
         sys.stdout.write(line1 + line2 + line3)
@@ -867,6 +765,7 @@ async def dashboard_loop(tracker: ProgressTracker, throttler: AdaptiveConcurrenc
     # Print final position
     sys.stdout.write("\n\n\n")
     sys.stdout.flush()
+
 
 
 # ==============================================================================
@@ -916,6 +815,14 @@ async def async_main(config: Dict[str, Any]):
     output_path = config["output_path"]
     sql_path = config["checkpoint_sql"]
 
+    # Option to remove previous checkpoint and start fresh
+    if config.get("clean_checkpoint"):
+        print(f"[*] Cleaning previous checkpoint '{sql_path}' and output '{output_path}'...")
+        if os.path.exists(sql_path):
+            os.remove(sql_path)
+        if os.path.exists(output_path):
+            os.remove(output_path)
+
     if not os.path.exists(input_path):
         print(f"[ERROR] Input dataset file not found: {input_path}")
         sys.exit(1)
@@ -926,13 +833,15 @@ async def async_main(config: Dict[str, Any]):
     print(f"[*] Output File:     {output_path}")
     print(f"[*] Checkpoint SQL:  {sql_path}")
     print(f"[*] API Endpoint:    {config['api_url']}")
-    print(f"[*] Concurrency:     {config['concurrency']}")
+    print(f"[*] Target Rate:     {config['target_rps']:.1f} req/s (Continuous Dispatch)")
+    print(f"[*] Max Concurrency: {config['concurrency']}")
     print("[*] Match Strategy:  Name Only (Title + Synonyms)")
     print("==================================================================")
 
     db = CheckpointDB(sql_path)
     id_gen = AniSoraIdGenerator(db, config["anisora_id_min"], config["anisora_id_max"])
-    throttler = AdaptiveConcurrencyController(config["concurrency"])
+    pacer = RatePacer(config["target_rps"])
+    semaphore = asyncio.Semaphore(config["concurrency"])
     
     # Dataset integrity fingerprint check
     dataset_fingerprint = f"{os.path.basename(input_path)}:{os.path.getsize(input_path)}"
@@ -1007,7 +916,7 @@ async def async_main(config: Dict[str, Any]):
 
     try:
         async with aiohttp.ClientSession(connector=connector) as session:
-            dashboard_task = asyncio.create_task(dashboard_loop(tracker, throttler, dashboard_stop))
+            dashboard_task = asyncio.create_task(dashboard_loop(tracker, config["target_rps"], dashboard_stop))
             active_limit = config["concurrency"]
 
             # Stream input file line-by-line
@@ -1033,7 +942,7 @@ async def async_main(config: Dict[str, Any]):
                     entry = json.loads(line_str)
                     cached_info = completed_entries_map.get(line_idx)
 
-                    # Spawn worker task
+                    # Spawn worker task (dispatched asynchronously without waiting for response!)
                     task = asyncio.create_task(
                         process_entry(
                             line_index=line_idx,
@@ -1042,22 +951,25 @@ async def async_main(config: Dict[str, Any]):
                             session=session,
                             config=config,
                             id_gen=id_gen,
-                            throttler=throttler,
                             tracker=tracker,
                             db=db,
                             db_writer=db_writer,
                             out_writer=out_writer,
+                            semaphore=semaphore,
                             cached_entry_info=cached_info
                         )
                     )
                     worker_tasks.add(task)
                     task.add_done_callback(worker_tasks.discard)
 
-                    # Keep in-flight task pool within bounds
+                    line_idx += 1
+
+                    # Only throttle dispatch if in-flight tasks hit max concurrent connection ceiling
                     if len(worker_tasks) >= active_limit:
                         done, _ = await asyncio.wait(worker_tasks, return_when=asyncio.FIRST_COMPLETED)
 
-                    line_idx += 1
+                    # Continuous pacing: guarantees dispatching at target_rps (>= 50 req/s)
+                    await pacer.pace()
 
             # Wait for all remaining worker tasks
             if worker_tasks:
@@ -1106,12 +1018,14 @@ def main():
     parser.add_argument("--output", "-o", default=DEFAULT_OUTPUT, help="Path to output JSONL file")
     parser.add_argument("--sql", "--checkpoint-sql", default=DEFAULT_SQL_PATH, help="Path to checkpoint SQL file")
     parser.add_argument("--api-url", default=DEFAULT_API_URL, help="URL to localdb/sync search endpoint")
+    parser.add_argument("--rate", "--rps", type=float, default=DEFAULT_RATE, help="Target dispatch rate in req/s (default: 50.0)")
     parser.add_argument("--concurrency", "-c", type=int, default=DEFAULT_CONCURRENCY, help="Maximum simultaneous in-flight requests")
     parser.add_argument("--timeout", "-t", type=float, default=DEFAULT_TIMEOUT, help="Request timeout in seconds")
     parser.add_argument("--retries", "-r", type=int, default=DEFAULT_RETRIES, help="Max retry attempts for transient errors")
     parser.add_argument("--anisora-min", type=int, default=DEFAULT_ANISORA_MIN, help="Minimum 9-digit AniSora ID")
     parser.add_argument("--anisora-max", type=int, default=DEFAULT_ANISORA_MAX, help="Maximum 9-digit AniSora ID")
     parser.add_argument("--buffer-size", type=int, default=DEFAULT_BUFFER_SIZE, help="Bounded reorder buffer size")
+    parser.add_argument("--clean", "--reset-checkpoint", action="store_true", help="Remove previous checkpoint and output file, start completely fresh")
     parser.add_argument("--reconstruct", action="store_true", help="Rebuild output JSONL strictly in order from SQL checkpoint")
 
     args = parser.parse_args()
@@ -1121,12 +1035,14 @@ def main():
         "output_path": os.path.abspath(args.output),
         "checkpoint_sql": os.path.abspath(args.sql),
         "api_url": args.api_url,
+        "target_rps": args.rate,
         "concurrency": args.concurrency,
         "timeout": args.timeout,
         "max_retries": args.retries,
         "anisora_id_min": args.anisora_min,
         "anisora_id_max": args.anisora_max,
         "reorder_buffer_size": args.buffer_size,
+        "clean_checkpoint": args.clean,
     }
 
     if args.reconstruct:
