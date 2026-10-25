@@ -164,10 +164,6 @@ export class SearchController {
               sendSuccess(res, {
                 id: matched.id,
                 hianimeId: matched.id,
-                name: matched.name,
-                jname: matched.jname || null,
-                matchedKeyword: query,
-                matchedVia: 'suggestion',
               });
               return;
             }
@@ -199,10 +195,6 @@ export class SearchController {
             sendSuccess(res, {
               id: matched.id,
               hianimeId: matched.id,
-              name: matched.name,
-              jname: matched.jname || null,
-              matchedKeyword: query,
-              matchedVia: 'full_search',
             });
             return;
           }
@@ -218,14 +210,18 @@ export class SearchController {
       sendSuccess(res, {
         id: null,
         hianimeId: null,
-        name: null,
-        matchedKeyword: null,
-        matchedVia: null,
       });
     } catch (error) {
       console.error(`[SearchController] Error in syncLocalDb for "${name}":`, error);
       sendError(res, error instanceof Error ? error.message : 'Failed to search anime', 500, error);
     }
+  }
+
+  /**
+   * Alias for searching and returning only the matched HiAnime ID
+   */
+  public async searchMatchedId(req: Request, res: Response): Promise<void> {
+    return this.syncLocalDb(req, res);
   }
 }
 

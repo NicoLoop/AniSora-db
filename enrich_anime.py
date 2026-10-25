@@ -497,28 +497,42 @@ def extract_anilist_id(entry: Dict[str, Any]) -> Optional[int]:
 def extract_hianime_id_from_response(data: Any) -> Optional[str]:
     """
     Robust response extractor:
+    Extracts the matched HiAnime ID string from API response.
     Handles:
-    - { success: true, data: { id: "attack-on-titan-865", ... } } (localdb/sync)
-    - { success: true, data: { hianimeId: "...", ... } }
-    - { success: true, data: { hianime: { id: "..." } } } (anilist/sync)
+    - { "success": true, "data": { "id": "attack-on-titan-865" } }
+    - { "success": true, "data": { "hianimeId": "attack-on-titan-865" } }
+    - { "success": true, "data": "attack-on-titan-865" }
+    - { "id": "attack-on-titan-865" }
+    - { "hianimeId": "attack-on-titan-865" }
     """
+    if isinstance(data, str) and data.strip():
+        return data.strip()
+
     if not isinstance(data, dict):
         return None
-    
+
+    # Direct top-level id or hianimeId
+    top_id = data.get("id") or data.get("hianimeId")
+    if isinstance(top_id, str) and top_id.strip():
+        return top_id.strip()
+
     payload = data.get("data")
+    if isinstance(payload, str) and payload.strip():
+        return payload.strip()
+
     if isinstance(payload, dict):
-        # Direct id or hianimeId from localdb/sync
+        # Direct id or hianimeId from payload
         hid = payload.get("id") or payload.get("hianimeId")
         if hid and isinstance(hid, str) and hid.strip():
             return hid.strip()
-        
-        # Nested hianime object from anilist/sync
+
+        # Nested hianime object
         hianime_obj = payload.get("hianime")
         if isinstance(hianime_obj, dict):
             hid = hianime_obj.get("id") or hianime_obj.get("animeId")
             if hid and isinstance(hid, str) and hid.strip():
                 return hid.strip()
-            
+
     return None
 
 
@@ -672,6 +686,7 @@ async def process_entry(
             # 3. Call localdb/sync API
             if config["sync_mode"] == "search":
                 payload = {
+                    "name": title,
                     "title": title,
                     "synonyms": synonyms
                 }

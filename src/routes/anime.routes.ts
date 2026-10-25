@@ -49,6 +49,12 @@ router.get('/suggestions', (req, res) => searchController.getSuggestions(req, re
 router.get('/search', (req, res) => searchController.searchAnime(req, res));
 router.get('/browse', (req, res) => searchController.searchAnime(req, res));
 
+// Search Matched ID only (fast matching without details)
+// GET /api/v1/hianime/search/id?name=Naruto
+// POST /api/v1/hianime/search/id
+router.get('/search/id', (req, res) => searchController.syncLocalDb(req, res));
+router.post('/search/id', (req, res) => searchController.syncLocalDb(req, res));
+
 // Search Filters (Dedicated filter endpoints)
 // GET /api/v1/hianime/filter?type=movie&sort=most_viewed
 // GET /api/v1/hianime/filter/options
