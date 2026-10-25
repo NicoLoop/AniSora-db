@@ -1,0 +1,11 @@
+node_modules
+dist
+.env
+*.log
+# Dependencies
+node_modules/
+
+# Excluded directories
+/docs/
+/embedplayer/
+.next
