@@ -65,6 +65,35 @@ def normalize_type(t: Optional[str]) -> str:
     return t
 
 
+def slug_to_title(slug: str) -> str:
+    """Extracts human-readable title from HiAnime slug (e.g. '86-eighty-six-part-2-1421')."""
+    slug = re.sub(r'-\d+$', '', slug)  # remove trailing numeric id
+    return normalize(slug.replace('-', ' '))
+
+
+def season_variations(title_norm: str) -> List[str]:
+    """Generates cross-convention variations (e.g., '2nd season' <-> 'season 2' <-> 'part 2')."""
+    vars_list = [title_norm]
+    # '2nd season' -> 'season 2'
+    s2 = re.sub(r'\b(\d+)(st|nd|rd|th) season\b', r'season \1', title_norm)
+    if s2 != title_norm:
+        vars_list.append(s2)
+    # 'season 2' -> '2nd season'
+    num_to_ord = {'1': '1st', '2': '2nd', '3': '3rd', '4': '4th', '5': '5th'}
+    m = re.search(r'\bseason (\d+)\b', title_norm)
+    if m and m.group(1) in num_to_ord:
+        vars_list.append(re.sub(r'\bseason (\d+)\b', f'{num_to_ord[m.group(1)]} season', title_norm))
+    # 'part 2' <-> 'season 2'
+    p2 = re.sub(r'\bpart (\d+)\b', r'season \1', title_norm)
+    if p2 != title_norm:
+        vars_list.append(p2)
+    p3 = re.sub(r'\bseason (\d+)\b', r'part \1', title_norm)
+    if p3 != title_norm:
+        vars_list.append(p3)
+    return list(set(vars_list))
+
+
+
 class AniSoraMatcher:
     def __init__(
         self,
@@ -109,6 +138,7 @@ class AniSoraMatcher:
 
         for h in self.hianime_list:
             htype = normalize_type(h.get("type"))
+            slug_name = slug_to_title(h.get("id") or "")
             names_to_index = []
             
             n = normalize(h.get("name"))
@@ -119,10 +149,14 @@ class AniSoraMatcher:
             if jn and jn != n:
                 names_to_index.append(jn)
 
+            if slug_name and slug_name not in names_to_index:
+                names_to_index.append(slug_name)
+
             for name in names_to_index:
-                self.by_title[name].append(h)
-                if htype:
-                    self.by_title_and_type[(name, htype)].append(h)
+                for v in season_variations(name):
+                    self.by_title[v].append(h)
+                    if htype:
+                        self.by_title_and_type[(v, htype)].append(h)
 
         print(f"[+] Indexed {len(self.by_title):,} unique title keys.")
 
@@ -149,7 +183,7 @@ class AniSoraMatcher:
     def match_entry(self, entry: Dict[str, Any]) -> Tuple[Optional[str], Optional[str]]:
         """
         Determines the optimal HiAnime match using hierarchical strategy:
-        1. Exact Title + Format Type match
+        1. Exact Title + Format Type match (including season variations)
         2. Exact Title match (type filtered if collision)
         3. Synonym + Format Type match
         4. Synonym match
@@ -159,39 +193,45 @@ class AniSoraMatcher:
         target_type = normalize_type(entry.get("type"))
 
         t_norm = normalize(title)
+        t_variations = season_variations(t_norm) if t_norm else []
 
-        # 1. Exact Title + Type
-        if t_norm and target_type:
-            candidates = self.by_title_and_type.get((t_norm, target_type))
-            if candidates:
-                return candidates[0]["id"], "exact_title_and_type"
+        # 1. Exact Title + Type (including season variations)
+        if target_type:
+            for v in t_variations:
+                candidates = self.by_title_and_type.get((v, target_type))
+                if candidates:
+                    return candidates[0]["id"], "exact_title_and_type"
 
         # 2. Exact Title (any type)
-        if t_norm and t_norm in self.by_title:
-            candidates = self.by_title[t_norm]
-            type_filtered = [c for c in candidates if normalize_type(c.get("type")) == target_type]
-            if type_filtered:
-                return type_filtered[0]["id"], "exact_title_type_filtered"
-            return candidates[0]["id"], "exact_title"
+        for v in t_variations:
+            if v in self.by_title:
+                candidates = self.by_title[v]
+                type_filtered = [c for c in candidates if normalize_type(c.get("type")) == target_type]
+                if type_filtered:
+                    return type_filtered[0]["id"], "exact_title_type_filtered"
+                return candidates[0]["id"], "exact_title"
 
         # 3. Synonym + Type
         if target_type:
             for syn in synonyms:
                 s_norm = normalize(syn)
                 if s_norm:
-                    candidates = self.by_title_and_type.get((s_norm, target_type))
-                    if candidates:
-                        return candidates[0]["id"], "synonym_and_type"
+                    for v in season_variations(s_norm):
+                        candidates = self.by_title_and_type.get((v, target_type))
+                        if candidates:
+                            return candidates[0]["id"], "synonym_and_type"
 
         # 4. Synonym (any type)
         for syn in synonyms:
             s_norm = normalize(syn)
-            if s_norm and s_norm in self.by_title:
-                candidates = self.by_title[s_norm]
-                type_filtered = [c for c in candidates if normalize_type(c.get("type")) == target_type]
-                if type_filtered:
-                    return type_filtered[0]["id"], "synonym_type_filtered"
-                return candidates[0]["id"], "synonym"
+            if s_norm:
+                for v in season_variations(s_norm):
+                    if v in self.by_title:
+                        candidates = self.by_title[v]
+                        type_filtered = [c for c in candidates if normalize_type(c.get("type")) == target_type]
+                        if type_filtered:
+                            return type_filtered[0]["id"], "synonym_type_filtered"
+                        return candidates[0]["id"], "synonym"
 
         return None, None
 
