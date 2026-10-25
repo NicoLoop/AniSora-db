@@ -30,6 +30,7 @@ DEFAULT_OFFLINE_DB = os.path.join("AniSoraDB", "anime-offline-database.jsonl")
 DEFAULT_HIANIME_CATALOG = os.path.join("AniSoraDB", "hianime_catalog.json")
 DEFAULT_OUTPUT_JSONL = "anime_with_hianime.jsonl"
 DEFAULT_CHECKPOINT_SQL = "enrich_checkpoint.sql"
+DEFAULT_UNMATCHED_JSON = os.path.join("AniSoraDB", "hianime_unmatched.json")
 
 MIN_ANISORA_ID = 100000000
 MAX_ANISORA_ID = 999999999
@@ -101,11 +102,13 @@ class AniSoraMatcher:
         hianime_catalog_path: str = DEFAULT_HIANIME_CATALOG,
         output_jsonl_path: str = DEFAULT_OUTPUT_JSONL,
         checkpoint_sql_path: str = DEFAULT_CHECKPOINT_SQL,
+        unmatched_json_path: str = DEFAULT_UNMATCHED_JSON,
     ):
         self.offline_db_path = os.path.abspath(offline_db_path)
         self.hianime_catalog_path = os.path.abspath(hianime_catalog_path)
         self.output_jsonl_path = os.path.abspath(output_jsonl_path)
         self.checkpoint_sql_path = os.path.abspath(checkpoint_sql_path)
+        self.unmatched_json_path = os.path.abspath(unmatched_json_path)
 
         self.hianime_list: List[Dict[str, Any]] = []
         self.by_title_and_type: Dict[Tuple[str, str], List[Dict[str, Any]]] = defaultdict(list)
@@ -334,9 +337,15 @@ class AniSoraMatcher:
         print(f"\n[*] Generating SQL checkpoint file: {self.checkpoint_sql_path}...")
         self._write_checkpoint_sql(entries_sql_rows, anisora_sql_rows, total_entries, matched_entries)
 
+        # Write Unmatched HiAnime file
+        unmatched_animes = [h for h in self.hianime_list if h.get("id") not in matched_hianime_ids]
+        print(f"[*] Generating unmatched HiAnime file: {self.unmatched_json_path}...")
+        self._write_unmatched_json(unmatched_animes, len(self.hianime_list))
+
         elapsed = time.time() - start_time
         file_size_mb = os.path.getsize(self.output_jsonl_path) / (1024 * 1024)
         sql_size_mb = os.path.getsize(self.checkpoint_sql_path) / (1024 * 1024)
+        unmatched_size_kb = os.path.getsize(self.unmatched_json_path) / 1024
 
         print("\n" + "=" * 66)
         print("[+] MATCHING & ENRICHMENT COMPLETE!")
@@ -344,14 +353,42 @@ class AniSoraMatcher:
         print(f"[+] HiAnime Matches Found:     {matched_entries:,} ({matched_entries/total_entries*100:.2f}%)")
         print(f"[-] No Matches:                {no_match_entries:,} ({no_match_entries/total_entries*100:.2f}%)")
         print(f"[*] HiAnime Catalog Coverage:  {len(matched_hianime_ids):,} / {len(self.hianime_list):,} ({len(matched_hianime_ids)/len(self.hianime_list)*100:.2f}%)")
+        print(f"[*] HiAnime Unmatched Count:   {len(unmatched_animes):,} ({len(unmatched_animes)/len(self.hianime_list)*100:.2f}%)")
         print("--- Match Strategy Breakdown ---")
         for m, cnt in sorted(method_counts.items(), key=lambda x: -x[1]):
             print(f"  - {m:26s}: {cnt:,}")
         print("--- Output Files ---")
         print(f"[*] Enriched JSONL:            {self.output_jsonl_path} ({file_size_mb:.2f} MB)")
         print(f"[*] Checkpoint SQL:            {self.checkpoint_sql_path} ({sql_size_mb:.2f} MB)")
+        print(f"[*] Unmatched HiAnime JSON:    {self.unmatched_json_path} ({unmatched_size_kb:.1f} KB)")
         print(f"[*] Total Time:                {elapsed:.2f} seconds ({total_entries/elapsed:,.0f} entries/sec)")
         print("=" * 66)
+
+    def _write_unmatched_json(self, unmatched_list: List[Dict[str, Any]], total_catalog: int) -> None:
+        """Writes all HiAnime catalog entries that have no match in the offline database."""
+        temp_unmatched = f"{self.unmatched_json_path}.tmp"
+        payload = {
+            "metadata": {
+                "description": "HiAnime catalog entries present on HiAnime but not matched in the offline anime database",
+                "total_unmatched": len(unmatched_list),
+                "total_hianime_catalog": total_catalog,
+                "coverage_pct": round((total_catalog - len(unmatched_list)) / total_catalog * 100, 2) if total_catalog > 0 else 0.0,
+                "generated_at": datetime.now(timezone.utc).isoformat(),
+            },
+            "unmatched_animes": unmatched_list
+        }
+
+        with open(temp_unmatched, "w", encoding="utf-8") as f:
+            json.dump(payload, f, indent=2, ensure_ascii=False)
+
+        if os.path.exists(self.unmatched_json_path):
+            try:
+                os.replace(temp_unmatched, self.unmatched_json_path)
+            except OSError:
+                os.remove(self.unmatched_json_path)
+                os.replace(temp_unmatched, self.unmatched_json_path)
+        else:
+            os.replace(temp_unmatched, self.unmatched_json_path)
 
     def _write_checkpoint_sql(
         self,
@@ -427,6 +464,11 @@ def main():
         default=DEFAULT_CHECKPOINT_SQL,
         help=f"Output checkpoint SQL path (default: {DEFAULT_CHECKPOINT_SQL})"
     )
+    parser.add_argument(
+        "-u", "--unmatched",
+        default=DEFAULT_UNMATCHED_JSON,
+        help=f"Output unmatched HiAnime JSON path (default: {DEFAULT_UNMATCHED_JSON})"
+    )
 
     args = parser.parse_args()
 
@@ -435,6 +477,7 @@ def main():
         hianime_catalog_path=args.catalog,
         output_jsonl_path=args.output,
         checkpoint_sql_path=args.sql,
+        unmatched_json_path=args.unmatched,
     )
 
     matcher.run()
